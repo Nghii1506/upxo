@@ -3,450 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO Meta Tags -->
-    <title>Upser - Thương Hiệu Sức Khỏe & Lối Sống Healing</title>
-    <meta name="description" content="Upser mang đến giải pháp chăm sóc sức khỏe, detox và nuôi dưỡng thân-tâm-trí chuẩn lối sống Healthy.">
-    <meta name="keywords" content="Upser, sức khỏe, healing, detox, healthy lifestyle, giảm cân an toàn">
-    <meta name="author" content="Upser Brand">
-
-    <!-- Tailwind CSS CDN -->
+    <title>UP-XƠ | Bột Chất Xơ Tuần Hoàn Từ Nông Sản Việt</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        upser: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        },
-                        cream: '#fdfbf7'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        brandGreen: '#2D5A27',
+                        brandOrange: '#E86F28',
+                        brandBg: '#F9F8F3',
+                        brandAccent: '#81B214'
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts & Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-cream text-gray-800 font-sans flex flex-col min-h-screen">
+<body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-emerald-100/60 transition-all duration-300" id="main-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo Upser -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <img src="assets/images/logo.png" alt="Upser Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105">
-                    <span class="text-xl font-extrabold tracking-wide text-upser-800 uppercase">UPSER</span>
-                </a>
+    <!-- Top Announcement Bar -->
+    <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium">
+        🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
+    </div>
 
-                <!-- Desktop Menu Navigating Section Anchors -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
-                    <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-semibold transition-all hover:text-upser-700">Trang Chủ</a>
-                    <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-semibold transition-all hover:text-upser-700">Giới Thiệu</a>
-                    <a href="#products" class="nav-link px-4 py-2 rounded-full text-sm font-semibold transition-all hover:text-upser-700">Sản Phẩm</a>
-                    <a href="#blog" class="nav-link px-4 py-2 rounded-full text-sm font-semibold transition-all hover:text-upser-700">Góc Cẩm Nang</a>
-                    <a href="#contact" class="nav-link px-4 py-2 rounded-full text-sm font-semibold transition-all hover:text-upser-700">Liên Hệ</a>
-                </nav>
-
-                <!-- Header CTA -->
-                <div class="flex items-center space-x-3">
-                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-upser-700 hover:bg-upser-800 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all">
-                        <span>Đặt Hàng Ngay</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl text-gray-700 hover:text-upser-700 hover:bg-emerald-50">
-                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                    </button>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-12 h-12 rounded-full bg-brandOrange flex items-center justify-center text-white font-black text-xl border-2 border-brandGreen shadow">UP</div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-brandGreen tracking-wider">UP-XƠ</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Beyond The Looks</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-b border-emerald-100 px-4 pt-3 pb-6 space-y-2 shadow-lg">
-            <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-gray-700">Trang Chủ</a>
-            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-gray-700">Giới Thiệu</a>
-            <a href="#products" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-gray-700">Sản Phẩm</a>
-            <a href="#blog" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-gray-700">Góc Cẩm Nang</a>
-            <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-semibold text-gray-700">Liên Hệ</a>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-gray-700 text-sm">
+                <a href="index.html" class="text-brandOrange font-bold">Trang Chủ</a>
+                <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
+                <a href="process.html" class="hover:text-brandOrange transition">Quy Trình</a>
+                <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
+                <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
+                <a href="reviews.html" class="hover:text-brandOrange transition">Đánh Giá</a>
+                <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
+            </nav>
+            <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm">Đặt Hàng Ngay</a>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow">
-        
-        <!-- SECTION 1: HERO LANDING PAGE (#home) -->
-        <section id="home" class="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-emerald-50/70 via-cream to-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 bg-emerald-100/80 text-upser-800 text-xs sm:text-sm font-bold px-4 py-2 rounded-full">
-                            <span class="w-2 h-2 rounded-full bg-upser-600 animate-pulse"></span>
-                            <span>Đồng Hành Cùng Thân - Tâm - Trí Lành Mạnh</span>
-                        </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-                            Đánh Thức Năng Lượng <span class="text-transparent bg-clip-text bg-gradient-to-r from-upser-700 to-emerald-500">Tự Nhiên</span> Cùng Upser
-                        </h1>
-                        <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                            Upser mang đến chuỗi giải pháp thức uống & sản phẩm Healing tự nhiên 100%. Giúp bạn cân bằng nhịp sống hiện đại, thanh lọc cơ thể và tái tạo nguồn năng lượng tích cực mỗi ngày.
-                        </p>
-                        <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                            <a href="#products" class="bg-upser-700 hover:bg-upser-800 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all text-center">
-                                Khám Phá Sản Phẩm <i class="fa-solid fa-sparkles ml-2"></i>
-                            </a>
-                            <a href="#contact" class="bg-white border border-gray-300 text-gray-700 hover:text-upser-700 font-bold px-8 py-4 rounded-full shadow-sm transition-all text-center">
-                                Liên Hệ Tư Vấn
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5 relative">
-                        <div class="bg-white p-6 rounded-3xl shadow-2xl border border-emerald-50 text-center">
-                            <img src="assets/images/vi-1.jpg" alt="Upser Healthy Lifestyle" class="w-full h-80 object-cover rounded-2xl mb-4">
-                            <h3 class="font-bold text-gray-900 text-lg">Trọn Vẹn Hương Vị Healing</h3>
-                            <p class="text-xs text-gray-500 mt-1">100% Nguyên Liệu Thuần Tự Nhiên</p>
-                        </div>
-                    </div>
+    <!-- Hero Banner -->
+    <section class="relative bg-gradient-to-r from-green-900 to-brandGreen text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block bg-brandOrange text-white text-xs uppercase px-3 py-1 rounded-full font-bold mb-4">Wellness Tuần Hoàn 100% Tự Nhiên</span>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-6">
+                    Trân Trọng Từng Nguồn Tươi Lành, Trọn Vẹn Chăm Mình Giữa Nhịp Sống Nhanh
+                </h1>
+                <p class="text-green-100 text-base sm:text-lg mb-8 leading-relaxed">
+                    Bột chất xơ hòa tan UP-XƠ từ phụ phẩm bã ép trái cây cold-press và nông sản lệch chuẩn. Giải pháp tiện lợi dạng stick 10g giúp bổ sung dinh dưỡng, thanh lọc cơ thể mỗi ngày.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg text-lg transition">Xem Các Vị Sản Phẩm</a>
+                    <a href="about.html" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-lg transition">Tìm Hiểu Sứ Mệnh</a>
                 </div>
             </div>
-        </section>
-
-        <!-- SECTION 2: GIỚI THIỆU & CÂU CHUYỆN THƯƠNG HIỆU (#about) -->
-        <section id="about" class="py-16 md:py-20 bg-white border-y border-emerald-100/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
-                    <span class="text-xs font-bold uppercase tracking-widest text-upser-700 bg-emerald-50 px-3 py-1.5 rounded-full">Câu Chuyện Thương Hiệu</span>
-                    <h2 class="text-3xl font-extrabold text-gray-900">Sứ Mệnh Khai Mở Lối Sống Lành Mạnh</h2>
-                    <p class="text-gray-600 text-base leading-relaxed">
-                        Được khởi tạo từ niềm đam mê với nguồn dinh dưỡng thuần khiết, Upser tin rằng sự chữa lành chân thật nhất bắt đầu từ những thói quen đơn giản hàng ngày.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-cream p-8 rounded-3xl border border-emerald-100/80">
-                        <div class="w-12 h-12 bg-emerald-100 text-upser-700 rounded-2xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Nguyên Liệu Thuần Khiết</h3>
-                        <p class="text-gray-600 text-sm">Tuyển chọn 100% nguyên liệu hữu cơ từ trang nông trại đạt chuẩn, giữ trọn vi chất quý giá.</p>
-                    </div>
-
-                    <div class="bg-cream p-8 rounded-3xl border border-emerald-100/80">
-                        <div class="w-12 h-12 bg-emerald-100 text-upser-700 rounded-2xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Nuôi Dưỡng Thân Tâm</h3>
-                        <p class="text-gray-600 text-sm">Nghiên cứu tỉ mỉ giúp cơ thể detox tự nhiên, giảm căng thẳng và làm dịu tinh thần sâu sắc.</p>
-                    </div>
-
-                    <div class="bg-cream p-8 rounded-3xl border border-emerald-100/80">
-                        <div class="w-12 h-12 bg-emerald-100 text-upser-700 rounded-2xl flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-earth-asia"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2">Sống Bền Vững</h3>
-                        <p class="text-gray-600 text-sm">Sử dụng bao bì thân thiện môi trường, hướng tới hệ sinh thái tiêu dùng xanh bảo vệ trái đất.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: DANH MỤC 4 VỊ SẢN PHẨM CHÍNH (#products) -->
-        <section id="products" class="py-16 md:py-24 bg-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <span class="text-xs font-bold uppercase tracking-widest text-upser-700 bg-emerald-100 px-3 py-1.5 rounded-full">Danh Mục Sản Phẩm</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">Trọn Bộ 4 Vị Healing Chủ Lực</h2>
-                    <p class="text-gray-600 text-sm mt-2">Mỗi vị là một liệu trình nuông chiều vị giác và chăm sóc sức khỏe chuyên sâu.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <!-- PRODUCT CARD 1 -->
-                    <div class="bg-white rounded-3xl p-6 border border-emerald-100/80 shadow-md flex flex-col lg:flex-row gap-6">
-                        <img src="assets/images/vi-1.jpg" alt="Vị Thanh Lọc Detox" class="w-full lg:w-1/2 h-60 object-cover rounded-2xl">
-                        <div class="flex flex-col justify-between lg:w-1/2">
-                            <div>
-                                <span class="text-xs font-bold text-upser-600 uppercase">Vị Số 01</span>
-                                <h3 class="text-xl font-bold text-gray-900 mt-1">Vị Thanh Lọc Detox</h3>
-                                <p class="text-xs text-gray-500 font-semibold mb-3">(Green Balance Formula)</p>
-                                <p class="text-xs text-gray-600 mb-2"><strong>Công dụng:</strong> Thanh lọc đường ruột, hỗ trợ đào thải độc tố & làm sáng da.</p>
-                                <p class="text-xs text-gray-500"><strong>Hương vị:</strong> Táo Xanh, Cần Tây hữu cơ, Cải Kale & Chanh Vàng.</p>
-                            </div>
-                            <div class="mt-4 pt-3 border-t flex items-center justify-between">
-                                <span class="font-bold text-upser-800 text-lg">290.000đ</span>
-                                <a href="#contact" class="bg-upser-700 hover:bg-upser-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Đặt Hàng Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PRODUCT CARD 2 -->
-                    <div class="bg-white rounded-3xl p-6 border border-emerald-100/80 shadow-md flex flex-col lg:flex-row gap-6">
-                        <img src="assets/images/vi-2.jpg" alt="Vị Healing Dâu Rừng" class="w-full lg:w-1/2 h-60 object-cover rounded-2xl">
-                        <div class="flex flex-col justify-between lg:w-1/2">
-                            <div>
-                                <span class="text-xs font-bold text-rose-600 uppercase">Vị Số 02</span>
-                                <h3 class="text-xl font-bold text-gray-900 mt-1">Vị Healing Dâu Rừng</h3>
-                                <p class="text-xs text-gray-500 font-semibold mb-3">(Berry Relax Formula)</p>
-                                <p class="text-xs text-gray-600 mb-2"><strong>Công dụng:</strong> Giảm mệt mỏi thần kinh, xoa dịu áp lực, hỗ trợ giấc ngủ ngon.</p>
-                                <p class="text-xs text-gray-500"><strong>Hương vị:</strong> Dâu Rừng hoang dã, Việt Quất & Hoa Cúc La Mã.</p>
-                            </div>
-                            <div class="mt-4 pt-3 border-t flex items-center justify-between">
-                                <span class="font-bold text-upser-800 text-lg">290.000đ</span>
-                                <a href="#contact" class="bg-upser-700 hover:bg-upser-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Đặt Hàng Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PRODUCT CARD 3 -->
-                    <div class="bg-white rounded-3xl p-6 border border-emerald-100/80 shadow-md flex flex-col lg:flex-row gap-6">
-                        <img src="assets/images/vi-3.jpg" alt="Vị Năng Lượng Cam Sả" class="w-full lg:w-1/2 h-60 object-cover rounded-2xl">
-                        <div class="flex flex-col justify-between lg:w-1/2">
-                            <div>
-                                <span class="text-xs font-bold text-amber-600 uppercase">Vị Số 03</span>
-                                <h3 class="text-xl font-bold text-gray-900 mt-1">Vị Năng Lượng Cam Sả</h3>
-                                <p class="text-xs text-gray-500 font-semibold mb-3">(Citrus Energy Formula)</p>
-                                <p class="text-xs text-gray-600 mb-2"><strong>Công dụng:</strong> Bổ sung Vitamin C dồi dào, tăng đề kháng, đánh thức tỉnh táo.</p>
-                                <p class="text-xs text-gray-500"><strong>Hương vị:</strong> Cam Vàng mọng mật, Sả Tươi & Chanh Dây.</p>
-                            </div>
-                            <div class="mt-4 pt-3 border-t flex items-center justify-between">
-                                <span class="font-bold text-upser-800 text-lg">290.000đ</span>
-                                <a href="#contact" class="bg-upser-700 hover:bg-upser-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Đặt Hàng Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PRODUCT CARD 4 -->
-                    <div class="bg-white rounded-3xl p-6 border border-emerald-100/80 shadow-md flex flex-col lg:flex-row gap-6">
-                        <img src="assets/images/vi-4.jpg" alt="Vị Thư Giãn Cúc La Mã" class="w-full lg:w-1/2 h-60 object-cover rounded-2xl">
-                        <div class="flex flex-col justify-between lg:w-1/2">
-                            <div>
-                                <span class="text-xs font-bold text-purple-600 uppercase">Vị Số 04</span>
-                                <h3 class="text-xl font-bold text-gray-900 mt-1">Vị Thư Giãn Cúc La Mã</h3>
-                                <p class="text-xs text-gray-500 font-semibold mb-3">(Chamomile Calm Formula)</p>
-                                <p class="text-xs text-gray-600 mb-2"><strong>Công dụng:</strong> Thư giãn tâm trí sau giờ làm việc, làm sạch hơi thở, tĩnh tâm.</p>
-                                <p class="text-xs text-gray-500"><strong>Hương vị:</strong> Cúc La Mã hữu cơ sấy lạnh, Lá Bạc Hà & Táo Đỏ.</p>
-                            </div>
-                            <div class="mt-4 pt-3 border-t flex items-center justify-between">
-                                <span class="font-bold text-upser-800 text-lg">290.000đ</span>
-                                <a href="#contact" class="bg-upser-700 hover:bg-upser-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Đặt Hàng Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: GÓC CẨM NANG & BLOG (#blog) -->
-        <section id="blog" class="py-16 md:py-24 bg-white border-t border-emerald-100/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                <div class="text-center max-w-2xl mx-auto">
-                    <span class="text-xs font-bold uppercase tracking-widest text-upser-700 bg-emerald-50 px-3 py-1.5 rounded-full">Upser Knowledge Base</span>
-                    <h2 class="text-3xl font-extrabold text-gray-900 mt-2">Góc Cẩm Nang & Lối Sống Healthy</h2>
-                    <p class="text-gray-600 text-sm mt-1">Bí quyết dinh dưỡng & tự chữa lành mỗi ngày từ các chuyên gia Upser.</p>
-                </div>
-
-                <!-- Blog Category Filter Buttons -->
-                <div class="flex flex-wrap justify-center gap-3">
-                    <button class="blog-filter-btn active-filter px-4 py-2 rounded-full text-xs font-bold transition-all" data-category="all">Tất Cả Bài Viết</button>
-                    <button class="blog-filter-btn px-4 py-2 rounded-full text-xs font-bold text-gray-600 bg-cream border hover:bg-emerald-50" data-category="giam-can">Giảm Cân An Toàn</button>
-                    <button class="blog-filter-btn px-4 py-2 rounded-full text-xs font-bold text-gray-600 bg-cream border hover:bg-emerald-50" data-category="healing">Healing Tâm Trí</button>
-                    <button class="blog-filter-btn px-4 py-2 rounded-full text-xs font-bold text-gray-600 bg-cream border hover:bg-emerald-50" data-category="healthy">Chế Độ Ăn Healthy</button>
-                </div>
-
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <article class="blog-card bg-cream rounded-3xl p-5 border shadow-sm flex flex-col justify-between" data-category="giam-can">
+            <div class="flex justify-center">
+                <div class="w-full max-w-md bg-white text-gray-800 rounded-3xl p-6 shadow-2xl border-4 border-brandOrange">
+                    <img src="image1.png" alt="Bộ sản phẩm UP-XƠ" class="rounded-2xl object-contain h-64 w-full mb-4">
+                    <div class="flex justify-between items-center">
                         <div>
-                            <img src="assets/images/vi-1.jpg" alt="Giảm cân an toàn" class="w-full h-48 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] uppercase font-bold bg-emerald-100 text-upser-800 px-2.5 py-1 rounded-full">Giảm Cân An Toàn</span>
-                            <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">7 Nguyên Tắc Giảm Cân An Toàn & Bền Vững</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed mb-4">Khám phá cách kết hợp chế độ ăn thô nhẹ nhàng và sản phẩm Detox từ Upser để sở hữu vóc dáng thon gọn.</p>
+                            <span class="text-xs text-brandOrange font-bold uppercase">Hero Pack</span>
+                            <h3 class="text-xl font-bold">Hộp 30 Gói × 10g</h3>
                         </div>
-                        <a href="#" onclick="alert('Tính năng đọc bài viết sắp được cập nhật!'); return false;" class="text-upser-700 font-bold text-xs hover:underline">Đọc thêm &rarr;</a>
-                    </article>
-
-                    <article class="blog-card bg-cream rounded-3xl p-5 border shadow-sm flex flex-col justify-between" data-category="healing">
-                        <div>
-                            <img src="assets/images/vi-2.jpg" alt="Healing tâm trí" class="w-full h-48 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] uppercase font-bold bg-rose-100 text-rose-800 px-2.5 py-1 rounded-full">Healing Tâm Trí</span>
-                            <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">Liệu Pháp Healing Tâm Trí Qua Đồ Uống Thảo Mộc</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed mb-4">Dành 15 phút mỗi buổi tối để xoa dịu lo âu nhờ các hoạt chất tự nhiên từ hoa cúc và dâu rừng.</p>
-                        </div>
-                        <a href="#" onclick="alert('Tính năng đọc bài viết sắp được cập nhật!'); return false;" class="text-upser-700 font-bold text-xs hover:underline">Đọc thêm &rarr;</a>
-                    </article>
-
-                    <article class="blog-card bg-cream rounded-3xl p-5 border shadow-sm flex flex-col justify-between" data-category="healthy">
-                        <div>
-                            <img src="assets/images/vi-3.jpg" alt="Chế độ ăn Healthy" class="w-full h-48 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] uppercase font-bold bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full">Chế Độ Ăn Healthy</span>
-                            <h3 class="text-lg font-bold text-gray-900 mt-3 mb-2">Xây Dựng Thực Đơn Healthy 7 Ngày Cho Người Bận Rộn</h3>
-                            <p class="text-xs text-gray-600 leading-relaxed mb-4">Bật mí thực đơn dinh dưỡng chuẩn xanh, tiết kiệm thời gian chuẩn bị mà vẫn đầy đủ năng lượng.</p>
-                        </div>
-                        <a href="#" onclick="alert('Tính năng đọc bài viết sắp được cập nhật!'); return false;" class="text-upser-700 font-bold text-xs hover:underline">Đọc thêm &rarr;</a>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: TRANG LIÊN HỆ & BẢN ĐỒ (#contact) -->
-        <section id="contact" class="py-16 md:py-24 bg-cream border-t border-emerald-100/60">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                <div class="text-center max-w-2xl mx-auto">
-                    <span class="text-xs font-bold uppercase tracking-widest text-upser-700 bg-white border px-3 py-1.5 rounded-full">Get In Touch</span>
-                    <h2 class="text-3xl font-extrabold text-gray-900 mt-3">Liên Hệ Trực Tiếp Với Upser</h2>
-                    <p class="text-gray-600 text-sm mt-1">Chúng tôi luôn sẵn sàng lắng nghe và tư vấn lộ trình phù hợp với bạn.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    
-                    <!-- LEFT COLUMN: THÔNG TIN LIÊN HỆ -->
-                    <div class="lg:col-span-5 space-y-4">
-                        <div class="bg-white p-6 rounded-3xl border shadow-sm space-y-4">
-                            <h3 class="font-bold text-gray-900 text-lg">Trụ Sở & Hotline</h3>
-                            <div class="flex items-start gap-3 text-xs text-gray-600">
-                                <i class="fa-solid fa-phone text-upser-600 text-base mt-0.5"></i>
-                                <div>
-                                    <p class="font-bold text-gray-800 text-sm">Hotline Tư Vấn:</p>
-                                    <p class="text-upser-800 font-extrabold text-base">1900 888 999 - 0988 123 456</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-gray-600">
-                                <i class="fa-solid fa-location-dot text-upser-600 text-base mt-0.5"></i>
-                                <div>
-                                    <p class="font-bold text-gray-800 text-sm">Địa Chỉ Showroom:</p>
-                                    <p>123 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3 text-xs text-gray-600">
-                                <i class="fa-solid fa-envelope text-upser-600 text-base mt-0.5"></i>
-                                <div>
-                                    <p class="font-bold text-gray-800 text-sm">Email Trực Tuyến:</p>
-                                    <p>contact@upser.vn</p>
-                                </div>
-                            </div>
+                        <div class="text-right">
+                            <span class="text-sm line-through text-gray-400">349.000đ</span>
+                            <p class="text-2xl font-black text-brandGreen">269.000đ</p>
                         </div>
                     </div>
-
-                    <!-- RIGHT COLUMN: FORM LỜI NHẮN -->
-                    <div class="lg:col-span-7">
-                        <div class="bg-white p-8 rounded-3xl border shadow-md space-y-4">
-                            <h3 class="text-xl font-bold text-gray-900">Gửi Lời Nhắn Cho Upser</h3>
-                            
-                            <div id="form-toast" class="hidden p-3 bg-emerald-100 text-upser-800 text-xs font-bold rounded-xl">
-                                ✓ Lời nhắn đã được gửi thành công! Upser sẽ liên hệ lại ngay.
-                            </div>
-
-                            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-xs font-bold text-gray-700 mb-1">HỌ VÀ TÊN *</label>
-                                        <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-3 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-upser-600">
-                                    </div>
-                                    <div>
-                                        <label class="block text-xs font-bold text-gray-700 mb-1">SỐ ĐIỆN THOẠI *</label>
-                                        <input type="tel" required placeholder="0901 234 567" class="w-full px-3 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-upser-600">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-bold text-gray-700 mb-1">SẢN PHẨM QUAN TÂM</label>
-                                    <select id="product-select" class="w-full px-3 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-upser-600 bg-white">
-                                        <option value="">-- Chọn vị sản phẩm --</option>
-                                        <option value="vi-1">Vị Thanh Lọc Detox (Green Balance)</option>
-                                        <option value="vi-2">Vị Healing Dâu Rừng (Berry Relax)</option>
-                                        <option value="vi-3">Vị Năng Lượng Cam Sả (Citrus Energy)</option>
-                                        <option value="vi-4">Vị Thư Giãn Cúc La Mã (Chamomile Calm)</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label class="block text-xs font-bold text-gray-700 mb-1">NỘI DUNG LỜI NHẮN *</label>
-                                    <textarea rows="4" required placeholder="Nhập câu hỏi hoặc yêu cầu tư vấn..." class="w-full px-3 py-2.5 rounded-xl border text-xs focus:outline-none focus:border-upser-600 resize-none"></textarea>
-                                </div>
-
-                                <button type="submit" id="submit-btn" class="w-full bg-upser-700 hover:bg-upser-800 text-white font-bold py-3.5 rounded-xl text-xs transition-all shadow-md">
-                                    Gửi Lời Nhắn Ngay
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- GOOGLE MAPS -->
-                <div class="space-y-3 pt-4">
-                    <h3 class="text-xl font-bold text-gray-900 text-center">Bản Đồ Cửa Hàng Showroom</h3>
-                    <div class="rounded-3xl overflow-hidden shadow-md border h-80 w-full">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4243812836267!2d106.7023348!3d10.7756587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4112e4f037%3A0x2f9f68d712fdf82e!2zTmd1eeG7gW4gSHXhu4csIELhurJuIE5naMOpLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" 
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER DÙNG CHUNG -->
-    <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
-            <div>
-                <a href="#home" class="flex items-center gap-2 mb-3">
-                    <img src="assets/images/logo.png" alt="Upser Logo" class="h-8 w-auto">
-                    <span class="text-lg font-bold text-white">UPSER</span>
-                </a>
-                <p class="text-xs text-gray-400 leading-relaxed">Thương hiệu giải pháp sức khỏe thuần tự nhiên & lối sống Healing.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-sm mb-3">Menu Lựa Chọn</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#home" class="hover:text-emerald-400">Trang Chủ</a></li>
-                    <li><a href="#about" class="hover:text-emerald-400">Giới Thiệu</a></li>
-                    <li><a href="#products" class="hover:text-emerald-400">Sản Phẩm</a></li>
-                    <li><a href="#blog" class="hover:text-emerald-400">Góc Cẩm Nang</a></li>
-                    <li><a href="#contact" class="hover:text-emerald-400">Liên Hệ</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-sm mb-3">Dòng Sản Phẩm</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#products" class="hover:text-emerald-400">Vị Thanh Lọc Detox</a></li>
-                    <li><a href="#products" class="hover:text-emerald-400">Vị Healing Dâu Rừng</a></li>
-                    <li><a href="#products" class="hover:text-emerald-400">Vị Năng Lượng Cam Sả</a></li>
-                    <li><a href="#products" class="hover:text-emerald-400">Vị Thư Giãn Cúc La Mã</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold text-sm mb-3">Thông Tin Liên Hệ</h4>
-                <p class="text-xs text-gray-400">Hotline: 1900 888 999 - 0988 123 456</p>
-                <p class="text-xs text-gray-400 mt-1">123 Nguyễn Huệ, Quận 1, TP.HCM</p>
             </div>
         </div>
-        <p class="text-center text-xs text-gray-500 pt-6">&copy; 2026 Upser Brand. All rights reserved.</p>
-    </footer>
+    </section>
 
-    <script src="js/main.js"></script>
+    <!-- Footer -->
+    <footer class="bg-brandGreen text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-brandOrange flex items-center justify-center font-black text-white text-sm">UP</div>
+                    <span class="font-bold text-lg">UP-XƠ</span>
+                </div>
+                <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Sản Phẩm</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="products.html" class="hover:underline">Cam - Sả - Gừng</a></li>
+                    <li><a href="products.html" class="hover:underline">Dứa - Vải</a></li>
+                    <li><a href="products.html" class="hover:underline">Ổi Hồng - Bạc Hà</a></li>
+                    <li><a href="products.html" class="hover:underline">Chuối - Cacao - Đậu Nành</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Điều Hướng</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="about.html" class="hover:underline">Giới Thiệu</a></li>
+                    <li><a href="process.html" class="hover:underline">Quy Trình</a></li>
+                    <li><a href="blog.html" class="hover:underline">Cẩm Nang</a></li>
+                    <li><a href="reviews.html" class="hover:underline">Đánh Giá</a></li>
+                    <li><a href="contact.html" class="hover:underline">Liên Hệ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Theo Dõi UP-XƠ</h4>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="video" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-green-800 text-center text-xs text-green-300">
+            © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
