@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ Đặt Hàng | UP-XƠ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { colors: { brandGreen: '#2D5A27', brandOrange: '#E86F28', brandBg: '#F9F8F3', brandAccent: '#81B214' } }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-12 h-12 rounded-full bg-brandOrange flex items-center justify-center text-white font-black text-xl border-2 border-brandGreen shadow">UP</div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-black text-brandGreen tracking-wider">UP-XƠ</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Beyond The Looks</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-gray-700 text-sm">
+                <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
+                <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
+                <a href="process.html" class="hover:text-brandOrange transition">Quy Trình</a>
+                <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
+                <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
+                <a href="reviews.html" class="hover:text-brandOrange transition">Đánh Giá</a>
+                <a href="contact.html" class="text-brandOrange font-bold">Liên Hệ</a>
+            </nav>
+            <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm">Đặt Hàng Ngay</a>
+        </div>
+    </header>
+
+    <main class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 grid md:grid-cols-2 gap-8">
+            <div>
+                <h1 class="text-3xl font-black text-brandGreen mb-4">Liên Hệ Đặt Hàng / Tư Vấn</h1>
+                <p class="text-sm text-gray-600 mb-6">Để lại thông tin để nhận tư vấn phối vị phù hợp với nhu cầu dinh dưỡng của bạn hoặc nhận ưu đãi gói mua định kỳ.</p>
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-center gap-3"><i data-lucide="map-pin" class="text-brandOrange"></i><span>TP. Hồ Chí Minh & Toàn Quốc</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="mail" class="text-brandOrange"></i><span>contact@upxo.vn</span></div>
+                    <div class="flex items-center gap-3"><i data-lucide="phone" class="text-brandOrange"></i><span>Hotline: 090x xxx xxx</span></div>
+                </div>
+            </div>
+
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Thông tin đã được gửi tới nhóm UP-XƠ.');">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Họ và tên *</label>
+                    <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brandGreen text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Email *</label>
+                    <input type="email" required placeholder="name@example.com" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brandGreen text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Số điện thoại *</label>
+                    <input type="tel" required placeholder="0901234567" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brandGreen text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Yêu cầu tư vấn / Vị sản phẩm lựa chọn</label>
+                    <textarea rows="3" placeholder="Nhập câu hỏi hoặc số lượng hộp cần đặt..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:border-brandGreen text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-sm">
+                    Gửi Yêu Cầu
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-brandGreen text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-green-300">
+            © 2026 UP-XƠ. All rights reserved.
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
