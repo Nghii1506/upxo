@@ -15,6 +15,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
+    <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
@@ -24,14 +25,11 @@
                     <span class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold">Beyond The Looks</span>
                 </div>
             </a>
-            <nav class="hidden md:flex items-center gap-6 font-medium text-gray-700 text-sm">
+            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
-                <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
-                <a href="process.html" class="hover:text-brandOrange transition">Quy Trình</a>
                 <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
                 <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
-                <a href="reviews.html" class="hover:text-brandOrange transition">Đánh Giá</a>
-                <a href="contact.html" class="text-brandOrange font-bold">Liên Hệ</a>
+                <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
             <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm">Đặt Hàng Ngay</a>
         </div>
@@ -73,9 +71,45 @@
         </div>
     </main>
 
+   <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-brandGreen text-white py-12 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-green-300">
-            © 2026 UP-XƠ. All rights reserved.
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-brandOrange flex items-center justify-center font-black text-white text-sm">UP</div>
+                    <span class="font-bold text-lg">UP-XƠ</span>
+                </div>
+                <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Sản Phẩm</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="products.html" class="hover:underline">Cam - Sả - Gừng</a></li>
+                    <li><a href="products.html" class="hover:underline">Dứa - Vải</a></li>
+                    <li><a href="products.html" class="hover:underline">Ổi Hồng - Bạc Hà</a></li>
+                    <li><a href="products.html" class="hover:underline">Chuối - Cacao - Đậu Nành</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Điều Hướng</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="index.html" class="hover:underline">Trang Chủ</a></li>
+                    <li><a href="products.html" class="hover:underline">Sản Phẩm</a></li>
+                    <li><a href="blog.html" class="hover:underline">Cẩm Nang</a></li>
+                    <li><a href="contact.html" class="hover:underline">Liên Hệ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Theo Dõi UP-XƠ</h4>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="video" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-green-800 text-center text-xs text-green-300">
+            © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
         </div>
     </footer>
     <script>lucide.createIcons();</script>
