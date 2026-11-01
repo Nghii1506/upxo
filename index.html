@@ -1,10 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="vi" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>UP-XƠ | Bột Chất Xơ Tuần Hoàn Từ Nông Sản Việt</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -19,283 +25,949 @@
             }
         }
     </script>
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ==============================
+           HERO BANNER - UP-XƠ
+        ============================== */
+
+        .upxo-hero {
+            background:
+                radial-gradient(
+                    circle at 86% 18%,
+                    #f1f6c8 0%,
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 5% 95%,
+                    #edf2c9 0%,
+                    transparent 34%
+                ),
+                #fff9ef;
+        }
+
+        .upxo-hero-title {
+            font-size: clamp(2.4rem, 3.6vw, 3.75rem);
+            line-height: 1.09;
+        }
+
+        /* Gạch chân xanh dưới slogan */
+        .upxo-underline {
+            background: linear-gradient(
+                transparent 83%,
+                #c4df74 83%,
+                #c4df74 94%,
+                transparent 94%
+            );
+        }
+
+        /* Khu vực ảnh sản phẩm không có khung */
+        .upxo-product-scene {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 2.15 / 1;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .upxo-product-scene img {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            /* Cắt bớt logo nằm sẵn phía trên ảnh */
+            transform: translateY(-23%);
+
+            /* Hòa màu nền ảnh vào nền website */
+            mix-blend-mode: multiply;
+
+            -webkit-mask-image: radial-gradient(
+                ellipse 78% 83% at 50% 54%,
+                #000 68%,
+                transparent 100%
+            );
+
+            mask-image: radial-gradient(
+                ellipse 78% 83% at 50% 54%,
+                #000 68%,
+                transparent 100%
+            );
+        }
+
+        /* Nền vàng nhấn giá bán */
+        .upxo-price-highlight {
+            position: relative;
+            display: inline-block;
+            isolation: isolate;
+        }
+
+        .upxo-price-highlight::before {
+            content: "";
+            position: absolute;
+            inset: 5px -10px 1px;
+            z-index: -1;
+            background: #f4e76c;
+            border-radius: 14px 5px 12px 4px;
+            transform: rotate(-2deg);
+        }
+
+        @media (max-width: 640px) {
+            .upxo-hero-title {
+                font-size: clamp(2.1rem, 9vw, 2.8rem);
+            }
+        }
+    </style>
 </head>
+
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium">
-        🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
+    <!-- ==============================
+         TOP ANNOUNCEMENT BAR
+    ============================== -->
+
+    <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium px-4">
+        🌱 Mua 1 Hộp 30 Gói (269.000đ) -
+        Tặng Ngay Bộ Dùng Thử 7 Ngày &
+        Miễn Phí Vận Chuyển!
     </div>
 
-   <!-- Navigation Header -->
+
+    <!-- ==============================
+         NAVIGATION HEADER
+    ============================== -->
+
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
             <a href="index.html" class="flex items-center gap-2">
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
+                <img
+                    src="logo.png"
+                    alt="UP-XƠ Logo"
+                    class="h-16 w-auto object-contain"
+                >
             </a>
+
+            <!-- Menu -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
-                <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
-                <a href="about.html" class="text-brandOrange font-bold">Giới Thiệu</a>
-                <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
-                <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
-                <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
+
+                <a href="index.html"
+                   class="text-brandOrange font-bold">
+                    Trang Chủ
+                </a>
+
+                <a href="about.html"
+                   class="hover:text-brandOrange transition">
+                    Giới Thiệu
+                </a>
+
+                <a href="products.html"
+                   class="hover:text-brandOrange transition">
+                    Sản Phẩm
+                </a>
+
+                <a href="blog.html"
+                   class="hover:text-brandOrange transition">
+                    Cẩm Nang
+                </a>
+
+                <a href="contact.html"
+                   class="hover:text-brandOrange transition">
+                    Liên Hệ
+                </a>
+
             </nav>
+
+            <!-- Giỏ hàng và đặt hàng -->
             <div class="flex items-center gap-3">
-                <!-- Nút Giỏ Hàng -->
-                <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
+
+                <button
+                    onclick="toggleCart()"
+                    class="relative p-2 text-gray-700 hover:text-brandOrange transition"
+                    aria-label="Giỏ hàng"
+                >
                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+
+                    <span
+                        id="cart-count"
+                        class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden"
+                    >
+                        0
+                    </span>
                 </button>
-                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden sm:inline-block">Đặt Hàng Ngay</a>
+
+                <a
+                    href="products.html"
+                    class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden sm:inline-block transition"
+                >
+                    Đặt Hàng Ngay
+                </a>
+
             </div>
         </div>
     </header>
 
+
     <main class="flex-grow">
-        <!-- Hero Banner -->
-        
-<!-- Hero Banner -->
-<section class="relative overflow-hidden bg-[#FFF9ED] text-brandGreen py-16 lg:py-24">
 
-    <!-- Trang trí nền -->
-    <div class="absolute -top-20 -right-20 w-96 h-96 bg-lime-200/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-32 -left-20 w-[500px] h-72 bg-[#DCEB9C]/60 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- ==============================
+             HERO BANNER MỚI
+        ============================== -->
 
-        <!-- Nội dung bên trái -->
-        <div>
-            <span class="inline-block bg-[#E5EDCB] text-brandGreen text-xs sm:text-sm uppercase px-4 py-2 rounded-full font-bold mb-6">
-                🌿 Wellness tuần hoàn • Tự nhiên
-            </span>
+        <section class="upxo-hero relative overflow-hidden text-brandGreen pt-14 pb-28 lg:pt-20 lg:pb-32">
 
-            <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.13] mb-6">
-                Trân Trọng Từng Nguồn Tươi Lành,
-                Trọn Vẹn Chăm Mình Giữa Nhịp Sống Nhanh
-            </h1>
-
-            <p class="text-[#4B6448] text-base sm:text-lg mb-9 leading-relaxed">
-                Bột chất xơ UP-XƠ từ bã ép trái cây cold-press và
-                nông sản lệch chuẩn đạt tiêu chuẩn an toàn.
-                Giải pháp tiện lợi dạng stick 10g,
-                đồng hành cùng lối sống lành mạnh mỗi ngày.
-            </p>
-
-            <div class="flex flex-wrap gap-4">
-                <a href="products.html"
-                   class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition">
-                    Xem Các Vị Sản Phẩm →
-                </a>
-
-                <a href="#process"
-                   class="border-2 border-brandGreen text-brandGreen hover:bg-green-50 font-bold px-7 py-3.5 rounded-full transition">
-                    Tìm Hiểu Quy Trình →
-                </a>
+            <!-- Ánh sáng nền trang trí -->
+            <div
+                aria-hidden="true"
+                class="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-lime-300/20 blur-3xl">
             </div>
-        </div>
 
-        <!-- Bộ sản phẩm bên phải: không có khung Hero Pack -->
-        <div class="relative">
+            <div
+                aria-hidden="true"
+                class="pointer-events-none absolute -right-20 top-0 h-96 w-96 rounded-full bg-yellow-200/30 blur-3xl">
+            </div>
 
-            <!-- Hình ảnh sản phẩm -->
-            <img
-                src="hero_products.png"
-                alt="Bộ ba sản phẩm UP-XƠ"
-                class="w-full h-auto object-contain"
+
+            <!-- Bố cục Hero -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.94fr_1.06fr] gap-12 lg:gap-8 items-center">
+
+
+                <!-- ======================
+                     CỘT TRÁI
+                ====================== -->
+
+                <div class="relative">
+
+                    <!-- Nhãn Wellness -->
+                    <span class="inline-flex items-center gap-2 rounded-full border border-lime-500/40 bg-lime-100/70 px-4 py-2 text-xs sm:text-sm font-extrabold tracking-wide mb-7">
+
+                        <i data-lucide="leaf" class="w-4 h-4"></i>
+
+                        WELLNESS TUẦN HOÀN · TỰ NHIÊN
+
+                    </span>
+
+
+                    <!-- Slogan -->
+                    <h1 class="upxo-hero-title font-black tracking-tight mb-7">
+
+                        Trân Trọng Từng Nguồn Tươi Lành,
+
+                        <span class="upxo-underline">
+                            Trọn Vẹn Chăm Mình
+                        </span>
+
+                        Giữa Nhịp Sống Nhanh
+
+                    </h1>
+
+
+                    <!-- Mô tả -->
+                    <p class="max-w-xl text-[#4B6448] text-base sm:text-lg leading-relaxed mb-7">
+
+                        Bột chất xơ UP-XƠ từ bã ép trái cây cold-press
+                        và nông sản lệch chuẩn đạt tiêu chuẩn an toàn.
+
+                        Dạng stick 10g tiện lợi, đồng hành cùng
+                        lối sống lành mạnh mỗi ngày.
+
+                    </p>
+
+
+                    <!-- Điểm nổi bật -->
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mb-9 text-xs sm:text-sm font-bold text-brandGreen">
+
+                        <span class="inline-flex items-center gap-2">
+                            <i data-lucide="refresh-cw"
+                               class="w-4 h-4 text-brandOrange"></i>
+                            Tận dụng bã ép
+                        </span>
+
+                        <span class="inline-flex items-center gap-2">
+                            <i data-lucide="leaf"
+                               class="w-4 h-4 text-brandOrange"></i>
+                            Hương vị trái cây
+                        </span>
+
+                        <span class="inline-flex items-center gap-2">
+                            <i data-lucide="package-check"
+                               class="w-4 h-4 text-brandOrange"></i>
+                            Stick 10g tiện lợi
+                        </span>
+
+                    </div>
+
+
+                    <!-- Nút CTA -->
+                    <div class="flex flex-wrap gap-3 sm:gap-4">
+
+                        <a
+                            href="products.html"
+                            class="inline-flex items-center justify-center gap-2 bg-brandOrange hover:bg-orange-600 text-white font-extrabold px-6 sm:px-7 py-3.5 rounded-full shadow-lg transition hover:-translate-y-0.5"
+                        >
+
+                            Xem Các Vị Sản Phẩm
+
+                            <i data-lucide="arrow-up-right"
+                               class="w-5 h-5"></i>
+
+                        </a>
+
+
+                        <a
+                            href="#process"
+                            class="inline-flex items-center justify-center gap-2 border-2 border-brandGreen text-brandGreen hover:bg-green-50 font-bold px-6 sm:px-7 py-3.5 rounded-full transition"
+                        >
+
+                            Tìm Hiểu Quy Trình
+
+                            <i data-lucide="arrow-right"
+                               class="w-5 h-5"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ======================
+                     CỘT PHẢI
+                     HERO PRODUCTS
+                ====================== -->
+
+                <div class="relative min-w-0">
+
+
+                    <!-- Thông tin giá phía trên ảnh -->
+                    <div class="flex items-end justify-between gap-3 sm:gap-5 mb-3">
+
+                        <div>
+
+                            <span class="inline-block -rotate-2 bg-brandOrange text-white text-xs sm:text-sm font-black px-4 py-1.5 mb-2 shadow-sm">
+
+                                HERO PACK
+
+                            </span>
+
+                            <p class="text-lg sm:text-2xl font-black">
+
+                                Hộp 30 Gói × 10g
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- Giá bán -->
+                        <div class="text-right shrink-0">
+
+                            <span class="block text-sm text-gray-400 line-through mb-1">
+
+                                349.000đ
+
+                            </span>
+
+                            <strong class="upxo-price-highlight text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
+
+                                269.000đ
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ảnh sản phẩm không có khung -->
+                    <div
+                        class="upxo-product-scene"
+                        aria-label="Ba hương vị UP-XƠ"
+                    >
+
+                        <img
+                            src="hero_products.png"
+                            alt="Ba sản phẩm UP-XƠ: Cam Sả Gừng, Dứa Vải và Ổi Hồng Bạc Hà"
+                            loading="eager"
+                            fetchpriority="high"
+                        >
+
+                    </div>
+
+
+                    <!-- Chú thích -->
+                    <p class="mt-1 text-center text-xs sm:text-sm font-semibold text-[#60784D]">
+
+                        Ba hương vị chủ lực · Lành Vị · Bật Vị · Êm Vị
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================
+                 SÓNG TRANG TRÍ
+            ====================== -->
+
+            <svg
+                aria-hidden="true"
+                class="absolute bottom-0 left-0 w-full h-20 sm:h-28"
+                viewBox="0 0 1440 120"
+                preserveAspectRatio="none"
             >
 
-            <!-- Giá bán nằm trực tiếp trên nền -->
-            <div class="mt-6 flex flex-wrap items-end justify-between gap-5">
+                <path
+                    d="M0 55C240 0 360 120 640 75S1080 20 1440 68V120H0Z"
+                    fill="#DCE9A7"
+                    opacity="0.72"
+                ></path>
 
-                <div>
-                    <span class="inline-block bg-brandOrange text-white text-sm font-black px-4 py-1.5 -rotate-2 mb-3">
-                        HERO PACK
-                    </span>
+                <path
+                    d="M0 88C250 40 420 125 690 92S1170 50 1440 95V120H0Z"
+                    fill="#BFD47B"
+                    opacity="0.75"
+                ></path>
 
-                    <h3 class="text-2xl font-black text-brandGreen">
-                        Hộp 30 Gói × 10g
-                    </h3>
-                </div>
+            </svg>
 
-                <div class="text-right">
-                    <span class="text-base text-gray-400 line-through">
-                        349.000đ
-                    </span>
+        </section>
 
-                    <p class="text-3xl sm:text-4xl font-black text-brandGreen">
-                        <span class="bg-[#F5E56D] px-2 rounded-lg">
-                            269.000đ
-                        </span>
-                    </p>
-                </div>
 
-            </div>
-        </div>
+        <!-- ==============================
+             SECTION: QUY TRÌNH
+        ============================== -->
 
-    </div>
-</section>
-
-        <!-- Section: Quy Trình -->
         <section id="process" class="py-16 bg-white/50 border-y border-gray-200">
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
                 <div class="text-center max-w-2xl mx-auto mb-12">
-                    <span class="text-brandOrange font-bold text-sm uppercase">Công Nghệ Thực Phẩm</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-brandGreen mt-1">Quy Trình Nông Sản Tuần Hoàn</h2>
-                    <p class="text-gray-600 mt-2">Từ phụ phẩm bã ép tươi đến stick bột dinh dưỡng chuẩn an toàn thực phẩm.</p>
+
+                    <span class="text-brandOrange font-bold text-sm uppercase">
+                        Công Nghệ Thực Phẩm
+                    </span>
+
+                    <h2 class="text-3xl sm:text-4xl font-black text-brandGreen mt-1">
+                        Quy Trình Nông Sản Tuần Hoàn
+                    </h2>
+
+                    <p class="text-gray-600 mt-2">
+                        Từ phụ phẩm bã ép tươi đến stick bột dinh dưỡng
+                        chuẩn an toàn thực phẩm.
+                    </p>
+
                 </div>
+
 
                 <div class="grid md:grid-cols-4 gap-8">
+
+
+                    <!-- Bước 1 -->
                     <div class="text-center p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">1</div>
-                        <h3 class="font-bold text-lg mb-2">Thu Gom Chuẩn</h3>
-                        <p class="text-sm text-gray-600">Bã ép trái cây tươi cold-press và nông sản lệch chuẩn ngoại hình được phân loại gắt gao.</p>
+
+                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">
+                            1
+                        </div>
+
+                        <h3 class="font-bold text-lg mb-2">
+                            Thu Gom Chuẩn
+                        </h3>
+
+                        <p class="text-sm text-gray-600">
+                            Bã ép trái cây tươi cold-press và nông sản
+                            lệch chuẩn ngoại hình được phân loại gắt gao.
+                        </p>
+
                     </div>
+
+
+                    <!-- Bước 2 -->
                     <div class="text-center p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">2</div>
-                        <h3 class="font-bold text-lg mb-2">Sấy Lạnh / Sấy Phun</h3>
-                        <p class="text-sm text-gray-600">Giữ nguyên 70% lượng chất xơ tự nhiên và vi chất dinh dưỡng ban đầu mà không dùng hóa chất.</p>
+
+                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">
+                            2
+                        </div>
+
+                        <h3 class="font-bold text-lg mb-2">
+                            Sấy Lạnh / Sấy Phun
+                        </h3>
+
+                        <p class="text-sm text-gray-600">
+                            Giữ nguyên 70% lượng chất xơ tự nhiên
+                            và vi chất dinh dưỡng ban đầu
+                            mà không dùng hóa chất.
+                        </p>
+
                     </div>
+
+
+                    <!-- Bước 3 -->
                     <div class="text-center p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">3</div>
-                        <h3 class="font-bold text-lg mb-2">Phối Trộn Vị Tự Nhiên</h3>
-                        <p class="text-sm text-gray-600">Kết hợp thảo mộc (sả, gừng, bạc hà, cacao) tạo hương vị tươi mát, dễ uống, ít đường.</p>
+
+                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">
+                            3
+                        </div>
+
+                        <h3 class="font-bold text-lg mb-2">
+                            Phối Trộn Vị Tự Nhiên
+                        </h3>
+
+                        <p class="text-sm text-gray-600">
+                            Kết hợp thảo mộc (sả, gừng, bạc hà, cacao)
+                            tạo hương vị tươi mát, dễ uống, ít đường.
+                        </p>
+
                     </div>
+
+
+                    <!-- Bước 4 -->
                     <div class="text-center p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
-                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">4</div>
-                        <h3 class="font-bold text-lg mb-2">Stick Pack 10g</h3>
-                        <p class="text-sm text-gray-600">Đóng gói que tiện lợi, dễ mang đi học, đi làm, hòa tan nhanh trong 150ml nước.</p>
+
+                        <div class="w-16 h-16 bg-brandOrange/10 text-brandOrange rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-4">
+                            4
+                        </div>
+
+                        <h3 class="font-bold text-lg mb-2">
+                            Stick Pack 10g
+                        </h3>
+
+                        <p class="text-sm text-gray-600">
+                            Đóng gói que tiện lợi, dễ mang đi học,
+                            đi làm, hòa tan nhanh trong 150ml nước.
+                        </p>
+
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section: Sản Phẩm (3 Hero SKUs) -->
-        <section id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+        <!-- ==============================
+             SECTION: 3 HERO SKUS
+        ============================== -->
+
+        <section
+            id="products"
+            class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+
                 <div>
-                    <span class="text-brandOrange font-bold text-sm uppercase">Danh Mục Chủ Lực</span>
-                   <h2 class="text-3xl sm:text-4xl font-black text-brandGreen mt-1">3 Hero SKUs Dành Cho Bạn</h2>
+
+                    <span class="text-brandOrange font-bold text-sm uppercase">
+                        Danh Mục Chủ Lực
+                    </span>
+
+                    <h2 class="text-3xl sm:text-4xl font-black text-brandGreen mt-1">
+                        3 Hero SKUs Dành Cho Bạn
+                    </h2>
+
                 </div>
-                <p class="text-gray-500 text-sm mt-2 md:mt-0">Hộp 30 gói × 10g | Định lượng chuẩn mỗi ngày</p>
+
+                <p class="text-gray-500 text-sm mt-2 md:mt-0">
+                    Hộp 30 gói × 10g | Định lượng chuẩn mỗi ngày
+                </p>
+
             </div>
+
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- SKU 1: Cam Sả Gừng -->
+
+
+                <!-- ======================
+                     SKU 1: CAM SẢ GỪNG
+                ====================== -->
+
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+
                     <div class="relative bg-amber-50 h-56 flex items-center justify-center p-3">
-                        <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">Dòng Lành Vị</span>
-                        <img src="cam_sa_gung.png" alt="Cam Sả Gừng" class="h-48 object-contain group-hover:scale-105 transition">
+
+                        <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">
+                            Dòng Lành Vị
+                        </span>
+
+                        <img
+                            src="cam_sa_gung.png"
+                            alt="Cam Sả Gừng"
+                            class="h-48 object-contain group-hover:scale-105 transition"
+                        >
+
                     </div>
+
+
                     <div class="p-5">
-                        <h3 class="font-bold text-lg mb-1">Cam - Sả - Gừng</h3>
-                        <p class="text-xs text-gray-500 mb-3">Bổ sung chất xơ từ bã cam, gừng tươi & sả Việt Nam. Hỗ trợ tiêu hóa, làm ấm cơ thể.</p>
+
+                        <h3 class="font-bold text-lg mb-1">
+                            Cam - Sả - Gừng
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mb-3">
+                            Bổ sung chất xơ từ bã cam, gừng tươi & sả
+                            Việt Nam. Hỗ trợ tiêu hóa, làm ấm cơ thể.
+                        </p>
+
                         <div class="flex justify-between items-baseline mb-4">
-                            <span class="text-xl font-black text-brandGreen">269.000đ</span>
-                            <span class="text-xs text-gray-400 line-through">349.000đ</span>
+
+                            <span class="text-xl font-black text-brandGreen">
+                                269.000đ
+                            </span>
+
+                            <span class="text-xs text-gray-400 line-through">
+                                349.000đ
+                            </span>
+
                         </div>
-                        <a href="contact.html" class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition">Mua Ngay</a>
+
+                        <a
+                            href="contact.html"
+                            class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition"
+                        >
+                            Mua Ngay
+                        </a>
+
                     </div>
                 </div>
 
-                <!-- SKU 2: Dứa Vải -->
+
+
+                <!-- ======================
+                     SKU 2: DỨA VẢI
+                ====================== -->
+
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+
                     <div class="relative bg-yellow-50 h-56 flex items-center justify-center p-3">
-                        <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">Dòng Bật Vị</span>
-                        <img src="dua_vai.png" alt="Dứa Vải" class="h-48 object-contain group-hover:scale-105 transition">
+
+                        <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">
+                            Dòng Bật Vị
+                        </span>
+
+                        <img
+                            src="dua_vai.png"
+                            alt="Dứa Vải"
+                            class="h-48 object-contain group-hover:scale-105 transition"
+                        >
+
                     </div>
+
+
                     <div class="p-5">
-                        <h3 class="font-bold text-lg mb-1">Dứa - Vải</h3>
-                        <p class="text-xs text-gray-500 mb-3">Vị chua ngọt nhiệt đới giải khát sảng khoái. Tận dụng bã dứa chứa đến 70% xơ thô.</p>
+
+                        <h3 class="font-bold text-lg mb-1">
+                            Dứa - Vải
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mb-3">
+                            Vị chua ngọt nhiệt đới giải khát sảng khoái.
+                            Tận dụng bã dứa chứa đến 70% xơ thô.
+                        </p>
+
                         <div class="flex justify-between items-baseline mb-4">
-                            <span class="text-xl font-black text-brandGreen">269.000đ</span>
-                            <span class="text-xs text-gray-400 line-through">349.000đ</span>
+
+                            <span class="text-xl font-black text-brandGreen">
+                                269.000đ
+                            </span>
+
+                            <span class="text-xs text-gray-400 line-through">
+                                349.000đ
+                            </span>
+
                         </div>
-                        <a href="contact.html" class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition">Mua Ngay</a>
+
+                        <a
+                            href="contact.html"
+                            class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition"
+                        >
+                            Mua Ngay
+                        </a>
+
                     </div>
                 </div>
 
-                <!-- SKU 3: Ổi Hồng Bạc Hà -->
+
+
+                <!-- ======================
+                     SKU 3: ỔI HỒNG BẠC HÀ
+                ====================== -->
+
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+
                     <div class="relative bg-rose-50 h-56 flex items-center justify-center p-3">
-                        <span class="absolute top-3 left-3 bg-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">Dòng Êm Vị</span>
-                        <img src="oi_hong_bac_ha.png" alt="Ổi Hồng Bạc Hà" class="h-48 object-contain group-hover:scale-105 transition">
+
+                        <span class="absolute top-3 left-3 bg-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">
+                            Dòng Êm Vị
+                        </span>
+
+                        <img
+                            src="oi_hong_bac_ha.png"
+                            alt="Ổi Hồng Bạc Hà"
+                            class="h-48 object-contain group-hover:scale-105 transition"
+                        >
+
                     </div>
+
+
                     <div class="p-5">
-                        <h3 class="font-bold text-lg mb-1">Ổi Hồng - Bạc Hà</h3>
-                        <p class="text-xs text-gray-500 mb-3">Thanh mát dịu nhẹ, cải thiện sắc tố da. Bổ sung xơ từ ổi hồng chín mộng bản địa.</p>
+
+                        <h3 class="font-bold text-lg mb-1">
+                            Ổi Hồng - Bạc Hà
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mb-3">
+                            Thanh mát dịu nhẹ, cải thiện sắc tố da.
+                            Bổ sung xơ từ ổi hồng chín mọng bản địa.
+                        </p>
+
                         <div class="flex justify-between items-baseline mb-4">
-                            <span class="text-xl font-black text-brandGreen">269.000đ</span>
-                            <span class="text-xs text-gray-400 line-through">349.000đ</span>
+
+                            <span class="text-xl font-black text-brandGreen">
+                                269.000đ
+                            </span>
+
+                            <span class="text-xs text-gray-400 line-through">
+                                349.000đ
+                            </span>
+
                         </div>
-                        <a href="contact.html" class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition">Mua Ngay</a>
-                    </div>
-                </div>
+
+                        <a
+                            href="contact.html"
+                            class="block text-center bg-brandGreen hover:bg-green-800 text-white font-bold py-2 rounded-xl text-sm transition"
+                        >
+                            Mua Ngay
+                        </a>
 
                     </div>
                 </div>
+
+
             </div>
+
         </section>
+
     </main>
 
-<!-- Footer -->
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
     <footer class="bg-brandGreen text-white py-12 mt-auto">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
+
+
+            <!-- Giới thiệu -->
             <div>
+
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
+
+                    <img
+                        src="logo.png"
+                        alt="UP-XƠ Logo"
+                        class="h-8 w-auto object-contain brightness-0 invert"
+                    >
+
                 </div>
-                <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
+
+                <p class="text-xs text-green-200">
+                    Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ.
+                    Dòng sản phẩm bột chất xơ hòa tan
+                    từ phụ phẩm nông sản Việt.
+                </p>
+
             </div>
+
+
+
+            <!-- Danh mục -->
             <div>
-                <h4 class="font-bold mb-3">Sản Phẩm</h4>
+
+                <h4 class="font-bold mb-3">
+                    Sản Phẩm
+                </h4>
+
                 <ul class="space-y-2 text-xs text-green-200">
-                    <li><a href="products.html" class="hover:underline">Dòng Lành Vị (SKU 01 - 04)</a></li>
-                    <li><a href="products.html" class="hover:underline">Dòng Êm Vị (SKU 05 - 08)</a></li>
-                    <li><a href="products.html" class="hover:underline">Dòng Bật Vị (SKU 09 - 12)</a></li>
+
+                    <li>
+                        <a href="products.html" class="hover:underline">
+                            Dòng Lành Vị (SKU 01 - 04)
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html" class="hover:underline">
+                            Dòng Êm Vị (SKU 05 - 08)
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html" class="hover:underline">
+                            Dòng Bật Vị (SKU 09 - 12)
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
+
+
+            <!-- Điều hướng -->
             <div>
-                <h4 class="font-bold mb-3">Điều Hướng</h4>
+
+                <h4 class="font-bold mb-3">
+                    Điều Hướng
+                </h4>
+
                 <ul class="space-y-2 text-xs text-green-200">
-                    <li><a href="index.html" class="hover:underline">Trang Chủ</a></li>
-                    <li><a href="about.html" class="hover:underline">Giới Thiệu</a></li>
-                    <li><a href="products.html" class="hover:underline">Sản Phẩm</a></li>
-                    <li><a href="blog.html" class="hover:underline">Cẩm Nang</a></li>
-                    <li><a href="contact.html" class="hover:underline">Liên Hệ</a></li>
+
+                    <li>
+                        <a href="index.html" class="hover:underline">
+                            Trang Chủ
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html" class="hover:underline">
+                            Giới Thiệu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="products.html" class="hover:underline">
+                            Sản Phẩm
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="blog.html" class="hover:underline">
+                            Cẩm Nang
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html" class="hover:underline">
+                            Liên Hệ
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
+
+
+            <!-- Kênh mua hàng -->
             <div>
-                <h4 class="font-bold mb-3">Kênh Mua Hàng & Kết Nối</h4>
+
+                <h4 class="font-bold mb-3">
+                    Kênh Mua Hàng & Kết Nối
+                </h4>
+
                 <ul class="space-y-2.5 text-xs text-green-200">
+
                     <li>
-                        <a href="https://nghii1506.github.io/upxo/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
-                            <i data-lucide="globe" class="w-4 h-4 text-brandOrange"></i>
+
+                        <a
+                            href="https://nghii1506.github.io/upxo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 hover:text-brandOrange transition"
+                        >
+
+                            <i data-lucide="globe"
+                               class="w-4 h-4 text-brandOrange"></i>
+
                             <span>Website UP-XƠ</span>
+
                         </a>
+
                     </li>
+
+
                     <li>
-                        <a href="https://shopee.vn/hung08012006" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
-                            <i data-lucide="shopping-bag" class="w-4 h-4 text-brandOrange"></i>
+
+                        <a
+                            href="https://shopee.vn/hung08012006"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 hover:text-brandOrange transition"
+                        >
+
+                            <i data-lucide="shopping-bag"
+                               class="w-4 h-4 text-brandOrange"></i>
+
                             <span>Gian Hàng Shopee</span>
+
                         </a>
+
                     </li>
+
+
                     <li>
-                        <a href="https://www.facebook.com/profile.php?id=61592981647685" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
-                            <i data-lucide="facebook" class="w-4 h-4 text-brandOrange"></i>
+
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61592981647685"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center gap-2 hover:text-brandOrange transition"
+                        >
+
+                            <i data-lucide="facebook"
+                               class="w-4 h-4 text-brandOrange"></i>
+
                             <span>Fanpage Facebook</span>
+
                         </a>
+
                     </li>
+
                 </ul>
+
             </div>
+
         </div>
+
+
+        <!-- Copyright -->
         <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-green-800 text-center text-xs text-green-300">
-            © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
+
+            © 2026 UP-XƠ. All rights reserved.
+            Designed for FoodTech Project.
+
         </div>
+
     </footer>
 
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
     <script>
+
+        // Giỏ hàng bản demo: chuyển đến trang sản phẩm
+        function toggleCart() {
+            window.location.href = 'products.html';
+        }
+
+        // Kích hoạt Lucide Icons
         lucide.createIcons();
+
     </script>
+
 </body>
 </html>
