@@ -29,127 +29,107 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        /* =====================================
-           HERO BANNER - VIETNAMESE RETRO COLLAGE
-        ===================================== */
+    
+<style>
+    /* HERO BANNER - RETRO COLLAGE GỌN GÀNG */
+
+    .upxo-hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 650px;
+        display: flex;
+        align-items: center;
+        background: #FAF6EE;
+    }
+
+    /* Chỉ sử dụng MỘT ảnh collage bên phải */
+    .upxo-hero::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 56%;
+
+        background-image: url('upxo_hero_collage.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+
+        /* Làm mềm mép trái để hòa với nền kem */
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 18%,
+            black 100%
+        );
+
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 18%,
+            black 100%
+        );
+
+        pointer-events: none;
+    }
+
+    /* Loại bỏ lớp ảnh thứ hai */
+    .upxo-hero::after {
+        content: none;
+    }
+
+    /* Không dùng lớp phủ gây hiệu ứng bóng mờ */
+    .upxo-hero-wash {
+        display: none;
+    }
+
+    /* Slogan gọn và cân đối */
+    .upxo-hero-title {
+        font-size: clamp(2.5rem, 3.7vw, 3.75rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+    }
+
+    /* Giao diện điện thoại */
+    @media (max-width: 767px) {
 
         .upxo-hero {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            background: #faf5ed;
-            min-height: 690px;
-            display: flex;
-            align-items: center;
+            min-height: 0;
+            align-items: stretch;
         }
 
-        .upxo-hero::before,
-        .upxo-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-        }
-
-        /* Lớp 1: Nền giấy collage */
         .upxo-hero::before {
-            z-index: -3;
-            background-image: url('upxo_hero_background.png');
-        }
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 350px;
 
-        /* Lớp 2: Bộ ba sản phẩm UP-XƠ */
-        .upxo-hero::after {
-            z-index: -2;
-            background-image: url('upxo_hero_collage.png');
+            background-size: contain;
+            background-position: center bottom;
 
-            /* Chỉ lấy phần bên phải chứa sản phẩm */
-            clip-path: inset(0 0 0 42%);
-
-            /* Làm mềm rìa để không lộ khung ảnh */
-            -webkit-mask-image: radial-gradient(
-                ellipse 47% 46% at 76% 60%,
-                #000 59%,
-                transparent 96%
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 20%
             );
 
-            mask-image: radial-gradient(
-                ellipse 47% 46% at 76% 60%,
-                #000 59%,
-                transparent 96%
+            mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 20%
             );
         }
 
-        /* Làm sáng vùng chữ bên trái */
-        .upxo-hero-wash {
-            position: absolute;
-            z-index: -1;
-            inset: 0;
-            pointer-events: none;
-
-            background: linear-gradient(
-                90deg,
-                rgba(250, 246, 239, .98) 0%,
-                rgba(250, 246, 239, .94) 27%,
-                rgba(250, 246, 239, .66) 40%,
-                rgba(250, 246, 239, 0) 58%
-            );
-        }
-
-        /* Typography */
         .upxo-hero-title {
-            font-size: clamp(2.7rem, 4vw, 4.25rem);
-            line-height: 1.08;
-            letter-spacing: -0.045em;
+            font-size: clamp(2.2rem, 9vw, 3rem);
         }
-
-        /* Responsive trên điện thoại */
-        @media (max-width: 767px) {
-
-            .upxo-hero {
-                min-height: 0;
-                align-items: stretch;
-            }
-
-            .upxo-hero::before,
-            .upxo-hero::after {
-                background-size: 710px auto;
-                background-position: right bottom;
-            }
-
-            .upxo-hero::after {
-                clip-path: inset(45% 0 0 0);
-
-                -webkit-mask-image: radial-gradient(
-                    ellipse 70% 32% at 65% 82%,
-                    #000 65%,
-                    transparent 100%
-                );
-
-                mask-image: radial-gradient(
-                    ellipse 70% 32% at 65% 82%,
-                    #000 65%,
-                    transparent 100%
-                );
-            }
-
-            .upxo-hero-wash {
-                background: linear-gradient(
-                    180deg,
-                    #faf5ed 0%,
-                    rgba(250, 245, 237, .98) 50%,
-                    rgba(250, 245, 237, 0) 73%
-                );
-            }
-
-            .upxo-hero-title {
-                font-size: clamp(2.35rem, 10vw, 3.4rem);
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 
