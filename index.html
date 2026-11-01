@@ -820,5 +820,36 @@
         lucide.createIcons();
     </script>
 
+<!-- Tự động làm nổi bật trang đang được mở -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Xác định trang hiện tại
+        const currentPage =
+            window.location.pathname.split("/").pop() || "index.html";
+
+        // Lấy các mục trong thanh điều hướng
+        const navLinks = document.querySelectorAll("header nav a");
+
+        navLinks.forEach(function (link) {
+
+            // Xóa trạng thái đang chọn cũ
+            link.classList.remove("text-brandOrange", "font-bold");
+            link.removeAttribute("aria-current");
+
+            // Nếu đường dẫn khớp trang hiện tại
+            if (link.getAttribute("href") === currentPage) {
+
+                // Chuyển mục tương ứng sang màu cam
+                link.classList.add("text-brandOrange", "font-bold");
+                link.setAttribute("aria-current", "page");
+
+            }
+
+        });
+
+    });
+</script>
+
 </body>
 </html>
