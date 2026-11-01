@@ -54,61 +54,87 @@
 
     <main class="flex-grow">
         <!-- Hero Banner -->
-        <section class="relative bg-gradient-to-r from-green-900 to-brandGreen text-white py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="inline-block bg-brandOrange text-white text-xs uppercase px-3 py-1 rounded-full font-bold mb-4">Wellness Tuần Hoàn 100% Tự Nhiên</span>
-                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-6">
-                        Trân Trọng Từng Nguồn Tươi Lành, Trọn Vẹn Chăm Mình Giữa Nhịp Sống Nhanh
-                    </h1>
-                    <p class="text-green-100 text-base sm:text-lg mb-8 leading-relaxed">
-                        Bột chất xơ hòa tan UP-XƠ từ phụ phẩm bã ép trái cây cold-press và nông sản lệch chuẩn. Giải pháp tiện lợi dạng stick 10g giúp bổ sung dinh dưỡng, thanh lọc cơ thể mỗi ngày.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg text-lg transition">Xem Các Vị Sản Phẩm</a>
-                        <a href="#process" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-lg transition">Tìm Hiểu Quy Trình</a>
-                    </div>
-                </div>
-                
-<!-- Hero Product Card -->
-<div class="flex justify-center">
-    <div class="w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl">
+        
+<!-- Hero Banner -->
+<section class="relative overflow-hidden bg-[#FFF9ED] text-brandGreen py-16 lg:py-24">
 
-        <!-- Ảnh bộ sản phẩm -->
-        <div class="relative h-64 sm:h-72 overflow-hidden bg-[#FFF8EF]">
-            <img
-                src="image1.png"
-                alt="Bộ 3 sản phẩm UP-XƠ"
-                class="w-full h-full object-cover scale-[1.12]"
-            >
+    <!-- Trang trí nền -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-lime-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-20 w-[500px] h-72 bg-[#DCEB9C]/60 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Nội dung bên trái -->
+        <div>
+            <span class="inline-block bg-[#E5EDCB] text-brandGreen text-xs sm:text-sm uppercase px-4 py-2 rounded-full font-bold mb-6">
+                🌿 Wellness tuần hoàn • Tự nhiên
+            </span>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.13] mb-6">
+                Trân Trọng Từng Nguồn Tươi Lành,
+                Trọn Vẹn Chăm Mình Giữa Nhịp Sống Nhanh
+            </h1>
+
+            <p class="text-[#4B6448] text-base sm:text-lg mb-9 leading-relaxed">
+                Bột chất xơ UP-XƠ từ bã ép trái cây cold-press và
+                nông sản lệch chuẩn đạt tiêu chuẩn an toàn.
+                Giải pháp tiện lợi dạng stick 10g,
+                đồng hành cùng lối sống lành mạnh mỗi ngày.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="products.html"
+                   class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-full shadow-lg transition">
+                    Xem Các Vị Sản Phẩm →
+                </a>
+
+                <a href="#process"
+                   class="border-2 border-brandGreen text-brandGreen hover:bg-green-50 font-bold px-7 py-3.5 rounded-full transition">
+                    Tìm Hiểu Quy Trình →
+                </a>
+            </div>
         </div>
 
-        <!-- Thông tin sản phẩm -->
-        <div class="px-6 py-5 flex justify-between items-center gap-4">
-            <div>
-                <span class="text-xs text-brandOrange font-bold uppercase">
-                    Hero Pack
-                </span>
-                <h3 class="text-xl font-bold text-gray-900 mt-1">
-                    Hộp 30 Gói × 10g
-                </h3>
-            </div>
+        <!-- Bộ sản phẩm bên phải: không có khung Hero Pack -->
+        <div class="relative">
 
-            <div class="text-right shrink-0">
-                <span class="text-sm line-through text-gray-400">
-                    349.000đ
-                </span>
-                <p class="text-2xl font-black text-brandGreen">
-                    269.000đ
-                </p>
+            <!-- Hình ảnh sản phẩm -->
+            <img
+                src="image1.png"
+                alt="Bộ ba sản phẩm UP-XƠ"
+                class="w-full h-auto object-contain"
+            >
+
+            <!-- Giá bán nằm trực tiếp trên nền -->
+            <div class="mt-6 flex flex-wrap items-end justify-between gap-5">
+
+                <div>
+                    <span class="inline-block bg-brandOrange text-white text-sm font-black px-4 py-1.5 -rotate-2 mb-3">
+                        HERO PACK
+                    </span>
+
+                    <h3 class="text-2xl font-black text-brandGreen">
+                        Hộp 30 Gói × 10g
+                    </h3>
+                </div>
+
+                <div class="text-right">
+                    <span class="text-base text-gray-400 line-through">
+                        349.000đ
+                    </span>
+
+                    <p class="text-3xl sm:text-4xl font-black text-brandGreen">
+                        <span class="bg-[#F5E56D] px-2 rounded-lg">
+                            269.000đ
+                        </span>
+                    </p>
+                </div>
+
             </div>
         </div>
 
     </div>
-</div>
-
-            </div>
-        </section>
+</section>
 
         <!-- Section: Quy Trình -->
         <section id="process" class="py-16 bg-white/50 border-y border-gray-200">
