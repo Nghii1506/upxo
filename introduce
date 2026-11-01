@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu | UP-XƠ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#2D5A27',
+                        brandOrange: '#E86F28',
+                        brandBg: '#F9F8F3',
+                        brandAccent: '#81B214'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium">
+        🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="logo.png" alt="UP-XƠ Logo" class="h-30 w-auto object-contain">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
+                <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
+                <a href="about.html" class="text-brandOrange font-bold">Giới Thiệu</a>
+                <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
+                <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
+                <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
+            </nav>
+            <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm">Đặt Hàng Ngay</a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Hero Section: Câu chuyện thương hiệu -->
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200 grid md:grid-cols-2 gap-10 items-center mb-16">
+            <div>
+                <span class="text-brandOrange font-bold text-sm tracking-widest uppercase">Câu Chuyện UP-XƠ</span>
+                <h1 class="text-3xl sm:text-4xl font-black text-brandGreen mt-2 mb-6">Giữ Phần Xơ - Nâng Phần Giá Trị</h1>
+                <blockquote class="text-base sm:text-lg italic text-gray-700 border-l-4 border-brandOrange pl-4 mb-6 leading-relaxed">
+                    "UP-XƠ tiên phong chuyển hóa phụ phẩm nông sản Việt thành giải pháp dinh dưỡng tiện lợi, góp phần định hình chuẩn mực tiêu dùng xanh bền vững."
+                </blockquote>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Theo các nghiên cứu công nghệ thực phẩm, bã trái cây sau quá trình ép lấy nước cold-press vẫn giữ lại hơn 70% lượng chất xơ tự nhiên và vi chất dinh dưỡng quý giá. 
+                </p>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Thấu hiểu điều đó, UP-XƠ ra đời với sứ mệnh thu gom nguồn phụ phẩm bã ép tươi lành và nông sản lệch chuẩn ngoại hình từ các nông trại bản địa, xử lý theo quy trình công nghệ sấy khép kín chuẩn an toàn để mang lại dòng bột chất xơ hòa tan tiện lợi cho nhịp sống hiện đại.
+                </p>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Nông sản bền vững UP-XƠ" class="rounded-2xl shadow-md w-full h-96 object-cover">
+                <div class="absolute -bottom-6 -left-6 bg-brandGreen text-white p-5 rounded-2xl shadow-xl hidden sm:block max-w-xs">
+                    <p class="text-2xl font-black text-brandOrange mb-1">70%+</p>
+                    <p class="text-xs text-green-100">Chất xơ tự nhiên được giữ trọn vẹn qua công nghệ chế biến tuần hoàn.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Trụ Cột Giá Trị Cốt Lõi -->
+        <div class="mb-16">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-brandOrange font-bold text-sm uppercase">Giá Trị Cốt Lõi</span>
+                <h2 class="text-3xl font-black text-brandGreen mt-1">Triết Lý Phát Triển Bền Vững</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-green-100 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="leaf" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">100% Nông Sản Việt</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Tận dụng triệt để nguồn bã trái cây tươi và nông sản lệch chuẩn ngoại hình từ các vùng nguyên liệu bản địa uy tín.</p>
+                </div>
+
+                <div class="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-orange-100 text-brandOrange rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="recycle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">Mô Hình Upcycling</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Giảm thiểu tối đa phát thải thực phẩm ra môi trường, góp phần tối ưu hóa chuỗi giá trị kinh tế tuần hoàn nông nghiệp.</p>
+                </div>
+
+                <div class="p-8 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-lime-100 text-brandAccent rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-800">An Toàn & Minh Bạch</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed">Quy trình sấy lạnh khép kín đạt chuẩn an toàn thực phẩm, có mã QR truy xuất nguồn gốc nguyên liệu rõ ràng.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner Kêu Gọi Hành Động (CTA) -->
+        <div class="bg-gradient-to-r from-brandGreen to-green-900 text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl mx-auto">
+                <h2 class="text-2xl sm:text-4xl font-black mb-4">Cùng UP-XƠ Xây Dựng Lối Sống Xanh</h2>
+                <p class="text-green-100 text-sm sm:text-base mb-8">Trải nghiệm ngay 12 hương vị bột chất xơ hòa tan tự nhiên, chăm sóc sức khỏe hệ tiêu hóa mỗi ngày.</p>
+                <a href="products.html" class="inline-block bg-brandOrange hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition text-base">Khám Phá Sản Phẩm</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brandGreen text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <img src="logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                </div>
+                <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Sản Phẩm</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="products.html" class="hover:underline">Dòng Lành Vị (SKU 01 - 04)</a></li>
+                    <li><a href="products.html" class="hover:underline">Dòng Êm Vị (SKU 05 - 08)</a></li>
+                    <li><a href="products.html" class="hover:underline">Dòng Bật Vị (SKU 09 - 12)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Điều Hướng</h4>
+                <ul class="space-y-2 text-xs text-green-200">
+                    <li><a href="index.html" class="hover:underline">Trang Chủ</a></li>
+                    <li><a href="about.html" class="hover:underline">Giới Thiệu</a></li>
+                    <li><a href="products.html" class="hover:underline">Sản Phẩm</a></li>
+                    <li><a href="blog.html" class="hover:underline">Cẩm Nang</a></li>
+                    <li><a href="contact.html" class="hover:underline">Liên Hệ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-3">Theo Dõi UP-XƠ</h4>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-brandOrange transition"><i data-lucide="video" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-green-800 text-center text-xs text-green-300">
+            © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
