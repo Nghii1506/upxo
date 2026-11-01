@@ -23,9 +23,9 @@
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
-                <a href="about.html" class="text-brandOrange font-bold">Giới Thiệu</a>
+                <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
                 <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
-                <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
+               <a href="blog.html" class="text-brandOrange font-bold hover:text-brandOrange transition">Cẩm Nang</a>
                 <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
             <div class="flex items-center gap-3">
@@ -139,3 +139,37 @@
             © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
         </div>
     </footer>
+
+    <!-- Tự động cập nhật màu thanh điều hướng -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const currentPage =
+                window.location.pathname.split("/").pop() || "index.html";
+
+            const navLinks = document.querySelectorAll("header nav a");
+
+            navLinks.forEach(function (link) {
+
+                // Xóa trạng thái đang chọn cũ
+                link.classList.remove("text-brandOrange", "font-bold");
+                link.removeAttribute("aria-current");
+
+                // Làm nổi bật trang hiện tại
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("text-brandOrange", "font-bold");
+                    link.setAttribute("aria-current", "page");
+                }
+
+            });
+
+            // Hiển thị các biểu tượng Lucide
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+        });
+    </script>
+
+</body>
+</html>
