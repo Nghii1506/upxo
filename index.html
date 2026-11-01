@@ -830,6 +830,138 @@
 
     });
 </script>
+<!-- Slide-over Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
+        <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-brandGreen text-white flex justify-between items-center">
+                    <h2 class="text-lg font-bold flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i> Giỏ Hàng UP-XƠ
+                    </h2>
+                    <button onclick="toggleCart()" class="text-white/80 hover:text-white p-1">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>
+                </div>
+                <div class="p-6 border-t border-gray-200 bg-gray-50 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-gray-700 text-sm">Tổng tiền dự tính:</span>
+                        <span id="cart-total" class="text-2xl font-black text-brandGreen">0đ</span>
+                    </div>
+                    <a href="https://shopee.vn/hung08012006" target="_blank" rel="noopener noreferrer" class="block text-center bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-full shadow-lg transition text-sm">
+                        Chuyển Đến Shopee Thanh Toán
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Script Xử Lý Giỏ Hàng -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('upxo_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(id, name, price, image) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart[index].quantity += 1;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+            saveCart();
+            toggleCart(true);
+        }
+
+        function updateQuantity(id, delta) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            saveCart();
+        }
+
+        function toggleCart(forceOpen = false) {
+            const drawer = document.getElementById('cart-drawer');
+            if (forceOpen) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsEl = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (countEl) {
+                countEl.innerText = totalItems;
+                countEl.classList.toggle('hidden', totalItems === 0);
+            }
+
+            if (totalEl) {
+                totalEl.innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
+            }
+
+            if (itemsEl) {
+                if (cart.length === 0) {
+                    itemsEl.innerHTML = '<p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>';
+                } else {
+                    itemsEl.innerHTML = cart.map(item => `
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain bg-gray-50 rounded-lg p-1 border">
+                            <div class="flex-1 px-3">
+                                <h4 class="font-bold text-xs text-gray-800">${item.name}</h4>
+                                <p class="text-xs text-brandGreen font-bold">${item.price.toLocaleString('vi-VN')}đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
+                                <button onclick="updateQuantity('${item.id}', -1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">-</button>
+                                <span class="text-xs font-bold text-gray-800">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">+</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
+
+    <!-- Script Tự Động Đổi Màu Menu & Tạo Icon -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const navLinks = document.querySelectorAll("header nav a");
+
+            navLinks.forEach(function (link) {
+                link.classList.remove("text-brandOrange", "font-bold");
+                link.removeAttribute("aria-current");
+
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("text-brandOrange", "font-bold");
+                    link.setAttribute("aria-current", "page");
+                }
+            });
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
 </body>
 </html>
