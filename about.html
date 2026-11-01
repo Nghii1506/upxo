@@ -28,11 +28,11 @@
         🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
     </div>
 
-    <!-- Navigation Header -->
+   <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-20 w-auto object-contain">
+                <img src="logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
@@ -41,7 +41,14 @@
                 <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
                 <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
-            <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm">Đặt Hàng Ngay</a>
+            <div class="flex items-center gap-3">
+                <!-- Nút Giỏ Hàng -->
+                <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
+                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden sm:inline-block">Đặt Hàng Ngay</a>
+            </div>
         </div>
     </header>
 
