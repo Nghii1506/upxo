@@ -213,9 +213,40 @@
                 </ul>
             </div>
         </div>
+       
         <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-green-800 text-center text-xs text-green-300">
             © 2026 UP-XƠ. All rights reserved. Designed for FoodTech Project.
         </div>
     </footer>
-        </div>
-    </footer>
+
+    <!-- Tự động chuyển màu cam theo trang hiện tại -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const currentPage =
+                window.location.pathname.split("/").pop() || "index.html";
+
+            const navLinks = document.querySelectorAll("header nav a");
+
+            navLinks.forEach(function (link) {
+
+                link.classList.remove("text-brandOrange", "font-bold");
+                link.removeAttribute("aria-current");
+
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("text-brandOrange", "font-bold");
+                    link.setAttribute("aria-current", "page");
+                }
+
+            });
+
+            // Hiển thị các biểu tượng Lucide
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+        });
+    </script>
+
+</body>
+</html>
