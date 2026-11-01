@@ -830,7 +830,7 @@
 
     });
 </script>
-<!-- Slide-over Cart Drawer -->
+<!-- 1. Slide-over Cart Drawer (Khung trượt Giỏ hàng) -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
         <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
         <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
@@ -851,15 +851,64 @@
                         <span class="font-bold text-gray-700 text-sm">Tổng tiền dự tính:</span>
                         <span id="cart-total" class="text-2xl font-black text-brandGreen">0đ</span>
                     </div>
-                    <a href="https://shopee.vn/hung08012006" target="_blank" rel="noopener noreferrer" class="block text-center bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-full shadow-lg transition text-sm">
-                        Chuyển Đến Shopee Thanh Toán
-                    </a>
+                    <button onclick="openCheckoutModal()" class="w-full text-center bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-full shadow-lg transition text-sm">
+                        Tiến Hành Thanh Toán
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Script Xử Lý Giỏ Hàng -->
+    <!-- 2. Modal Form Thanh Toán Trực Tiếp (On-site Checkout) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" role="dialog" aria-modal="true">
+        <div onclick="closeCheckoutModal()" class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl z-10">
+                <div class="flex justify-between items-center pb-4 border-b">
+                    <h3 class="text-xl font-bold text-brandGreen flex items-center gap-2">
+                        <i data-lucide="credit-card" class="w-5 h-5 text-brandOrange"></i> Thông Tin Đặt Hàng
+                    </h3>
+                    <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-600 p-1">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+                <form id="checkout-form" onsubmit="processOrder(event)" class="mt-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên *</label>
+                        <input type="text" id="cust-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Số Điện Thoại *</label>
+                        <input type="tel" id="cust-phone" required placeholder="0901234567" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Địa Chỉ Nhận Hàng *</label>
+                        <textarea id="cust-address" required rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/TP" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Hình Thức Thanh Toán</label>
+                        <select id="cust-payment" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
+                            <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+                            <option value="BANK">Chuyển khoản Ngân hàng</option>
+                        </select>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-xs text-gray-500 block">Tổng thanh toán:</span>
+                            <span id="checkout-total-price" class="text-xl font-black text-brandOrange">0đ</span>
+                        </div>
+                        <button type="submit" class="bg-brandGreen hover:bg-emerald-800 text-white font-bold px-8 py-3 rounded-full text-sm shadow-md transition">
+                            Xác Nhận Đặt Hàng
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Script Xử Lý Toàn Bộ (Giỏ Hàng + Thanh Toán + Menu + Icon) -->
     <script>
         let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
 
@@ -899,6 +948,33 @@
             }
         }
 
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert("Giỏ hàng của bạn đang trống!");
+                return;
+            }
+            toggleCart(false);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('checkout-total-price').innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function processOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            
+            alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận thành công.\nUP-XƠ sẽ liên hệ qua SĐT ${phone} để xác nhận đơn và giao hàng.`);
+            
+            cart = [];
+            saveCart();
+            closeCheckoutModal();
+        }
+
         function updateCartUI() {
             const countEl = document.getElementById('cart-count');
             const itemsEl = document.getElementById('cart-items');
@@ -936,14 +1012,11 @@
                     `).join('');
                 }
             }
+            if (window.lucide) lucide.createIcons();
         }
 
-        document.addEventListener('DOMContentLoaded', updateCartUI);
-    </script>
-
-    <!-- Script Tự Động Đổi Màu Menu & Tạo Icon -->
-    <script>
         document.addEventListener("DOMContentLoaded", function () {
+            updateCartUI();
             const currentPage = window.location.pathname.split("/").pop() || "index.html";
             const navLinks = document.querySelectorAll("header nav a");
 
@@ -962,6 +1035,5 @@
             }
         });
     </script>
-</body>
 </body>
 </html>
