@@ -42,7 +42,7 @@
                 <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
             <div class="flex items-center gap-3">
-                <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
+                <button onclick="window.location.href='products.html?openCart=1'" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
                     <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
                 </button>
@@ -505,8 +505,9 @@
         function addCurrentToCart() {
             const p = allProducts[currentSkuId] || allProducts[defaultSku];
             const index = cart.findIndex(item => item.id === currentSkuId);
-            if (index > -1) { cart[index].quantity += currentQty; } else { cart.push({ id: currentSkuId, name: p.title, price: p.price, image: p.img, quantity: currentQty }); }
-            saveCart(); toggleCart(true);
+            if (index > -1) { cart[index].quantity += currentQty; } else { cart.push({ id: currentSkuId, name: p.title, price: p.price, image: p.images[0], quantity: currentQty }); }
+            saveCart();
+            window.location.href = "products.html?openCart=1";
         }
 
         function buyNow() {
