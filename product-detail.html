@@ -46,9 +46,52 @@
                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
                     <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
                 </button>
-                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden sm:inline-block">Đặt Hàng Ngay</a>
+                <!-- Nút mở menu trên điện thoại -->
+                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()"
+                        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-green-100 bg-green-50 text-brandGreen hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:ring-offset-2 transition"
+                        aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng">
+                    <span id="mobile-menu-open-icon" class="text-2xl leading-none" aria-hidden="true">☰</span>
+                    <span id="mobile-menu-close-icon" class="hidden text-2xl leading-none" aria-hidden="true">×</span>
+                </button>
+                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden md:inline-block">Đặt Hàng Ngay</a>
             </div>
         </div>
+        <!-- Menu điều hướng trên điện thoại -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t border-green-100 bg-white shadow-lg" aria-label="Điều hướng trên điện thoại">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+                <a href="index.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Trang Chủ</a>
+                <a href="about.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Giới Thiệu</a>
+                <a href="products.html" class="block rounded-xl px-4 py-3 text-sm transition bg-green-50 text-brandOrange font-bold" aria-current="page">Sản Phẩm</a>
+                <a href="blog.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Cẩm Nang</a>
+                <a href="contact.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Liên Hệ</a>
+                <a href="products.html" class="mt-2 block rounded-xl bg-brandOrange px-4 py-3 text-center text-sm font-bold text-white hover:bg-orange-600 transition">Đặt Hàng Ngay</a>
+            </div>
+        </nav>
+        <script>
+            function setMobileMenuOpen(open) {
+                const menu = document.getElementById('mobile-menu');
+                const button = document.getElementById('mobile-menu-toggle');
+                if (!menu || !button) return;
+                menu.classList.toggle('hidden', !open);
+                button.setAttribute('aria-expanded', String(open));
+                button.setAttribute('aria-label', open ? 'Đóng menu điều hướng' : 'Mở menu điều hướng');
+                document.getElementById('mobile-menu-open-icon').classList.toggle('hidden', open);
+                document.getElementById('mobile-menu-close-icon').classList.toggle('hidden', !open);
+            }
+            function toggleMobileMenu() {
+                const button = document.getElementById('mobile-menu-toggle');
+                setMobileMenuOpen(button.getAttribute('aria-expanded') !== 'true');
+            }
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') setMobileMenuOpen(false);
+            });
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('header')) setMobileMenuOpen(false);
+            });
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) setMobileMenuOpen(false);
+            });
+        </script>
     </header>
 
     <main class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow space-y-6">
