@@ -309,7 +309,7 @@
             },
             'sku04': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Chanh Dây Gừng Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Lành Vị", price: 259000, images: ["daygung1.png", "dg2_2.png", "dg3_2.png","sku_04.png"],
+                line: "Dòng Lành Vị", price: 259000, images: ["daygung1_2.png", "dg2_2.png", "dg3_2.png","sku_04.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍋 UP-XƠ CHANH DÂY – GỪNG | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -475,10 +475,13 @@
             // Render dữ liệu Shopee
             document.getElementById('p-title').innerText = p.title;
             document.getElementById('p-price').innerText = p.price.toLocaleString('vi-VN') + 'đ';
-            document.getElementById('main-img').src = p.img;
-            document.getElementById('thumb-1').src = p.img;
-            document.getElementById('thumb-2').src = p.thumb2 || p.img;
-            document.getElementById('thumb-3').src = p.thumb3 || p.img;
+            const images = p.images || [];
+            const fallbackImage = `sku_${currentSkuId.slice(3)}.png`;
+
+            document.getElementById('main-img').src = images[0] || fallbackImage;
+            document.getElementById('thumb-1').src = images[0] || fallbackImage;
+            document.getElementById('thumb-2').src = images[1] || fallbackImage;
+            document.getElementById('thumb-3').src = images[2] || fallbackImage;
             document.getElementById('breadcrumb-line').innerText = p.line;
             document.getElementById('p-desc-content').innerHTML = p.descHtml;
 
