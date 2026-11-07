@@ -197,7 +197,6 @@
                 <button onclick="closeArticleModal()" class="absolute top-4 right-4 bg-white/80 backdrop-blur hover:bg-white text-gray-700 p-2 rounded-full shadow transition z-20" aria-label="Đóng">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
-
                 <!-- Ảnh Bài Viết -->
                 <div class="relative h-64 sm:h-72 w-full">
                     <img id="modal-article-img" src="" alt="" class="w-full h-full object-cover">
@@ -207,19 +206,16 @@
                         <h2 id="modal-article-title" class="text-xl sm:text-2xl font-black mt-2 leading-tight text-white"></h2>
                     </div>
                 </div>
-
                 <!-- Nội Dung Chi Tiết -->
                 <div class="p-6 sm:p-8 max-h-[60vh] overflow-y-auto">
                     <div class="flex items-center gap-4 text-xs text-gray-400 mb-6 pb-4 border-b">
                         <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> UP-XƠ Editorial</span>
                         <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 3 phút đọc</span>
                     </div>
-
                     <div id="modal-article-body" class="space-y-4 text-sm text-gray-700 leading-relaxed">
                         <!-- Nội dung động sẽ inject vào đây -->
                     </div>
                 </div>
-
                 <!-- Chân Modal -->
                 <div class="p-5 bg-gray-50 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-3">
                     <p class="text-xs text-gray-500">Thích bài viết này? Chia sẻ lối sống xanh cùng UP-XƠ!</p>
@@ -274,7 +270,6 @@
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
-
                 <form id="checkout-form" onsubmit="processOrder(event)" class="mt-6 space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên *</label>
@@ -295,7 +290,6 @@
                             <option value="BANK">Chuyển khoản Ngân hàng</option>
                         </select>
                     </div>
-
                     <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
                         <div>
                             <span class="text-xs text-gray-500 block">Tổng thanh toán:</span>
@@ -310,7 +304,7 @@
         </div>
     </div>
 
-    <!-- 3. Script Xử Lý Toàn Bộ (Đọc Bài Viết + Giỏ Hàng + Thanh Toán) -->
+    <!-- 3. Script Xử Lý Toàn Bộ (Đọc Bài Viết + Giỏ Hàng + Thanh Toán + Menu) -->
     <script>
         // Data Chi Tiết Các Bài Viết
         const articlesData = {
@@ -323,7 +317,7 @@
                     <p>Tuy nhiên, các phân tích khoa học ngành FoodTech chứng minh rằng: <strong>Hơn 70% lượng chất xơ tự nhiên cùng nhiều hợp chất vi lượng polyphenol chống oxy hóa vẫn nằm lại nguyên vẹn trong phần bã ép này.</strong></p>
                     <div class="bg-green-50 p-4 rounded-xl border-l-4 border-brandGreen my-2">
                         <p class="text-xs text-brandGreen font-bold mb-1">🌱 Giải pháp từ UP-XƠ:</p>
-                        <p class="text-xs text-gray-700">UP-XƠ tiên phong thu gom bã trái cây tươi ngay sau khi ép từ các chuỗi đồ uống uy tín, đưa vào quy trình sấy lạnh khép kín giữ nhiệt độ dưới 40°C để nghiền thành chất xơ hòa tan tiện lợi.</p>
+                        <p class="text-xs text-gray-700">UP-XƠ tiên phong thu gom bã trái cây tươi ngay sau khi ép từ các chuỗi đồ uống uy tín, đưa vào quy trình sấy lạnh khép kín giữ nhiệt độ dưới 40°C để nghiền thành bột chất xơ hòa tan tiện lợi.</p>
                     </div>
                     <p>Hành trình tái sinh này không chỉ giúp cắt giảm lượng lớn khí phát thải nhà kính từ việc chôn lấp thực phẩm mà còn biến phụ phẩm thành giá trị dinh dưỡng cao cho sức khỏe hệ vi sinh đường ruột của bạn.</p>
                 `
@@ -334,7 +328,195 @@
                 image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=800&q=80",
                 content: `
                     <p class="font-medium text-brandOrange">Nông sản lệch chuẩn ngoại hình (Ugly Produce) – những quả ổi bị trầy nhẹ vỏ, quả xoài hơi méo hoặc cam không đạt kích thước siêu thị – từng bị loại bỏ dù chất lượng bên trong hoàn toàn hoàn hảo.</p>
-                    <p>Theo báo cáo của FAO, gần 30% nông sản tại các nông trại Việt Nam bị thất thoát trước khi tới tay người tiêu dùng chỉ vì rào cản hình thức tiêu chuẩn thương mại.</p>
+                    <p>Theo báo cáo của Tổ chức Lương thực và Nông nghiệp Liên Hợp Quốc (FAO), gần 30% nông sản tại các nông trại Việt Nam bị thất thoát trước khi tới tay người tiêu dùng chỉ vì rào cản hình thức tiêu chuẩn thương mại.</p>
                     <div class="bg-orange-50 p-4 rounded-xl border-l-4 border-brandOrange my-2">
                         <p class="text-xs text-brandOrange font-bold mb-1">🍊 Tối ưu giá trị nông hộ:</p>
-                        <p class="text-xs text-gray-700">UP-XƠ thu mua nguồn nông sản lệch chuẩn này với giá hợp lý minh bạch, hỗ trợ tối đa thu nhập cho bà
+                        <p class="text-xs text-gray-700">UP-XƠ thu mua nguồn nông sản lệch chuẩn này với giá hợp lý minh bạch, hỗ trợ tối đa thu nhập cho bà con nông dân tại các vùng nông sản bản địa.</p>
+                    </div>
+                    <p>Khi trải qua công nghệ sấy và chiết xuất chuẩn hóa, những trái cây “xấu mã” ấy biến thành từng gói bột xơ thơm lành, vừa giữ tròn vị ngọt nguyên bản vừa nâng tầm chuỗi giá trị nông nghiệp Việt.</p>
+                `
+            },
+            3: {
+                title: "Đồ uống “healthy” có thật sự healthy?",
+                tag: "Dinh Dưỡng Lành",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+                content: `
+                    <p class="font-medium text-brandGreen">Nhiều sản phẩm đồ uống dán nhãn "Healthy" hoặc "100% Nguyên Chất" trên thị trường thực chất đã lọc bỏ hoàn toàn chất xơ thô, chỉ giữ lại lượng đường fructose tự do cao.</p>
+                    <p>Việc uống nước ép loại bỏ xơ khiến đường hấp thu rất nhanh vào máu, dễ gây biến động chỉ số đường huyết và nhanh gây cảm giác thèm ăn trở lại.</p>
+                    <div class="bg-emerald-50 p-4 rounded-xl border-l-4 border-emerald-600 my-2">
+                        <p class="text-xs text-emerald-800 font-bold mb-1">💡 3 Tiêu chí đọc nhanh bao bì:</p>
+                        <ul class="list-disc pl-4 text-xs text-gray-700 space-y-1">
+                            <li>Lượng chất xơ (Dietary Fiber) ≥ 3g mỗi khẩu phần.</li>
+                            <li>Đường bổ sung (Added Sugars) = 0g.</li>
+                            <li>Không chứa phẩm màu tổng hợp hay chất bảo quản hóa học.</li>
+                        </ul>
+                    </div>
+                    <p>Bổ sung một gói bột chất xơ hòa tan UP-XƠ vào khẩu phần nước uống hàng ngày giúp bạn làm chậm quá trình hấp thu đường, duy trì năng lượng bền bỉ và giữ đường ruột luôn êm nhẹ.</p>
+                `
+            },
+            4: {
+                title: "Từ phụ phẩm thành sản phẩm xu hướng",
+                tag: "Xu Hướng Xanh",
+                image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80",
+                content: `
+                    <p class="font-medium text-brandGreen">Thực phẩm nâng cấp (Upcycled Food) đang là xu hướng tiêu dùng phát triển nhanh nhất tại các thị trường phát triển như Mỹ và Châu Âu.</p>
+                    <p>Người tiêu dùng thế hệ mới không chỉ quan tâm tới lượng calo nạp vào mà còn đặt câu hỏi về nguồn gốc và tác động môi trường của món ăn họ chi tiền mua.</p>
+                    <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600 my-2">
+                        <p class="text-xs text-blue-800 font-bold mb-1">🌍 Định hình phong cách sống:</p>
+                        <p class="text-xs text-gray-700">Mỗi gói UP-XƠ bạn sử dụng đồng nghĩa với việc trực tiếp tham gia vào chiến dịch cắt giảm thực phẩm lãng phí, giảm dấu chân carbon và bảo vệ hành tinh xanh.</p>
+                    </div>
+                    <p>Upcycling không còn là một khái niệm lý thuyết mà đã trở thành phong cách sống hiện đại, thông minh và có trách nhiệm của người trẻ Việt Nam ngày nay.</p>
+                `
+            }
+        };
+
+        // Hàm Mở Pop-up Bài Viết
+        function openArticleModal(id) {
+            const article = articlesData[id];
+            if (!article) return;
+
+            document.getElementById('modal-article-img').src = article.image;
+            document.getElementById('modal-article-img').alt = article.title;
+            document.getElementById('modal-article-title').innerText = article.title;
+            document.getElementById('modal-article-tag').innerText = article.tag;
+            document.getElementById('modal-article-body').innerHTML = article.content;
+
+            document.getElementById('article-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            if (window.lucide) lucide.createIcons();
+        }
+
+        // Hàm Đóng Pop-up Bài Viết
+        function closeArticleModal() {
+            document.getElementById('article-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Script Quản Lý Giỏ Hàng & Thanh Toán
+        let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('upxo_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(id, name, price, image) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart[index].quantity += 1;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+            saveCart();
+            toggleCart(true);
+        }
+
+        function updateQuantity(id, delta) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            saveCart();
+        }
+
+        function toggleCart(forceOpen = false) {
+            const drawer = document.getElementById('cart-drawer');
+            if (forceOpen) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert("Giỏ hàng của bạn đang trống!");
+                return;
+            }
+            toggleCart(false);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('checkout-total-price').innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function processOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            
+            alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận thành công.\nUP-XƠ sẽ liên hệ qua SĐT ${phone} để xác nhận đơn và giao hàng.`);
+            
+            cart = [];
+            saveCart();
+            closeCheckoutModal();
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsEl = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (countEl) {
+                countEl.innerText = totalItems;
+                countEl.classList.toggle('hidden', totalItems === 0);
+            }
+
+            if (totalEl) {
+                totalEl.innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
+            }
+
+            if (itemsEl) {
+                if (cart.length === 0) {
+                    itemsEl.innerHTML = '<p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>';
+                } else {
+                    itemsEl.innerHTML = cart.map(item => `
+                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain bg-gray-50 rounded-lg p-1 border">
+                            <div class="flex-1 px-3">
+                                <h4 class="font-bold text-xs text-gray-800">${item.name}</h4>
+                                <p class="text-xs text-brandGreen font-bold">${item.price.toLocaleString('vi-VN')}đ</p>
+                            </div>
+                            <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
+                                <button onclick="updateQuantity('${item.id}', -1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">-</button>
+                                <span class="text-xs font-bold text-gray-800">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">+</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+            if (window.lucide) lucide.createIcons();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateCartUI();
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const navLinks = document.querySelectorAll("header nav a");
+
+            navLinks.forEach(function (link) {
+                link.classList.remove("text-brandOrange", "font-bold");
+                link.removeAttribute("aria-current");
+
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("text-brandOrange", "font-bold");
+                    link.setAttribute("aria-current", "page");
+                }
+            });
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
