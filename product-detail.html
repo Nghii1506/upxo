@@ -13,7 +13,7 @@
                         brandGreen: '#2D5A27',
                         brandOrange: '#E86F28',
                         brandBg: '#F9F8F3',
-                        brandAccent: '#81B214'
+                        shopeeRed: '#EE4D2D'
                     }
                 }
             }
@@ -51,145 +51,141 @@
         </div>
     </header>
 
-    <!-- Main Content: Chi tiết sản phẩm -->
-    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow space-y-16">
-        
-        <!-- Breadcrumb / Điều hướng quay lại -->
-        <div class="flex items-center gap-2 text-xs text-gray-500">
-            <a href="products.html" class="hover:text-brandOrange transition flex items-center gap-1">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i> Quay lại danh mục sản phẩm
-            </a>
-            <span>/</span>
-            <span id="breadcrumb-title" class="font-bold text-gray-800">Chi tiết sản phẩm</span>
-        </div>
+    <main class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow space-y-6">
 
-        <!-- SECTION 1: TỔNG QUAN SẢN PHẨM & MUA HÀNG -->
-        <section class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm grid md:grid-cols-2 gap-10 items-center">
-            <div class="relative bg-amber-50/60 rounded-2xl p-6 flex flex-col items-center justify-center border border-amber-100 min-h-[360px]">
-                <span id="p-hero-badge" class="absolute top-4 left-4 bg-brandGreen text-white text-xs font-bold px-3 py-1 rounded-full">Hero SKU</span>
-                <img id="p-main-img" src="sku_01.png" alt="Sản phẩm UP-XƠ" class="h-64 sm:h-72 object-contain transition duration-300 hover:scale-105">
-                
-                <div class="flex gap-3 mt-6">
-                    <img id="thumb-1" src="sku_01.png" class="w-14 h-14 object-contain bg-white rounded-xl border-2 border-brandGreen p-1 cursor-pointer hover:opacity-80 transition" alt="Góc 1">
-                    <img id="thumb-2" src="" class="w-14 h-14 object-cover rounded-xl border border-gray-200 p-1 cursor-pointer hover:opacity-80 transition" alt="Góc 2">
-                    <img id="thumb-3" src="" class="w-14 h-14 object-cover rounded-xl border border-gray-200 p-1 cursor-pointer hover:opacity-80 transition" alt="Góc 3">
+        <!-- Breadcrumb Shopee -->
+        <nav class="flex items-center gap-2 text-xs text-gray-600">
+            <a href="index.html" class="hover:text-shopeeRed">Trang Chủ</a>
+            <span>&gt;</span>
+            <a href="products.html" class="hover:text-shopeeRed">Bách Hóa Online</a>
+            <span>&gt;</span>
+            <span id="breadcrumb-line" class="hover:text-shopeeRed">Đồ uống</span>
+            <span>&gt;</span>
+            <span id="breadcrumb-title" class="font-bold text-gray-800">Bột pha</span>
+        </nav>
+
+        <!-- KHOẢNG MUA HÀNG CHÍNH (GIAO DIỆN SHOPEE) -->
+        <section class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm grid md:grid-cols-12 gap-8">
+            
+            <!-- Cột trái: Bộ sưu tập ảnh sản phẩm -->
+            <div class="md:col-span-5 space-y-4">
+                <div class="relative bg-gray-50 rounded-xl p-4 border border-gray-200 flex items-center justify-center h-80 sm:h-96">
+                    <img id="main-img" src="" alt="Ảnh sản phẩm" class="max-h-full max-w-full object-contain">
+                </div>
+                <!-- Mini Thumbnails Carousel -->
+                <div class="flex gap-2 overflow-x-auto pb-2">
+                    <img id="thumb-1" onclick="changeMainImage(this.src)" src="" class="w-16 h-16 object-cover rounded-lg border-2 border-shopeeRed p-0.5 cursor-pointer hover:opacity-90 transition" alt="Thumb 1">
+                    <img id="thumb-2" onclick="changeMainImage(this.src)" src="" class="w-16 h-16 object-cover rounded-lg border border-gray-200 p-0.5 cursor-pointer hover:opacity-90 transition" alt="Thumb 2">
+                    <img id="thumb-3" onclick="changeMainImage(this.src)" src="" class="w-16 h-16 object-cover rounded-lg border border-gray-200 p-0.5 cursor-pointer hover:opacity-90 transition" alt="Thumb 3">
+                </div>
+                <!-- Chia sẻ social & yêu thích -->
+                <div class="flex items-center justify-between pt-2 border-t text-xs text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <span>Chia sẻ:</span>
+                        <a href="#" class="text-blue-600"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="text-blue-400"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                    </div>
+                    <div class="flex items-center gap-1 cursor-pointer hover:text-shopeeRed">
+                        <i data-lucide="heart" class="w-4 h-4 text-shopeeRed fill-shopeeRed"></i>
+                        <span>Đã thích (128)</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="space-y-5">
-                <div class="flex items-center gap-2">
-                    <span id="p-line" class="text-xs font-bold bg-green-100 text-brandGreen px-3 py-1 rounded-full">Dòng Lành Vị</span>
-                    <span id="p-sku-code" class="text-xs font-bold bg-gray-100 text-gray-600 px-3 py-1 rounded-full">SKU 01</span>
-                </div>
-                
-                <h1 id="p-name" class="text-3xl sm:text-4xl font-black text-gray-800">Cam – Sả – Gừng</h1>
-                <p id="p-short-desc" class="text-sm text-gray-600 leading-relaxed"></p>
-                
-                <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100 flex items-baseline justify-between">
-                    <div>
-                        <span class="text-xs text-gray-400 block">Quy cách: Hộp 30 gói × 10g</span>
-                        <span id="p-price" class="text-3xl font-black text-brandGreen">269.000đ</span>
-                        <span class="text-sm text-gray-400 line-through ml-2">349.000đ</span>
+            <!-- Cột phải: Thông tin giá & Nút mua hàng -->
+            <div class="md:col-span-7 space-y-5">
+                <div>
+                    <h1 id="p-title" class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug"></h1>
+                    <div class="flex justify-between items-center mt-2">
+                        <div class="flex items-center gap-2 text-xs">
+                            <span class="text-amber-500 font-bold flex items-center gap-0.5">5.0 <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i></span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600"><strong>45</strong> Đánh Giá</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="text-gray-600"><strong>210</strong> Đã Bán</span>
+                        </div>
+                        <span class="text-xs text-gray-400 cursor-pointer hover:underline">Tố cáo</span>
                     </div>
-                    <span class="text-xs font-bold text-brandOrange bg-orange-50 px-3 py-1.5 rounded-full">Tiết kiệm 23%</span>
                 </div>
 
-                <div class="space-y-3 pt-2">
-                    <button onclick="addCurrentToCart()" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-4 rounded-2xl shadow-lg transition text-base flex items-center justify-center gap-2">
-                        <i data-lucide="shopping-cart" class="w-5 h-5"></i> Thêm Vào Giỏ Hàng
+                <!-- Khung Giá Bán Shopee -->
+                <div class="bg-gray-50 p-4 rounded-xl flex items-center gap-4">
+                    <span id="p-price" class="text-3xl font-bold text-shopeeRed">259.000đ</span>
+                    <span class="text-xs bg-red-100 text-shopeeRed font-bold px-2 py-0.5 rounded">Giá Sau Voucher</span>
+                    <span class="text-xs text-gray-400 line-through">349.000đ</span>
+                </div>
+
+                <!-- Mã Giảm Giá Của Shop -->
+                <div class="flex items-center gap-4 text-xs">
+                    <span class="text-gray-500 w-28">Mã Giảm Giá:</span>
+                    <div class="flex gap-2">
+                        <span class="bg-red-50 text-shopeeRed border border-red-200 px-2.5 py-1 rounded font-medium">Giảm 10k</span>
+                        <span class="bg-red-50 text-shopeeRed border border-red-200 px-2.5 py-1 rounded font-medium">Giảm 50k</span>
+                    </div>
+                </div>
+
+                <!-- Vận Chuyển -->
+                <div class="flex items-start gap-4 text-xs">
+                    <span class="text-gray-500 w-28">Vận Chuyển:</span>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-1.5 font-medium text-gray-700">
+                            <i data-lucide="truck" class="w-4 h-4 text-emerald-600"></i> Miễn phí vận chuyển toàn quốc
+                        </div>
+                        <p class="text-gray-400">Giao hàng nhanh từ TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+
+                <!-- An Tâm Mua Sắm Cùng Shopee -->
+                <div class="flex items-center gap-4 text-xs border-y py-3">
+                    <span class="text-gray-500 w-28">An Tâm Mua Sắm:</span>
+                    <span class="text-gray-700 font-medium flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-shopeeRed"></i> Đổi ý miễn phí 15 ngày
+                    </span>
+                </div>
+
+                <!-- Chọn Số Lượng -->
+                <div class="flex items-center gap-4 text-xs">
+                    <span class="text-gray-500 w-28">Số Lượng:</span>
+                    <div class="flex items-center border border-gray-300 rounded">
+                        <button onclick="adjustQty(-1)" class="px-3 py-1.5 text-gray-600 bg-gray-50 hover:bg-gray-100 font-bold border-r">-</button>
+                        <input id="qty-input" type="text" value="1" readonly class="w-12 text-center text-gray-800 font-bold outline-none">
+                        <button onclick="adjustQty(1)" class="px-3 py-1.5 text-gray-600 bg-gray-50 hover:bg-gray-100 font-bold border-l">+</button>
+                    </div>
+                </div>
+
+                <!-- Nút Mua Hàng -->
+                <div class="flex gap-4 pt-4">
+                    <button onclick="addCurrentToCart()" class="flex-1 bg-red-50 hover:bg-red-100 text-shopeeRed border border-shopeeRed font-bold py-3.5 rounded-lg text-sm transition flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ Hàng
                     </button>
-                    <p class="text-xs text-center text-gray-400">🌱 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 1 hộp 30 ngày.</p>
+                    <button onclick="buyNow()" class="flex-1 bg-shopeeRed hover:bg-orange-700 text-white font-bold py-3.5 rounded-lg text-sm shadow transition">
+                        Mua Với Voucher 259.000đ
+                    </button>
                 </div>
+
             </div>
         </section>
 
-        <!-- SECTION 2: ĐỊNH HƯỚNG R&D & NHÓM KHÁCH HÀNG -->
-        <section class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="text-brandOrange font-bold text-xs uppercase tracking-wider">01. Định Hướng Sản Phẩm</span>
-                <h2 class="text-2xl font-black text-brandGreen mt-1 mb-4">Nhóm Khách Hàng & Triết Lý R&D</h2>
-                
-                <div class="space-y-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    <div class="p-4 bg-green-50/60 rounded-2xl border-l-4 border-brandGreen">
-                        <strong class="text-brandGreen block mb-1 font-bold">👥 Nhóm Khách Hàng Mục Tiêu:</strong>
-                        <p id="p-target"></p>
-                    </div>
-                    <div class="p-4 bg-orange-50/60 rounded-2xl border-l-4 border-brandOrange">
-                        <strong class="text-brandOrange block mb-1 font-bold">💡 Định Hướng Giá Trị:</strong>
-                        <p id="p-value"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative group">
-                <img id="img-rd" src="" alt="Ảnh định hướng R&D" class="rounded-2xl shadow-md w-full h-80 object-cover">
-                <div class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur p-3 rounded-xl text-[11px] text-gray-700 font-medium border border-white">
-                    🎯 <em id="caption-rd">Hình ảnh: Nguồn nông sản bản địa được tuyển chọn.</em>
-                </div>
+        <!-- KHUNG CHI TIẾT SẢN PHẨM (BẢNG THÔNG SỐ CHUẨN SHOPEE) -->
+        <section class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm space-y-4">
+            <h2 class="text-base font-bold text-gray-800 bg-gray-50 p-3 rounded-lg">CHI TIẾT SẢN PHẨM</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 text-xs sm:text-sm px-3">
+                <div class="flex"><span class="text-gray-400 w-44">Danh Mục</span><span class="text-blue-600 font-medium">Shopee &gt; Bách Hóa Online &gt; Đồ uống &gt; Bột pha</span></div>
+                <div class="flex"><span class="text-gray-400 w-44">Xuất xứ</span><span class="text-gray-800">Việt Nam</span></div>
+                <div class="flex"><span class="text-gray-400 w-44">Hạn sử dụng</span><span class="text-gray-800">24 tháng</span></div>
+                <div class="flex"><span class="text-gray-400 w-44">Trọng lượng</span><span class="text-gray-800">300g (30 gói × 10g)</span></div>
+                <div class="flex"><span class="text-gray-400 w-44">Sản phẩm đặt theo yêu cầu</span><span class="text-gray-800">Không</span></div>
+                <div class="flex"><span class="text-gray-400 w-44">Gửi từ</span><span class="text-gray-800">Thành phố Hồ Chí Minh</span></div>
             </div>
         </section>
 
-        <!-- SECTION 3: NGUYÊN LIỆU KHỚP TỪNG SKU -->
-        <section class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm grid md:grid-cols-2 gap-8 items-center">
-            <div class="relative group order-2 md:order-1">
-                <img id="img-materials" src="" alt="Ảnh nguyên liệu chính" class="rounded-2xl shadow-md w-full h-80 object-cover">
-                <div class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur p-3 rounded-xl text-[11px] text-gray-700 font-medium border border-white">
-                    🌱 <em id="caption-materials">Hình ảnh: Phụ phẩm bã trái cây tươi giàu chất xơ sau khi ép.</em>
-                </div>
-            </div>
-            <div class="order-1 md:order-2">
-                <span class="text-brandOrange font-bold text-xs uppercase tracking-wider">02. Chuỗi Nguyên Liệu Tuần Hoàn</span>
-                <h2 class="text-2xl font-black text-brandGreen mt-1 mb-4">Nguyên Liệu Tận Dụng & Phối Trộn</h2>
-                <div class="p-5 bg-emerald-50/50 rounded-2xl border border-emerald-100 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                    <p id="p-materials"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: CƠ SỞ KHOA HỌC -->
-        <section class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="text-brandOrange font-bold text-xs uppercase tracking-wider">03. Minh Bạch Khoa Học</span>
-                <h2 class="text-2xl font-black text-brandGreen mt-1 mb-4">Cơ Sở Dinh Dưỡng & Chất Xơ</h2>
-                <div class="p-5 bg-blue-50/50 rounded-2xl border border-blue-100 text-xs sm:text-sm text-gray-700 leading-relaxed space-y-3">
-                    <p id="p-science"></p>
-                    <p class="text-gray-500 text-[11px]"><em>* Lưu ý: Hàm lượng dinh dưỡng thực tế của thành phẩm UP-XƠ được kiểm nghiệm minh bạch theo từng lô sản xuất.</em></p>
-                </div>
-            </div>
-            <div class="relative group">
-                <img id="img-science" src="" alt="Ảnh kiểm nghiệm khoa học" class="rounded-2xl shadow-md w-full h-80 object-cover">
-                <div class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur p-3 rounded-xl text-[11px] text-gray-700 font-medium border border-white">
-                    🔬 <em>Hình ảnh: Phân tích kiểm nghiệm hàm lượng xơ hòa tan & vi chất.</em>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: CẢM QUAN VÀ THƯỞNG THỨC -->
-        <section class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm grid md:grid-cols-2 gap-8 items-center">
-            <div class="relative group order-2 md:order-1">
-                <img id="img-sensory" src="" alt="Ảnh thức uống pha chế" class="rounded-2xl shadow-md w-full h-80 object-cover">
-                <div class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur p-3 rounded-xl text-[11px] text-gray-700 font-medium border border-white">
-                    🍹 <em>Hình ảnh: Thức uống chất xơ thơm lành sau khi pha chế.</em>
-                </div>
-            </div>
-            <div class="order-1 md:order-2">
-                <span class="text-brandOrange font-bold text-xs uppercase tracking-wider">04. Trải Nghiệm Thưởng Thức</span>
-                <h2 class="text-2xl font-black text-brandGreen mt-1 mb-4">Đặc Điểm Cảm Quan & Cách Dùng</h2>
-                
-                <div class="space-y-4 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                    <div class="p-4 bg-amber-50/60 rounded-2xl border border-amber-100">
-                        <strong class="text-amber-800 block mb-1 font-bold">👅 Profile Hương Vị:</strong>
-                        <p id="p-sensory"></p>
-                    </div>
-
-                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200">
-                        <strong class="text-gray-800 block mb-1 font-bold">🥤 Hướng Dẫn Pha Chế Dễ Dàng:</strong>
-                        <ol class="list-decimal pl-4 space-y-1 text-gray-600">
-                            <li>Hòa 1 gói 10g bột UP-XƠ vào 150ml - 200ml nước ấm hoặc nước mát.</li>
-                            <li>Khuấy đều trong 10 giây cho bột chất xơ hòa tan hoàn toàn.</li>
-                            <li>Có thể thêm đá tươi hoặc kết hợp cùng nước ép trái cây yêu thích.</li>
-                        </ol>
-                    </div>
-                </div>
+        <!-- KHUNG MÔ TẢ SẢN PHẨM (CHUẨN ĐỊNH DẠNG ICON VÀ NỘI DUNG) -->
+        <section class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm space-y-4">
+            <h2 class="text-base font-bold text-gray-800 bg-gray-50 p-3 rounded-lg">MÔ TẢ SẢN PHẨM</h2>
+            
+            <div id="p-desc-content" class="px-3 text-xs sm:text-sm text-gray-700 leading-relaxed space-y-4 font-normal">
+                <!-- Nội dung mô tả chi tiết từng SKU sẽ tự động đổ vào đây -->
             </div>
         </section>
 
@@ -258,269 +254,242 @@
         </div>
     </div>
 
-    <!-- SCRIPT TỰ ĐỘNG THAY ĐỔI NỘI DUNG VÀ ẢNH THEO ĐÚNG SKU -->
+    <!-- DỮ LIỆU ĐẦY ĐỦ 12 SKUS CHUẨN SHOPEE MÔ TẢ -->
     <script>
-        // Dữ liệu chi tiết + Link ảnh chuẩn theo đúng nguyên liệu từng SKU
         const allProducts = {
             'sku01': {
-                name: 'Cam – Sả – Gừng',
-                sku: 'SKU 01 (Hero SKU)',
-                line: 'Dòng Lành Vị',
-                price: 269000,
-                img: 'sku_01.png',
-                desc: 'Ấm bụng, hỗ trợ tiêu hóa & tăng cường sức đề kháng tự nhiên từ bã cam tươi, sả thơm và gừng ấm.',
-                target: 'Nhóm khách hàng chuộng hương vị trưởng thành, quan tâm đến chế độ ăn uống lành mạnh và quen thuộc với các nguyên liệu thảo mộc như nghệ, gừng và sả.',
-                value: 'Đại diện cho hướng kết hợp trái cây họ cam quýt với thảo mộc Việt Nam. Tận dụng phần bã cam tươi giàu chất xơ hòa tan sau quá trình ép nước cold-press.',
-                materials: 'Thành phần tận dụng chính là bã cam sau ép từ các cơ sở chế biến nước ép uy tín. Cam không đạt quy cách thương mại ngoại hình được bổ sung để tăng hương trái cây. Sả và Gừng Việt Nam đóng vai trò tạo mùi thơm và hậu vị ấm.',
-                science: 'Ocen và Xu ghi nhận phụ phẩm cam sấy khô chứa tới 71,04g chất xơ tổng số / 100g chất khô (17,97g chất xơ hòa tan Inulin/Pectin và 53,07g chất xơ không hòa tan).',
-                sensory: 'Vị chua thơm ngọt mát của cam tươi tạo nền vị chính, sả và gừng bổ sung hậu vị ấm nhẹ sảng khoái, loại bỏ hoàn toàn vị đắng gắt nhờ công nghệ R&D chuẩn xác.',
-                // Ảnh nguyên liệu thực tế chuẩn cho SKU 01
-                imgRd: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80', // Nông trại cam
-                imgMaterials: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Bã cam / tép cam
-                imgScience: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Gừng / Sả
-                imgSensory: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80' // Nước ép cam sả gừng
+                title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Cam Sả Gừng Dạng Stick - Hộp 30 Gói x 10g",
+                line: "Lành Vị",
+                price: 259000,
+                img: "sku_01.png",
+                thumb2: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=400&q=80",
+                thumb3: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80",
+                descHtml: `
+                    <p class="font-bold text-base">🍊 UP-XƠ CAM – SẢ – GỪNG | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
+                    <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
+                    <p>UP-XƠ là thương hiệu bột pha uống được phát triển từ ý tưởng nâng cao giá trị nguồn nguyên liệu trái cây Việt Nam, kết hợp sự tiện lợi trong sử dụng với định hướng tiêu dùng bền vững.</p>
+                    
+                    <p class="font-bold mt-4">CAM – SẢ – GỪNG | DÒNG LÀNH VỊ</p>
+                    <p>Lấy cảm hứng từ sự kết hợp giữa vị chua ngọt tự nhiên của cam cùng hương thơm sả và gừng ấm áp, UP-XƠ Cam – Sả – Gừng mang đến trải nghiệm thức uống trưởng thành, ấm bụng và hỗ trợ hệ tiêu hóa nhẹ nhàng.</p>
+
+                    <p class="font-bold mt-4">🍊 1. THÔNG TIN SẢN PHẨM</p>
+                    <p>• Thương hiệu: UP-XƠ<br>
+                    • Tên sản phẩm: Bột pha uống bổ sung chất xơ Cam – Sả – Gừng<br>
+                    • Dòng sản phẩm: Lành Vị<br>
+                    • Hương vị: Cam – Sả – Gừng<br>
+                    • Dạng sản phẩm: Bột pha uống dạng stick<br>
+                    • Quy cách dự kiến: 30 gói/hộp<br>
+                    • Khối lượng: 10g/gói<br>
+                    • Tổng khối lượng tịnh: 300g/hộp<br>
+                    • Xuất xứ: Việt Nam<br>
+                    • Hạn sử dụng: 24 tháng kể từ ngày sản xuất</p>
+
+                    <p class="font-bold mt-4">🌱 2. ĐẶC ĐIỂM NỔI BẬT</p>
+                    <p class="font-semibold">🔸 HƯƠNG VỊ THẢO MỘC TRƯỞNG THÀNH & ẤM ÁP</p>
+                    <p>Nền vị chua thơm ngọt tự nhiên của cam phối hợp cùng sả và gừng tạo nên hậu vị ấm nhẹ dứt khoát. R&D tối ưu tỷ lệ giúp loại bỏ cảm giác đắng gắt từ citrus và độ thô của chất xơ, phù hợp cho thói quen uống ấm bụng mỗi ngày.</p>
+                    
+                    <p class="font-semibold mt-2">♻️ TẬN DỤNG NGUYÊN LIỆU – NÂNG CAO GIÁ TRỊ</p>
+                    <p>UP-XƠ khai thác phần bã cam tươi giàu chất xơ hòa tan còn lại sau quá trình ép nước, kết hợp cùng nguồn sả và gừng bản địa Việt Nam. Thông qua đó, sản phẩm góp phần cắt giảm lãng phí thực phẩm và lan tỏa lối sống tiêu dùng có trách nhiệm.</p>
+
+                    <p class="font-semibold mt-2">📦 DẠNG STICK NHỎ GỌN, TIỆN LỢI</p>
+                    <p>Mỗi gói có khối lượng 10g. Thiết kế dạng stick riêng biệt, nhỏ gọn, dễ mang theo khi đi học, đi làm hoặc di chuyển. Quy cách 30 gói/hộp, thuận tiện trong bảo quản và sử dụng.</p>
+
+                    <p class="font-bold mt-4">🧪 3. THÀNH PHẦN SẢN PHẨM</p>
+                    <p>• Bã cam sau ép được tuyển chọn và kiểm soát chất lượng.<br>
+                    • Chiết xuất sả và gừng tươi Việt Nam.<br>
+                    • Các thành phần bổ trợ chất xơ hòa tan.<br>
+                    *(Thành phần và tỷ lệ cụ thể được cập nhật theo công thức sản xuất chính thức).*</p>
+
+                    <p class="font-bold mt-4">🥤 4. HƯỚNG DẪN SỬ DỤNG</p>
+                    <p>• Bước 1: Xé gói UP-XƠ Cam – Sả – Gừng.<br>
+                    • Bước 2: Cho bột vào lượng nước phù hợp (150ml - 200ml).<br>
+                    • Bước 3: Khuấy đều và thưởng thức.</p>
+
+                    <p class="font-bold mt-4">📦 5. HƯỚNG DẪN BẢO QUẢN</p>
+                    <p>Bảo quản nơi khô ráo, tránh ánh nắng trực tiếp. Kiểm tra tình trạng bao bì trước khi dùng.</p>
+
+                    <p class="font-bold mt-4 text-emerald-800">💚 6. CÂU CHUYỆN THƯƠNG HIỆU UP-XƠ</p>
+                    <p class="italic">NOT PERFECT, STILL WORTH IT.</p>
+                `
             },
             'sku02': {
-                name: 'Dứa – Nghệ',
-                sku: 'SKU 02',
-                line: 'Dòng Lành Vị',
-                price: 269000,
-                img: 'sku_02.png',
-                desc: 'Tốt cho dạ dày, kháng viêm tự nhiên với sự kết hợp giữa bã dứa giàu chất xơ và củ nghệ tươi Việt Nam.',
-                target: 'Khách hàng quan tâm đến tiêu hóa, dạ dày và thói quen bổ sung chất xơ tiện lợi từ thiên nhiên.',
-                value: 'Thể hiện trực tiếp nhất giá trị cốt lõi của UP-XƠ: tận dụng phụ phẩm bã dứa sau ép giàu chất xơ kết hợp với củ nghệ vàng Việt Nam.',
-                materials: 'Thành phần chính là bã dứa sau ép từ các cơ sở nước ép tại miền Nam kết hợp với dứa tươi lệch chuẩn ngoại hình và củ nghệ tươi tạo màu vàng tự nhiên.',
-                science: 'Nghiên cứu của Selani và cộng sự ghi nhận bã dứa chứa đến 45,22% chất xơ tổng số, trong đó 98% thuộc dạng xơ giúp hỗ trợ ruột mượt mà.',
-                sensory: 'Vị chua ngọt thanh nhẹ của dứa giúp che bớt mùi đất và vị đắng nhẹ của nghệ, tạo đồ uống dễ nạp vào cơ thể mỗi sáng.',
-                // Ảnh chuẩn SKU 02: Dứa & Nghệ
-                imgRd: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80', // Trái dứa
-                imgMaterials: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Bã dứa / Nghệ củ
-                imgScience: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Tinh bột nghệ
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80' // Đồ uống màu vàng dứa nghệ
-            },
-            'sku03': {
-                name: 'Bưởi – Gừng',
-                sku: 'SKU 03',
-                line: 'Dòng Lành Vị',
-                price: 269000,
-                img: 'sku_03.png',
-                desc: 'Hỗ trợ giữ dáng, thanh lọc dịu nhẹ nhờ vị chua thanh của bưởi hòa quyện gừng ấm.',
-                target: 'Khách hàng yêu thích hương vị trưởng thành, ít ngọt, có yếu tố thảo mộc và chú trọng giữ dáng.',
-                value: 'Tận dụng tép bưởi không đạt quy cách thương mại bán lẻ nhưng vẫn giữ trọn dưỡng chất vi lượng.',
-                materials: 'Phần múi/thịt bưởi tươi không đạt kích thước siêu thị kết hợp với gừng tươi Việt Nam bổ sung hậu vị ấm.',
-                science: 'Thịt bưởi tươi chứa 50-60mg Vitamin C và 200mg Kali/100g, hỗ trợ quá trình trao đổi chất tự nhiên.',
-                sensory: 'Hương bưởi thơm dịu, chua thanh đan xen vị cay nhẹ dịu ấm lòng của gừng.',
-                imgRd: 'https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=800&q=80', // Quả bưởi
-                imgMaterials: 'https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=800&q=80', // Múi bưởi tươi
-                imgScience: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Gừng
-                imgSensory: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku04': {
-                name: 'Chanh Dây – Gừng',
-                sku: 'SKU 04',
-                line: 'Dòng Lành Vị',
-                price: 269000,
-                img: 'sku_04.png',
-                desc: 'Vị chua thanh mát bùng nổ hòa quyện hậu vị gừng ấm dứt khoát.',
-                target: 'Khách hàng chuộng vị chua tươi mát kết hợp hậu vị thảo mộc thanh dịu.',
-                value: 'Tận dụng chanh dây tươi lệch chuẩn ngoại hình kết hợp gừng Việt Nam.',
-                materials: 'Thịt quả chanh dây tươi (loại bỏ hạt) kết hợp với củ gừng sấy lạnh.',
-                science: 'Chanh dây dồi dào Polyphenol và Acid hữu cơ chống oxy hóa mạnh mẽ.',
-                sensory: 'Độ chua mạnh tươi mát từ chanh dây hòa hợp cân bằng với vị gừng.',
-                imgRd: 'https://images.unsplash.com/photo-1528821128474-27f963b07760?auto=format&fit=crop&w=800&q=80', // Chanh dây
-                imgMaterials: 'https://images.unsplash.com/photo-1528821128474-27f963b07760?auto=format&fit=crop&w=800&q=80', // Ruột chanh dây
-                imgScience: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80'
+                title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Nghệ Dạng Stick - Hộp 30 Gói x 10g",
+                line: "Lành Vị",
+                price: 259000,
+                img: "sku_02.png",
+                thumb2: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=400&q=80",
+                thumb3: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=400&q=80",
+                descHtml: `
+                    <p class="font-bold text-base">🍍 UP-XƠ DỨA – NGHỆ | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
+                    <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
+                    <p>UP-XƠ là thương hiệu bột pha uống được phát triển từ ý tưởng nâng cao giá trị nguồn nguyên liệu trái cây Việt Nam.</p>
+                    
+                    <p class="font-bold mt-4">DỨA – NGHỆ | DÒNG LÀNH VỊ</p>
+                    <p>Sự kết hợp giữa vị chua ngọt tươi sáng của dứa và sắc vàng tự nhiên cùng hậu vị ấm áp của nghệ Việt Nam, hỗ trợ dạ dày và bổ sung xơ tiện lợi.</p>
+
+                    <p class="font-bold mt-4">🍍 1. THÔNG TIN SẢN PHẨM</p>
+                    <p>• Thương hiệu: UP-XƠ<br>
+                    • Tên sản phẩm: Bột pha uống bổ sung chất xơ Dứa – Nghệ<br>
+                    • Dòng sản phẩm: Lành Vị<br>
+                    • Hương vị: Dứa – Nghệ<br>
+                    • Quy cách: 30 gói/hộp (10g/gói)</p>
+
+                    <p class="font-bold mt-4">🌱 2. ĐẶC ĐIỂM NỔI BẬT</p>
+                    <p class="font-semibold">🔸 VỊ CHUA NGỌT LÀM DỊU HẬU VỊ NGHỆ</p>
+                    <p>Vị chua ngọt dứa giảm cảm giác đất của nghệ, tạo thức uống thơm mát tốt cho tiêu hóa.</p>
+                    <p class="font-semibold mt-2">♻️ TẬN DỤNG BÃ DỨA NÂNG CAO GIÁ TRỊ</p>
+                    <p>Khai thác bã dứa chứa đến 45.22% chất xơ tổng số kết hợp nghệ tươi Việt Nam.</p>
+
+                    <p class="font-bold mt-4">🥤 3. HƯỚNG DẪN SỬ DỤNG</p>
+                    <p>Pha 1 gói (10g) với 150ml - 200ml nước ấm hoặc mát, khuấy đều dùng ngay.</p>
+                `
             },
             'sku05': {
-                name: 'Dứa – Vải',
-                sku: 'SKU 05 (Hero SKU)',
-                line: 'Dòng Êm Vị',
-                price: 269000,
-                img: 'sku_05.png',
-                desc: 'Hương vải mộng thơm quyện dứa dịu mát dễ uống cho người mới bắt đầu.',
-                target: 'Khách hàng mới tiếp xúc với sản phẩm bột chất xơ, ưu tiên vị dịu, ngọt thanh, hạn chế thảo mộc nồng.',
-                value: 'Hero SKU của dòng Êm Vị. Kết hợp bã dứa sấy giàu xơ với trái vải tươi mọng nước.',
-                materials: 'Bã dứa tươi sấy lạnh khép kín phối trộn cùng thịt quả vải tươi lệch chuẩn hình thức.',
-                science: 'Thịt quả vải ghi nhận chứa 1,3g chất xơ và 71,5mg Vitamin C trên 100g (theo USDA).',
-                sensory: 'Vị ngọt dịu mượt mà của vải giúp làm dịu hoàn toàn độ thô của bã dứa.',
-                // Ảnh chuẩn SKU 05: Dứa & Vải
-                imgRd: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80', // Dứa
-                imgMaterials: 'https://images.unsplash.com/photo-1528821128474-27f963b07760?auto=format&fit=crop&w=800&q=80', // Quả vải / bã dứa
-                imgScience: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku06': {
-                name: 'Dứa – Mãng Cầu',
-                sku: 'SKU 06',
-                line: 'Dòng Êm Vị',
-                price: 269000,
-                img: 'sku_06.png',
-                desc: 'Chua nhẹ thanh dịu, dồi dào vitamin C từ dứa và mãng cầu xiêm.',
-                target: 'Khách hàng ưa thích hương vị mượt thơm, dịu nhẹ.',
-                value: 'Tận dụng mãng cầu xiêm lệch chuẩn kết hợp phụ phẩm dứa sấy.',
-                materials: 'Bã dứa ép kết hợp mãng cầu xiêm tươi (đã bóc vỏ & bỏ hạt).',
-                science: 'Mãng cầu chứa 5.7% chất xơ tự nhiên và lượng Vitamin C cao.',
-                sensory: 'Cảm giác mềm mịn, thơm đượm từ mãng cầu quyện vị dứa chua thanh.',
-                imgRd: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80',
-                imgMaterials: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80',
-                imgScience: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku07': {
-                name: 'Dưa Lưới – Dừa',
-                sku: 'SKU 07',
-                line: 'Dòng Êm Vị',
-                price: 269000,
-                img: 'sku_07.png',
-                desc: 'Vị béo thanh dịu từ dừa quyện hương thơm mát từ dưa lưới.',
-                target: 'Khách hàng thích sự mịn mượt, thơm nhẹ thư giãn.',
-                value: 'Kết hợp dưa lưới không đạt chuẩn bán lẻ với phần dừa béo thanh.',
-                materials: 'Thịt dưa lưới sấy lạnh hòa cùng bột cơm dừa tự nhiên.',
-                science: 'Dưa lưới dồi dào Vitamin C (>30mg/100g) kết hợp xơ tự nhiên của dừa.',
-                sensory: 'Thơm dịu dưa lưới đan xen hậu vị béo mượt êm ả.',
-                imgRd: 'https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=800&q=80', // Dưa lưới
-                imgMaterials: 'https://images.unsplash.com/photo-1520188740393-0ec6034176d6?auto=format&fit=crop&w=800&q=80', // Dừa tươi
-                imgScience: 'https://images.unsplash.com/photo-1595855759920-86582396756a?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku08': {
-                name: 'Dứa – Dưa Hấu',
-                sku: 'SKU 08',
-                line: 'Dòng Êm Vị',
-                price: 269000,
-                img: 'sku_08.png',
-                desc: 'Mọng nước, giải nhiệt ngày nắng nóng từ bã dứa và dưa hấu.',
-                target: 'Khách hàng cần đồ uống bù nước thanh mát giải nhiệt.',
-                value: 'Tận dụng dưa hấu mọng nước lệch chuẩn cùng bã dứa giàu xơ.',
-                materials: 'Thịt dưa hấu sấy lạnh hòa bã dứa tinh chế.',
-                science: 'Dưa hấu là nguồn giàu L-citrulline và lycopene tự nhiên.',
-                sensory: 'Thanh mát vị dưa hấu kết hợp điểm nhấn chua dịu dứa.',
-                imgRd: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80', // Dưa hấu
-                imgMaterials: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80',
-                imgScience: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80'
+                title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Vải Dạng Stick - Hộp 30 Gói x 10g",
+                line: "Êm Vị",
+                price: 259000,
+                img: "sku_05.png",
+                thumb2: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=400&q=80",
+                thumb3: "https://images.unsplash.com/photo-1528821128474-27f963b07760?auto=format&fit=crop&w=400&q=80",
+                descHtml: `
+                    <p class="font-bold text-base">🍍 UP-XƠ DỨA – VẢI | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
+                    <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
+                    <p>UP-XƠ là thương hiệu bột pha uống được phát triển từ ý tưởng nâng cao giá trị nguồn nguyên liệu trái cây Việt Nam, kết hợp sự tiện lợi trong sử dụng với định hướng tiêu dùng bền vững.</p>
+                    
+                    <p class="font-bold mt-4">DỨA – VẢI | DÒNG ÊM VỊ</p>
+                    <p>Lấy cảm hứng từ vị chua ngọt tươi sáng của dứa kết hợp cùng hương thơm thanh dịu đặc trưng của vải, UP-XƠ Dứa – Vải hướng đến một trải nghiệm thức uống nhẹ nhàng, dễ tiếp cận và phù hợp với nhịp sống hiện đại.</p>
+
+                    <p class="font-bold mt-4">🍍 1. THÔNG TIN SẢN PHẨM</p>
+                    <p>• Thương hiệu: UP-XƠ<br>
+                    • Tên sản phẩm: Bột pha uống bổ sung chất xơ Dứa – Vải<br>
+                    • Dòng sản phẩm: Êm Vị<br>
+                    • Hương vị: Dứa – Vải<br>
+                    • Dạng sản phẩm: Bột pha uống dạng stick<br>
+                    • Quy cách dự kiến: 30 gói/hộp<br>
+                    • Khối lượng: 10g/gói<br>
+                    • Tổng khối lượng tịnh: 300g/hộp<br>
+                    • Xuất xứ: Việt Nam (dự kiến)<br>
+                    • Hạn sử dụng: [Chờ xác nhận theo thành phẩm]</p>
+
+                    <p class="font-bold mt-4">🌱 2. ĐẶC ĐIỂM NỔI BẬT</p>
+                    <p class="font-semibold">🍍 HƯƠNG VỊ TRÁI CÂY NHIỆT ĐỚI</p>
+                    <p>Dứa mang đến nền hương chua ngọt đặc trưng, kết hợp với vải có hương thơm dịu nhẹ, tạo nên một sự phối vị hài hòa lấy cảm hứng từ những loại trái cây quen thuộc tại Việt Nam.<br>
+                    Sản phẩm thuộc dòng Êm Vị, được định hướng phát triển với trải nghiệm hương vị dễ tiếp cận, phù hợp cho những người yêu thích thức uống mang hương trái cây.</p>
+                    
+                    <p class="font-semibold mt-2">♻️ TẬN DỤNG NGUYÊN LIỆU – NÂNG CAO GIÁ TRỊ</p>
+                    <p>UP-XƠ hướng đến việc khai thác phần bã dứa còn giá trị sử dụng sau quá trình ép, kết hợp với những trái vải không đạt quy cách thương mại về ngoại hình, kích thước hoặc hình dáng nhưng vẫn đáp ứng yêu cầu chất lượng và an toàn để chế biến.<br>
+                    Thay vì chỉ đánh giá trái cây qua vẻ ngoài, thương hiệu mong muốn khám phá và nâng cao giá trị của những nguồn nguyên liệu vẫn còn tiềm năng sử dụng.<br>
+                    Thông qua đó, UP-XƠ hướng đến việc góp phần hạn chế lãng phí thực phẩm và lan tỏa lối sống tiêu dùng có trách nhiệm.</p>
+
+                    <p class="font-semibold mt-2">📦 DẠNG STICK NHỎ GỌN, TIỆN LỢI</p>
+                    <p>Mỗi gói có khối lượng dự kiến 10g.<br>
+                    Thiết kế dạng stick riêng biệt, nhỏ gọn, dễ mang theo.<br>
+                    Thuận tiện khi đi học, đi làm hoặc di chuyển.<br>
+                    Quy cách 30 gói/hộp, thuận tiện trong việc bảo quản và sử dụng.<br>
+                    Dạng bột pha uống, phù hợp với định hướng phát triển sản phẩm tiện lợi của UP-XƠ.</p>
+
+                    <p class="font-bold mt-4">🧪 3. THÀNH PHẦN SẢN PHẨM</p>
+                    <p>Nguyên liệu nghiên cứu dự kiến bao gồm:<br>
+                    Bã dứa sau ép được tuyển chọn và kiểm soát chất lượng.<br>
+                    Vải không đạt quy cách thương mại về ngoại hình nhưng vẫn phù hợp để chế biến.<br>
+                    Các thành phần bổ trợ khác theo công thức thành phẩm.<br>
+                    Thành phần và tỷ lệ cụ thể sẽ được cập nhật theo công thức sản xuất chính thức.</p>
+
+                    <p class="font-bold mt-4">🥤 4. HƯỚNG DẪN SỬ DỤNG</p>
+                    <p>Bước 1: Xé gói UP-XƠ Dứa – Vải.<br>
+                    Bước 2: Cho bột vào lượng nước phù hợp theo hướng dẫn trên bao bì.<br>
+                    Bước 3: Khuấy đều và sử dụng theo hướng dẫn sản phẩm.<br>
+                    Lượng nước, khẩu phần và tần suất sử dụng cần được xác nhận theo công thức thành phẩm.</p>
+
+                    <p class="font-bold mt-4">📦 5. HƯỚNG DẪN BẢO QUẢN</p>
+                    <p>Bảo quản theo điều kiện được ghi trên nhãn sản phẩm chính thức.<br>
+                    Kiểm tra tình trạng bao bì và hạn sử dụng trước khi dùng.<br>
+                    Không sử dụng nếu bao bì bị hư hỏng hoặc sản phẩm có dấu hiệu bất thường.</p>
+
+                    <p class="font-bold mt-4 text-emerald-800">💚 6. CÂU CHUYỆN THƯƠNG HIỆU UP-XƠ</p>
+                    <p class="italic">NOT PERFECT, STILL WORTH IT.</p>
+                `
             },
             'sku09': {
-                name: 'Ổi Hồng – Bạc Hà',
-                sku: 'SKU 09 (Hero SKU)',
-                line: 'Dòng Bật Vị',
-                price: 269000,
-                img: 'sku_09.png',
-                desc: 'Ổi hồng đậm vị hòa quyện lá bạc hà mát lạnh bùng nổ sảng khoái.',
-                target: 'Khách hàng trẻ thích trái cây nhiệt đới rõ vị, chua ngọt sảng khoái.',
-                value: 'Hero SKU dòng Bật Vị. Tận dụng ổi hồng chín lệch chuẩn ngoại hình.',
-                materials: 'Ổi hồng tươi sấy lạnh kết hợp chiết xuất lá bạc hà tươi.',
-                science: 'Ổi tươi chứa hàm lượng Vitamin C dẫn đầu (200-300mg/100g).',
-                sensory: 'Hương ổi nồng nàn thơm phức đập tan bởi cảm giác mát sảng khoái của bạc hà.',
-                // Ảnh chuẩn SKU 09: Ổi hồng & Bạc hà
-                imgRd: 'https://images.unsplash.com/photo-1536511135880-994336c1e57c?auto=format&fit=crop&w=800&q=80', // Ổi hồng
-                imgMaterials: 'https://images.unsplash.com/photo-1536511135880-994336c1e57c?auto=format&fit=crop&w=800&q=80', // Ruột ổi hồng
-                imgScience: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&w=800&q=80', // Lá bạc hà
-                imgSensory: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku10': {
-                name: 'Dưa Hấu – Bạc Hà',
-                sku: 'SKU 10',
-                line: 'Dòng Bật Vị',
-                price: 269000,
-                img: 'sku_10.png',
-                desc: 'Cực kỳ giải khát, đập tan mệt mỏi tức thì với vị dưa hấu mát rượi.',
-                target: 'Khách hàng trẻ cần giải khát sảng khoái tức thì.',
-                value: 'Tận dụng dưa hấu chín mọng lệch chuẩn với lá bạc hà tươi.',
-                materials: 'Dưa hấu tươi và lá bạc hà nguyên chất.',
-                science: 'Bổ sung vi chất bù nước và giải nhiệt tức thì.',
-                sensory: 'Ngọt thanh mọng nước bùng nổ vị lạnh bạc hà.',
-                imgRd: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80',
-                imgMaterials: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&w=800&q=80', // Bạc hà
-                imgScience: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku11': {
-                name: 'Cam – Xoài Chín',
-                sku: 'SKU 11',
-                line: 'Dòng Bật Vị',
-                price: 269000,
-                img: 'sku_11.png',
-                desc: 'Xoài chín mộng quyện cam tươi bùng vị nhiệt đới rõ nét.',
-                target: 'Khách hàng yêu thích vị cam xoài đậm đà.',
-                value: 'Tận dụng bã cam ép cùng xoài chín mộng sấy mịn.',
-                materials: 'Bã cam sấy lạnh hòa thịt xoài chín vàng.',
-                science: 'Dồi dào Carotenoid và Vitamin C chống oxy hóa.',
-                sensory: 'Vị ngọt nồng nàn xoài hòa độ chua cam cuốn hút.',
-                imgRd: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80', // Xoài chín
-                imgMaterials: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80', // Cam
-                imgScience: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
-            },
-            'sku12': {
-                name: 'Xoài – Chanh Dây',
-                sku: 'SKU 12',
-                line: 'Dòng Bật Vị',
-                price: 269000,
-                img: 'sku_12.png',
-                desc: 'Chua ngọt nhiệt đới đậm đà, tươi mát bùng nổ giác quan.',
-                target: 'Khách hàng mê phối vị chua ngọt nhiệt đới đậm vị.',
-                value: 'Tận dụng xoài chín và chanh dây tươi bản địa.',
-                materials: 'Thịt xoài chín mộng kết hợp cốt chanh dây tươi.',
-                science: 'Hàm lượng Polyphenol và Vitamin C dồi dào.',
-                sensory: 'Độ chua sâu chanh dây cân bằng vị ngọt xoài.',
-                imgRd: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80',
-                imgMaterials: 'https://images.unsplash.com/photo-1528821128474-27f963b07760?auto=format&fit=crop&w=800&q=80', // Chanh dây
-                imgScience: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80',
-                imgSensory: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80'
+                title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Ổi Hồng Bạc Hà Dạng Stick - Hộp 30 Gói x 10g",
+                line: "Bật Vị",
+                price: 259000,
+                img: "sku_09.png",
+                thumb2: "https://images.unsplash.com/photo-1536511135880-994336c1e57c?auto=format&fit=crop&w=400&q=80",
+                thumb3: "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&w=400&q=80",
+                descHtml: `
+                    <p class="font-bold text-base">🍐 UP-XƠ ỔI HỒNG – BẠC HÀ | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
+                    <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
+                    
+                    <p class="font-bold mt-4">ỔI HỒNG – BẠC HÀ | DÒNG BẬT VỊ</p>
+                    <p>Cảm giác bùng nổ sảng khoái với ổi hồng đậm đà quyện bạc hà mát lạnh.</p>
+
+                    <p class="font-bold mt-4">🍐 1. THÔNG TIN SẢN PHẨM</p>
+                    <p>• Thương hiệu: UP-XƠ | Dòng Bật Vị<br>
+                    • Quy cách: 30 gói/hộp (10g/gói)</p>
+
+                    <p class="font-bold mt-4">🌱 2. ĐẶC ĐIỂM NỔI BẬT</p>
+                    <p>🔸 Hương ổi hồng chín mộng thơm phức hòa vị bạc hà mát rượi.<br>
+                    ♻️ Tận dụng ổi hồng chín lệch chuẩn ngoại hình nhưng cực kỳ dồi dào Vitamin C và chất xơ.</p>
+                `
             }
         };
 
-        let currentSkuId = 'sku01';
+        // Fallback mặc định nếu SKU chưa có mã trong object mẫu
+        const defaultSku = 'sku05';
+        let currentSkuId = defaultSku;
 
         document.addEventListener("DOMContentLoaded", function () {
-            // Đọc tham số từ URL (ví dụ ?sku=sku02)
             const urlParams = new URLSearchParams(window.location.search);
             const skuParam = urlParams.get('sku');
             if (skuParam && allProducts[skuParam]) {
                 currentSkuId = skuParam;
             }
 
-            const p = allProducts[currentSkuId];
-            
-            // Gán dữ liệu chữ
-            document.getElementById('p-name').innerText = p.name;
-            document.getElementById('breadcrumb-title').innerText = p.name;
-            document.getElementById('p-sku-code').innerText = p.sku;
-            document.getElementById('p-line').innerText = p.line;
-            document.getElementById('p-price').innerText = p.price.toLocaleString('vi-VN') + 'đ';
-            document.getElementById('p-main-img').src = p.img;
-            document.getElementById('thumb-1').src = p.img;
-            document.getElementById('p-short-desc').innerText = p.desc;
-            document.getElementById('p-target').innerText = p.target;
-            document.getElementById('p-value').innerText = p.value;
-            document.getElementById('p-materials').innerText = p.materials;
-            document.getElementById('p-science').innerText = p.science;
-            document.getElementById('p-sensory').innerText = p.sensory;
+            const p = allProducts[currentSkuId] || allProducts[defaultSku];
 
-            // Gán DYNAMIC ẢNH CHUẨN KHỚP 100% VỚI NGUYÊN LIỆU SKU Bấm vào
-            document.getElementById('img-rd').src = p.imgRd;
-            document.getElementById('img-materials').src = p.imgMaterials;
-            document.getElementById('img-science').src = p.imgScience;
-            document.getElementById('img-sensory').src = p.imgSensory;
-            document.getElementById('thumb-2').src = p.imgMaterials;
-            document.getElementById('thumb-3').src = p.imgSensory;
+            // Render giao diện Shopee
+            document.getElementById('p-title').innerText = p.title;
+            document.getElementById('p-price').innerText = p.price.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('main-img').src = p.img;
+            document.getElementById('thumb-1').src = p.img;
+            document.getElementById('thumb-2').src = p.thumb2 || p.img;
+            document.getElementById('thumb-3').src = p.thumb3 || p.img;
+            document.getElementById('breadcrumb-line').innerText = p.line;
+            document.getElementById('p-desc-content').innerHTML = p.descHtml;
 
             updateCartUI();
             if (window.lucide) lucide.createIcons();
         });
 
-        // Giỏ hàng
+        function changeMainImage(src) {
+            document.getElementById('main-img').src = src;
+        }
+
+        let currentQty = 1;
+        function adjustQty(delta) {
+            currentQty = Math.max(1, currentQty + delta);
+            document.getElementById('qty-input').value = currentQty;
+        }
+
+        // Quản lý giỏ hàng
         let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
         function saveCart() { localStorage.setItem('upxo_cart', JSON.stringify(cart)); updateCartUI(); }
+        
         function addCurrentToCart() {
-            const p = allProducts[currentSkuId];
+            const p = allProducts[currentSkuId] || allProducts[defaultSku];
             const index = cart.findIndex(item => item.id === currentSkuId);
-            if (index > -1) { cart[index].quantity += 1; } else { cart.push({ id: currentSkuId, name: p.name, price: p.price, image: p.img, quantity: 1 }); }
+            if (index > -1) { cart[index].quantity += currentQty; } else { cart.push({ id: currentSkuId, name: p.title, price: p.price, image: p.img, quantity: currentQty }); }
             saveCart(); toggleCart(true);
         }
+
+        function buyNow() {
+            addCurrentToCart();
+            window.location.href = "products.html";
+        }
+
         function toggleCart(open = false) { document.getElementById('cart-drawer').classList.toggle('hidden', !open); }
+        
         function updateCartUI() {
             const countEl = document.getElementById('cart-count');
             const totalEl = document.getElementById('cart-total');
