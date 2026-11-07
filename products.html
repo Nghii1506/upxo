@@ -22,12 +22,10 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
-
     <!-- Top Announcement Bar -->
     <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium">
         🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
     </div>
-
    <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -36,8 +34,8 @@
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
-               <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
-               <a href="products.html" class="text-brandOrange font-bold hover:text-brandOrange transition">Sản Phẩm</a>
+                <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
+                <a href="products.html" class="text-brandOrange font-bold hover:text-brandOrange transition">Sản Phẩm</a>
                 <a href="blog.html" class="hover:text-brandOrange transition">Cẩm Nang</a>
                 <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
@@ -53,14 +51,40 @@
     </header>
     
     <main class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
-        <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-center max-w-3xl mx-auto mb-10">
             <span class="text-brandOrange font-bold text-sm tracking-widest uppercase">Danh Mục Sản Phẩm</span>
             <h1 class="text-3xl sm:text-4xl font-black text-brandGreen mt-2">12 SKUs Bột Chất Xơ Tuần Hoàn</h1>
             <p class="text-gray-600 mt-3 text-sm md:text-base">Hộp 30 gói × 10g | Bổ sung chất xơ hòa tan & vitamin tự nhiên mỗi ngày</p>
         </div>
 
+        <!-- ================= KHU VỰC BỘ LỌC VÀ TÌM KIẾM ================= -->
+        <div class="bg-white p-4 md:p-6 rounded-2xl border border-gray-200 shadow-sm mb-12 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <!-- Ô Tìm Kiếm -->
+            <div class="relative w-full md:w-1/2">
+                <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text" id="search-input" oninput="applyFilters()" placeholder="Tìm kiếm tên vị (Cam, Gừng, Dứa, SKU 01...)..." 
+                    class="w-full pl-11 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-brandGreen focus:bg-white focus:outline-none transition">
+            </div>
+
+            <!-- Các Nút Lọc Dòng Sản Phẩm -->
+            <div class="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end">
+                <button onclick="setCategory('all', this)" class="filter-btn bg-brandGreen text-white px-4 py-2 rounded-xl text-xs font-bold transition">Tất Cả (12)</button>
+                <button onclick="setCategory('lanh', this)" class="filter-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl text-xs font-bold transition">Dòng Lành Vị</button>
+                <button onclick="setCategory('em', this)" class="filter-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl text-xs font-bold transition">Dòng Êm Vị</button>
+                <button onclick="setCategory('bat', this)" class="filter-btn bg-gray-100 text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-xl text-xs font-bold transition">Dòng Bật Vị</button>
+            </div>
+        </div>
+
+        <!-- Thông báo Không Tìm Thấy Kết Quả -->
+        <div id="no-results" class="hidden text-center py-16 bg-white rounded-2xl border border-gray-200 shadow-sm mb-12">
+            <i data-lucide="search-x" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
+            <h3 class="text-lg font-bold text-gray-700">Không tìm thấy sản phẩm phù hợp</h3>
+            <p class="text-xs text-gray-500 mt-1">Vui lòng thử tìm kiếm từ khóa khác hoặc xóa bộ lọc.</p>
+            <button onclick="resetFilters()" class="mt-4 bg-brandOrange text-white font-bold px-5 py-2 rounded-full text-xs hover:bg-orange-600 transition">Xóa bộ lọc</button>
+        </div>
+
         <!-- ================= DÒNG LÀNH VỊ ================= -->
-        <div class="mb-14">
+        <div id="section-lanh" class="product-section mb-14">
             <div class="flex items-center gap-3 mb-6 border-b border-gray-200 pb-3">
                 <span class="w-4 h-8 bg-brandGreen rounded-full"></span>
                 <h2 class="text-2xl font-black text-brandGreen">Dòng Lành Vị</h2>
@@ -68,7 +92,7 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- SKU 01 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="lanh" data-sku="SKU 01" data-name="Cam – Sả – Gừng" data-desc="Ấm bụng, hỗ trợ tiêu hóa & tăng đề kháng.">
                     <div class="relative bg-amber-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 01</span>
                         <img src="sku_01.png" alt="Cam - Sả - Gừng" class="h-44 object-contain group-hover:scale-105 transition">
@@ -80,14 +104,13 @@
                             <span class="text-xl font-black text-brandGreen">269.000đ</span>
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
-                       <button onclick="addToCart('sku01', 'Cam – Sả – Gừng', 269000, 'sku_01.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                        <button onclick="addToCart('sku01', 'Cam – Sả – Gừng', 269000, 'sku_01.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 02 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="lanh" data-sku="SKU 02" data-name="Dứa – Nghệ" data-desc="Tốt cho dạ dày, kháng viêm tự nhiên.">
                     <div class="relative bg-yellow-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 02</span>
                         <img src="sku_02.png" alt="Dứa - Nghệ" class="h-44 object-contain group-hover:scale-105 transition">
@@ -100,13 +123,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku02', 'Dứa – Nghệ', 269000, 'sku_02.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 03 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="lanh" data-sku="SKU 03" data-name="Bưởi – Gừng" data-desc="Hỗ trợ giữ dáng, thanh lọc dịu nhẹ.">
                     <div class="relative bg-orange-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 03</span>
                         <img src="sku_03.png" alt="Bưởi - Gừng" class="h-44 object-contain group-hover:scale-105 transition">
@@ -118,14 +140,13 @@
                             <span class="text-xl font-black text-brandGreen">269.000đ</span>
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
-                       <button onclick="addToCart('sku03', 'Bưởi – Gừng', 269000, 'sku_03.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                        <button onclick="addToCart('sku03', 'Bưởi – Gừng', 269000, 'sku_03.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 04 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="lanh" data-sku="SKU 04" data-name="Chanh Dây – Gừng" data-desc="Vị chua thanh mát hòa quyện gừng ấm.">
                     <div class="relative bg-amber-100/50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandGreen text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 04</span>
                         <img src="sku_04.png" alt="Chanh dây - Gừng" class="h-44 object-contain group-hover:scale-105 transition">
@@ -138,15 +159,15 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku04', 'Chanh Dây – Gừng', 269000, 'sku_04.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- ================= DÒNG ÊM VỊ ================= -->
-        <div class="mb-14">
+        <div id="section-em" class="product-section mb-14">
             <div class="flex items-center gap-3 mb-6 border-b border-gray-200 pb-3">
                 <span class="w-4 h-8 bg-rose-500 rounded-full"></span>
                 <h2 class="text-2xl font-black text-gray-800">Dòng Êm Vị</h2>
@@ -154,7 +175,7 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- SKU 05 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="em" data-sku="SKU 05" data-name="Dứa – Vải" data-desc="Hương vải mộng thơm quyện dứa dịu mát.">
                     <div class="relative bg-rose-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 05</span>
                         <img src="sku_05.png" alt="Dứa - Vải" class="h-44 object-contain group-hover:scale-105 transition">
@@ -167,13 +188,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku05', 'Dứa – Vải', 269000, 'sku_05.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 06 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="em" data-sku="SKU 06" data-name="Dứa – Mãng Cầu" data-desc="Chua nhẹ thanh dịu, dồi dào vitamin C.">
                     <div class="relative bg-green-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 06</span>
                         <img src="sku_06.png" alt="Dứa - Mãng cầu" class="h-44 object-contain group-hover:scale-105 transition">
@@ -186,13 +206,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku06', 'Dứa – Mãng Cầu', 269000, 'sku_06.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 07 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="em" data-sku="SKU 07" data-name="Dưa Lưới – Dừa" data-desc="Vị béo thanh dịu từ dừa quyện dưa lưới.">
                     <div class="relative bg-emerald-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 07</span>
                         <img src="sku_07.png" alt="Dưa lưới - Dừa" class="h-44 object-contain group-hover:scale-105 transition">
@@ -205,13 +224,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku07', 'Dưa Lưới – Dừa', 269000, 'sku_07.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 08 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="em" data-sku="SKU 08" data-name="Dứa – Dưa Hấu" data-desc="Mọng nước, giải nhiệt ngày nắng nóng.">
                     <div class="relative bg-red-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 08</span>
                         <img src="sku_08.png" alt="Dứa - Dưa hấu" class="h-44 object-contain group-hover:scale-105 transition">
@@ -224,15 +242,15 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku08', 'Dứa – Dưa Hấu', 269000, 'sku_08.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- ================= DÒNG BẬT VỊ ================= -->
-        <div class="mb-8">
+        <div id="section-bat" class="product-section mb-8">
             <div class="flex items-center gap-3 mb-6 border-b border-gray-200 pb-3">
                 <span class="w-4 h-8 bg-brandOrange rounded-full"></span>
                 <h2 class="text-2xl font-black text-brandOrange">Dòng Bật Vị</h2>
@@ -240,7 +258,7 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- SKU 09 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="bat" data-sku="SKU 09" data-name="Ổi Hồng – Bạc Hà" data-desc="Ổi đậm vị hòa bạc hà mát lạnh sảng khoái.">
                     <div class="relative bg-pink-50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 09</span>
                         <img src="sku_09.png" alt="Ổi hồng - Bạc hà" class="h-44 object-contain group-hover:scale-105 transition">
@@ -252,14 +270,13 @@
                             <span class="text-xl font-black text-brandGreen">269.000đ</span>
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
-                       <button onclick="addToCart('sku09', 'Ổi Hồng – Bạc Hà', 269000, 'sku_09.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                        <button onclick="addToCart('sku09', 'Ổi Hồng – Bạc Hà', 269000, 'sku_09.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 10 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="bat" data-sku="SKU 10" data-name="Dưa Hấu – Bạc Hà" data-desc="Cực kỳ giải khát, đập tan mệt mỏi tức thì.">
                     <div class="relative bg-red-100/50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 10</span>
                         <img src="sku_10.png" alt="Dưa hấu - Bạc hà" class="h-44 object-contain group-hover:scale-105 transition">
@@ -272,13 +289,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku10', 'Dưa Hấu – Bạc Hà', 269000, 'sku_10.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 11 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="bat" data-sku="SKU 11" data-name="Cam – Xoài Chín" data-desc="Xoài chín mộng quyện cam tươi bùng vị.">
                     <div class="relative bg-orange-100/50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 11</span>
                         <img src="sku_11.png" alt="Cam - Xoài chín" class="h-44 object-contain group-hover:scale-105 transition">
@@ -291,13 +307,12 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku11', 'Cam – Xoài Chín', 269000, 'sku_11.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-
                 <!-- SKU 12 -->
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group">
+                <div class="product-item bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition group" data-category="bat" data-sku="SKU 12" data-name="Xoài – Chanh Dây" data-desc="Chua ngọt nhiệt đới đậm đà, tươi mát.">
                     <div class="relative bg-yellow-100/50 h-52 flex items-center justify-center p-3">
                         <span class="absolute top-3 left-3 bg-brandOrange text-white text-[10px] font-bold px-2.5 py-1 rounded-full z-10">SKU 12</span>
                         <img src="sku_12.png" alt="Xoài - Chanh dây" class="h-44 object-contain group-hover:scale-105 transition">
@@ -310,8 +325,8 @@
                             <span class="text-xs text-gray-400 line-through">349.000đ</span>
                         </div>
                         <button onclick="addToCart('sku12', 'Xoài – Chanh Dây', 269000, 'sku_12.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-sm transition flex items-center justify-center gap-2">
-    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
-</button>
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
             </div>
@@ -374,32 +389,7 @@
         </div>
     </footer>
 
-    
-    <script>
-        lucide.createIcons();
-    </script>
-
-    <!-- Tự động cập nhật màu menu theo trang hiện tại -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const currentPage =
-                window.location.pathname.split("/").pop() || "index.html";
-
-            const navLinks = document.querySelectorAll("header nav a");
-
-            navLinks.forEach(function (link) {
-                link.classList.remove("text-brandOrange", "font-bold");
-                link.removeAttribute("aria-current");
-
-                if (link.getAttribute("href") === currentPage) {
-                    link.classList.add("text-brandOrange", "font-bold");
-                    link.setAttribute("aria-current", "page");
-                }
-            });
-        });
-    </script>
-
-    <!-- <!-- 1. Slide-over Cart Drawer (Khung trượt Giỏ hàng) -->
+    <!-- 1. Slide-over Cart Drawer (Khung trượt Giỏ hàng) -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
         <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
         <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
@@ -441,7 +431,6 @@
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
-
                 <form id="checkout-form" onsubmit="processOrder(event)" class="mt-6 space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên *</label>
@@ -462,7 +451,6 @@
                             <option value="BANK">Chuyển khoản Ngân hàng</option>
                         </select>
                     </div>
-
                     <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
                         <div>
                             <span class="text-xs text-gray-500 block">Tổng thanh toán:</span>
@@ -477,8 +465,79 @@
         </div>
     </div>
 
-    <!-- 3. Script Xử Lý Toàn Bộ (Giỏ Hàng + Thanh Toán + Menu + Icon) -->
+    <!-- 3. Script Xử Lý Toàn Bộ (Bộ Lọc + Tìm Kiếm + Giỏ Hàng + Thanh Toán + Menu) -->
     <script>
+        // --- XỬ LÝ BỘ LỌC VÀ TÌM KIẾM ---
+        let currentCategory = 'all';
+
+        function setCategory(category, btnElement) {
+            currentCategory = category;
+            
+            // Cập nhật giao diện active cho các nút lọc
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brandGreen', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            btnElement.classList.remove('bg-gray-100', 'text-gray-700');
+            btnElement.classList.add('bg-brandGreen', 'text-white');
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const sections = ['lanh', 'em', 'bat'];
+            let totalVisibleCount = 0;
+
+            sections.forEach(catKey => {
+                const sectionEl = document.getElementById(`section-${catKey}`);
+                if (!sectionEl) return;
+                
+                const items = sectionEl.querySelectorAll('.product-item');
+                let sectionVisibleCount = 0;
+
+                items.forEach(item => {
+                    const name = (item.getAttribute('data-name') || '').toLowerCase();
+                    const sku = (item.getAttribute('data-sku') || '').toLowerCase();
+                    const desc = (item.getAttribute('data-desc') || '').toLowerCase();
+                    const itemCategory = item.getAttribute('data-category');
+
+                    const matchCategory = (currentCategory === 'all' || currentCategory === itemCategory);
+                    const matchSearch = !query || name.includes(query) || sku.includes(query) || desc.includes(query);
+
+                    if (matchCategory && matchSearch) {
+                        item.classList.remove('hidden');
+                        sectionVisibleCount++;
+                        totalVisibleCount++;
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                // Hiển thị hoặc ẩn danh mục nếu không có sản phẩm thỏa mãn
+                if (sectionVisibleCount === 0) {
+                    sectionEl.classList.add('hidden');
+                } else {
+                    sectionEl.classList.remove('hidden');
+                }
+            });
+
+            // Hiển thị khối thông báo nếu không tìm thấy kết quả nào
+            const noResultsEl = document.getElementById('no-results');
+            if (totalVisibleCount === 0) {
+                noResultsEl.classList.remove('hidden');
+            } else {
+                noResultsEl.classList.add('hidden');
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            const allBtn = document.querySelectorAll('.filter-btn')[0];
+            if (allBtn) setCategory('all', allBtn);
+        }
+
+        // --- QUẢN LÝ GIỎ HÀNG VÀ THANH TOÁN ---
         let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
 
         function saveCart() {
@@ -586,13 +645,13 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             updateCartUI();
+            
+            // Đánh dấu Menu active
             const currentPage = window.location.pathname.split("/").pop() || "index.html";
             const navLinks = document.querySelectorAll("header nav a");
-
             navLinks.forEach(function (link) {
                 link.classList.remove("text-brandOrange", "font-bold");
                 link.removeAttribute("aria-current");
-
                 if (link.getAttribute("href") === currentPage) {
                     link.classList.add("text-brandOrange", "font-bold");
                     link.setAttribute("aria-current", "page");
@@ -606,5 +665,3 @@
     </script>
 </body>
 </html>
-</html>
-
