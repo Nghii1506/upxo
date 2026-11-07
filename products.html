@@ -734,6 +734,9 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             updateCartUI();
+            if (new URLSearchParams(window.location.search).get('openCart') === '1') {
+            toggleCart(true);
+        }
             
             // Đánh dấu Menu active
             const currentPage = window.location.pathname.split("/").pop() || "index.html";
