@@ -14,40 +14,55 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="cart-checkout.css">
+
+    <style>
+        .home-brand-logo { width: 190px; height: 82px; object-fit: cover; object-position: center; }
+        @media (min-width: 1280px) { .home-brand-logo { width: 220px; height: 94px; } }
+        @media (max-width: 420px) { .home-brand-logo { width: 155px; height: 68px; } }
+    </style>
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
+    <!-- Top Announcement Bar -->
+    <div class="bg-brandGreen text-white text-xs md:text-sm py-2 text-center font-medium">
+        🌱 Mua 1 Gói 30 Ngày (229.000đ) - Tặng Ngay Bộ Dùng Thử 7 Ngày & Miễn Phí Vận Chuyển!
+    </div>
     <!-- Navigation Header -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <img src="images/logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[88px] xl:min-h-[104px] py-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a href="index.html" class="order-1 flex shrink-0 items-center" aria-label="UP-XƠ - Trang chủ">
+                <img src="images/logo.png" alt="UP-XƠ Logo" class="home-brand-logo">
             </a>
-            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
+            <nav class="hidden xl:flex order-2 items-center gap-5 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
                 <a href="about.html" class="hover:text-brandOrange transition">Giới Thiệu</a>
                 <a href="products.html" class="hover:text-brandOrange transition">Sản Phẩm</a>
                 <a href="blog.html" class="text-brandOrange font-bold hover:text-brandOrange transition">Cẩm Nang</a>
                 <a href="contact.html" class="hover:text-brandOrange transition">Liên Hệ</a>
             </nav>
-            <div class="flex items-center gap-3">
-                <!-- Nút Giỏ Hàng -->
+            <form action="products.html" method="get" role="search" class="order-3 w-full md:order-2 md:w-auto md:flex-1 md:max-w-sm xl:order-3 xl:mx-2">
+                <label for="home-product-search" class="sr-only">Tìm sản phẩm</label>
+                <div class="flex h-11 overflow-hidden rounded-full border border-green-200 bg-white shadow-sm transition focus-within:border-brandGreen focus-within:ring-2 focus-within:ring-green-100">
+                    <i data-lucide="search" class="ml-4 my-auto h-4 w-4 shrink-0 text-brandGreen" aria-hidden="true"></i>
+                    <input id="home-product-search" type="search" name="search" placeholder="Tìm sản phẩm, hương vị..." class="min-w-0 flex-1 bg-transparent px-3 text-sm text-gray-800 outline-none placeholder:text-gray-400">
+                    <button type="submit" class="m-1 inline-flex items-center gap-1.5 rounded-full bg-brandGreen px-4 text-xs font-bold text-white transition hover:bg-green-800" aria-label="Tìm kiếm">
+                        <span class="hidden sm:inline">Tìm</span><i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="order-2 ml-auto flex shrink-0 items-center gap-2 sm:gap-3 xl:order-4">
                 <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
                     <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
                 </button>
-                <!-- Nút mở menu trên điện thoại -->
-                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()"
-                        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-green-100 bg-green-50 text-brandGreen hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:ring-offset-2 transition"
-                        aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng">
+                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-green-100 bg-green-50 text-brandGreen hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:ring-offset-2 transition" aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng">
                     <span id="mobile-menu-open-icon" class="text-2xl leading-none" aria-hidden="true">☰</span>
                     <span id="mobile-menu-close-icon" class="hidden text-2xl leading-none" aria-hidden="true">×</span>
                 </button>
-                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md text-sm hidden md:inline-block">Đặt Hàng Ngay</a>
+                <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-md text-xs sm:text-sm hidden xl:inline-block">Đặt Hàng Ngay</a>
             </div>
         </div>
-        <!-- Menu điều hướng trên điện thoại -->
-        <nav id="mobile-menu" class="hidden md:hidden border-t border-green-100 bg-white shadow-lg" aria-label="Điều hướng trên điện thoại">
+        <nav id="mobile-menu" class="hidden xl:hidden border-t border-green-100 bg-white shadow-lg" aria-label="Điều hướng trên điện thoại">
             <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
                 <a href="index.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Trang Chủ</a>
                 <a href="about.html" class="block rounded-xl px-4 py-3 text-sm transition text-gray-700 hover:bg-green-50 hover:text-brandGreen font-semibold">Giới Thiệu</a>
@@ -79,7 +94,7 @@
                 if (!event.target.closest('header')) setMobileMenuOpen(false);
             });
             window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) setMobileMenuOpen(false);
+                if (window.innerWidth >= 1280) setMobileMenuOpen(false);
             });
         </script>
     </header>

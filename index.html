@@ -83,22 +83,17 @@
                 </div>
             </form>
             <div class="order-2 ml-auto flex shrink-0 items-center gap-2 sm:gap-3 xl:order-4">
-                <!-- Nút Giỏ Hàng -->
                 <button onclick="toggleCart()" class="relative p-2 text-gray-700 hover:text-brandOrange transition" aria-label="Giỏ hàng">
                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
                     <span id="cart-count" class="absolute -top-1 -right-1 bg-brandOrange text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
                 </button>
-                <!-- Nút mở menu trên điện thoại -->
-                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()"
-                        class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-green-100 bg-green-50 text-brandGreen hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:ring-offset-2 transition"
-                        aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng">
+                <button type="button" id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-green-100 bg-green-50 text-brandGreen hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:ring-offset-2 transition" aria-controls="mobile-menu" aria-expanded="false" aria-label="Mở menu điều hướng">
                     <span id="mobile-menu-open-icon" class="text-2xl leading-none" aria-hidden="true">☰</span>
                     <span id="mobile-menu-close-icon" class="hidden text-2xl leading-none" aria-hidden="true">×</span>
                 </button>
                 <a href="products.html" class="bg-brandOrange hover:bg-orange-600 text-white font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-md text-xs sm:text-sm hidden xl:inline-block">Đặt Hàng Ngay</a>
             </div>
         </div>
-        <!-- Menu điều hướng trên điện thoại -->
         <nav id="mobile-menu" class="hidden xl:hidden border-t border-green-100 bg-white shadow-lg" aria-label="Điều hướng trên điện thoại">
             <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
                 <a href="index.html" class="block rounded-xl px-4 py-3 text-sm transition bg-green-50 text-brandOrange font-bold" aria-current="page">Trang Chủ</a>
