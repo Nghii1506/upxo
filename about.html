@@ -20,6 +20,7 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="cart-checkout.css">
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
@@ -32,7 +33,7 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
+                <img src="images/logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
@@ -210,7 +211,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
             <div>
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <img src="images/logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
                 </div>
                 <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
             </div>
@@ -249,8 +250,14 @@
                     </li>
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=61592981647685" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
-                            <i data-lucide="facebook" class="w-4 h-4 text-brandOrange"></i>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" class="w-4 h-4 text-brandOrange fill-current"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h2.8v8h3.7z"/></svg>
                             <span>Fanpage Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@giuphanxonangphangiatri" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
+                            <i data-lucide="music-2" class="w-4 h-4 text-brandOrange"></i>
+                            <span>TikTok UP-XƠ</span>
                         </a>
                     </li>
                 </ul>
@@ -295,191 +302,8 @@
     <!-- KẾT THÚC FOOTER -->
 
     <!-- ==================== DÁN ĐOẠN GIỎ HÀNG Ở ĐÂY ==================== -->
-    <!-- 1. Slide-over Cart Drawer (Khung trượt Giỏ hàng) -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
-        <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <div class="p-6 bg-brandGreen text-white flex justify-between items-center">
-                    <h2 class="text-lg font-bold flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5"></i> Giỏ Hàng UP-XƠ
-                    </h2>
-                    <button onclick="toggleCart()" class="text-white/80 hover:text-white p-1">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>
-                </div>
-                <div class="p-6 border-t border-gray-200 bg-gray-50 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-gray-700 text-sm">Tổng tiền dự tính:</span>
-                        <span id="cart-total" class="text-2xl font-black text-brandGreen">0đ</span>
-                    </div>
-                    <button onclick="openCheckoutModal()" class="w-full text-center bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-full shadow-lg transition text-sm">
-                        Tiến Hành Thanh Toán
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Modal Form Thanh Toán Trực Tiếp (On-site Checkout) -->
-    <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" role="dialog" aria-modal="true">
-        <div onclick="closeCheckoutModal()" class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl z-10">
-                <div class="flex justify-between items-center pb-4 border-b">
-                    <h3 class="text-xl font-bold text-brandGreen flex items-center gap-2">
-                        <i data-lucide="credit-card" class="w-5 h-5 text-brandOrange"></i> Thông Tin Đặt Hàng
-                    </h3>
-                    <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-600 p-1">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-
-                <form id="checkout-form" onsubmit="processOrder(event)" class="mt-6 space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên *</label>
-                        <input type="text" id="cust-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Số Điện Thoại *</label>
-                        <input type="tel" id="cust-phone" required placeholder="0901234567" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Địa Chỉ Nhận Hàng *</label>
-                        <textarea id="cust-address" required rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/TP" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Hình Thức Thanh Toán</label>
-                        <select id="cust-payment" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                            <option value="COD">Thanh toán khi nhận hàng (COD)</option>
-                            <option value="BANK">Chuyển khoản Ngân hàng</option>
-                        </select>
-                    </div>
-
-                    <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
-                        <div>
-                            <span class="text-xs text-gray-500 block">Tổng thanh toán:</span>
-                            <span id="checkout-total-price" class="text-xl font-black text-brandOrange">0đ</span>
-                        </div>
-                        <button type="submit" class="bg-brandGreen hover:bg-emerald-800 text-white font-bold px-8 py-3 rounded-full text-sm shadow-md transition">
-                            Xác Nhận Đặt Hàng
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Script Xử Lý Toàn Bộ (Giỏ Hàng + Thanh Toán + Menu + Icon) -->
+    <div id="upxo-cart-component"></div>
     <script>
-        let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
-
-        function saveCart() {
-            localStorage.setItem('upxo_cart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        function addToCart(id, name, price, image) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart[index].quantity += 1;
-            } else {
-                cart.push({ id, name, price, image, quantity: 1 });
-            }
-            saveCart();
-            toggleCart(true);
-        }
-
-        function updateQuantity(id, delta) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart[index].quantity += delta;
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
-            }
-            saveCart();
-        }
-
-        function toggleCart(forceOpen = false) {
-            const drawer = document.getElementById('cart-drawer');
-            if (forceOpen) {
-                drawer.classList.remove('hidden');
-            } else {
-                drawer.classList.toggle('hidden');
-            }
-        }
-
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                alert("Giỏ hàng của bạn đang trống!");
-                return;
-            }
-            toggleCart(false);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('checkout-total-price').innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
-            document.getElementById('checkout-modal').classList.remove('hidden');
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkout-modal').classList.add('hidden');
-        }
-
-        function processOrder(e) {
-            e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            
-            alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận thành công.\nUP-XƠ sẽ liên hệ qua SĐT ${phone} để xác nhận đơn và giao hàng.`);
-            
-            cart = [];
-            saveCart();
-            closeCheckoutModal();
-        }
-
-        function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            const itemsEl = document.getElementById('cart-items');
-            const totalEl = document.getElementById('cart-total');
-
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            if (countEl) {
-                countEl.innerText = totalItems;
-                countEl.classList.toggle('hidden', totalItems === 0);
-            }
-
-            if (totalEl) {
-                totalEl.innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
-            }
-
-            if (itemsEl) {
-                if (cart.length === 0) {
-                    itemsEl.innerHTML = '<p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>';
-                } else {
-                    itemsEl.innerHTML = cart.map(item => `
-                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain bg-gray-50 rounded-lg p-1 border">
-                            <div class="flex-1 px-3">
-                                <h4 class="font-bold text-xs text-gray-800">${item.name}</h4>
-                                <p class="text-xs text-brandGreen font-bold">${item.price.toLocaleString('vi-VN')}đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
-                                <button onclick="updateQuantity('${item.id}', -1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">-</button>
-                                <span class="text-xs font-bold text-gray-800">${item.quantity}</span>
-                                <button onclick="updateQuantity('${item.id}', 1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">+</button>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            }
-            if (window.lucide) lucide.createIcons();
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
             updateCartUI();
             const currentPage = window.location.pathname.split("/").pop() || "index.html";
@@ -500,5 +324,6 @@
             }
         });
     </script>
+    <script src="cart-checkout.js"></script>
 </body>
 </html>

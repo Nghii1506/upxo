@@ -20,6 +20,7 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="cart-checkout.css">
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
@@ -32,7 +33,7 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
+                <img src="images/logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="hover:text-brandOrange transition">Trang Chủ</a>
@@ -235,7 +236,7 @@
     <footer class="bg-brandGreen text-white py-12 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
             <div>
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert mb-4">
+                <img src="images/logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert mb-4">
                 <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
             </div>
             <div>
@@ -257,10 +258,12 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-3">Kênh Mua Hàng</h4>
+                <h4 class="font-bold mb-3">Kênh Mua Hàng &amp; Kết Nối</h4>
                 <ul class="space-y-2.5 text-xs text-green-200">
                     <li><a href="https://nghii1506.github.io/upxo/" target="_blank" class="hover:text-brandOrange">Website UP-XƠ</a></li>
                     <li><a href="https://shopee.vn/hung08012006" target="_blank" class="hover:text-brandOrange">Gian Hàng Shopee</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61592981647685" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition"><svg aria-hidden="true" viewBox="0 0 24 24" class="w-4 h-4 text-brandOrange fill-current"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h2.8v8h3.7z"/></svg><span>Fanpage Facebook</span></a></li>
+                    <li><a href="https://www.tiktok.com/@giuphanxonangphangiatri" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition"><i data-lucide="music-2" class="w-4 h-4 text-brandOrange"></i><span>TikTok UP-XƠ</span></a></li>
                 </ul>
             </div>
         </div>
@@ -269,30 +272,7 @@
         </div>
     </footer>
 
-    <!-- Slide-over Cart Drawer -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <div class="p-6 bg-brandGreen text-white flex justify-between items-center">
-                    <h2 class="text-lg font-bold flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5"></i> Giỏ Hàng UP-XƠ
-                    </h2>
-                    <button onclick="toggleCart()" class="text-white/80 p-1"><i data-lucide="x" class="w-6 h-6"></i></button>
-                </div>
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng đang trống.</p>
-                </div>
-                <div class="p-6 border-t bg-gray-50 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-gray-700 text-sm">Tổng tiền dự tính:</span>
-                        <span id="cart-total" class="text-2xl font-black text-brandGreen">0đ</span>
-                    </div>
-                    <button onclick="openCheckoutModal()" class="w-full bg-brandOrange text-white font-bold py-3.5 rounded-full shadow-lg text-sm">Tiến Hành Thanh Toán</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="upxo-cart-component"></div>
 
     <!-- DỮ LIỆU HOÀN CHỈNH TOÀN BỘ 12 SKUS -->
     <script>
@@ -300,7 +280,7 @@
             'sku01': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Cam Sả Gừng Dạng Stick - Hộp 30 Gói x 10g",
                 line: "Dòng Lành Vị", price: 269000, 
-                images: ["cam sả.png", "cam sả 1.png", "cam_sa_gung.png"],
+                images: ["images/cam sả.png", "images/cam sả 1.png", "images/cam_sa_gung.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍊 UP-XƠ CAM – SẢ – GỪNG | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -320,7 +300,7 @@
             },
             'sku02': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Nghệ Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Lành Vị", price: 269000, images: ["nghe1.png", "nghe2.png", "nghe3.png","sku_02.png"],
+                line: "Dòng Lành Vị", price: 269000, images: ["images/nghe1.png", "images/nghe2.png", "images/nghe3.png","images/sku_02.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍍 UP-XƠ DỨA – NGHỆ | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -336,7 +316,7 @@
             },
             'sku03': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Bưởi Gừng Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Lành Vị", price: 269000, images: ["buoi1.png", "buoi3.png", "buoi4_2.png","sku_03.png"],
+                line: "Dòng Lành Vị", price: 269000, images: ["images/buoi1.png", "images/buoi3.png", "images/buoi4_2.png","images/sku_03.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍊 UP-XƠ BƯỞI – GỪNG | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -352,7 +332,7 @@
             },
             'sku04': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Chanh Dây Gừng Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Lành Vị", price: 269000, images: ["daygung1_2.png", "dg2_2.png", "dg3_2.png","sku_04.png"],
+                line: "Dòng Lành Vị", price: 269000, images: ["images/daygung1_2.png", "images/dg2_2.png", "images/dg3_2.png","images/sku_04.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍋 UP-XƠ CHANH DÂY – GỪNG | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -369,7 +349,7 @@
             'sku05': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Vải Dạng Stick - Hộp 30 Gói x 10g",
                 line: "Dòng Êm Vị", price: 269000, 
-                images: ["dv2.png", "dứa vả 1.png", "dua_vai.png","sku_05.png"],
+                images: ["images/dv2.png", "images/dứa vả 1.png", "images/dua_vai.png","images/sku_05.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍍 UP-XƠ DỨA – VẢI | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -389,7 +369,7 @@
             },
             'sku06': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Mãng Cầu Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Êm Vị", price: 269000, images: ["cau1.png", "cau2.png", "cau3.png","sku_06.png"],
+                line: "Dòng Êm Vị", price: 269000, images: ["images/cau1.png", "images/cau2.png", "images/cau3.png","images/sku_06.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍈 UP-XƠ DỨA – MÃNG CẦU | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -405,7 +385,7 @@
             },
             'sku07': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dưa Lưới Dừa Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Êm Vị", price: 269000, images: ["lioi1.png", "luoi2.png", "luoi3.png","sku_07.png"],
+                line: "Dòng Êm Vị", price: 269000, images: ["images/lioi1.png", "images/luoi2.png", "images/luoi3.png","images/sku_07.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍈 UP-XƠ DƯA LƯỚI – DỪA | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -421,7 +401,7 @@
             },
             'sku08': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dứa Dưa Hấu Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Êm Vị", price: 269000, images: ["hau1.png", "hau2.png", "hau3.png","sku_08.png"],
+                line: "Dòng Êm Vị", price: 269000, images: ["images/hau1.png", "images/hau2.png", "images/hau3.png","images/sku_08.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍉 UP-XƠ DỨA – DƯA HẤU | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -438,7 +418,7 @@
             'sku09': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Ổi Hồng Bạc Hà Dạng Stick - Hộp 30 Gói x 10g",
                 line: "Dòng Bật Vị", price: 269000, 
-                images: ["oi.png", "o1.png", "oi1.png","oi_hong_bac_ha.png"],
+                images: ["images/oi.png", "images/o1.png", "images/oi1.png","images/oi_hong_bac_ha.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍐 UP-XƠ ỔI HỒNG – BẠC HÀ | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -454,7 +434,7 @@
             },
             'sku10': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Dưa Hấu Bạc Hà Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Bật Vị", price: 269000, images: ["ha2_2.png", "ha3_2.png", "sku_10.png"],
+                line: "Dòng Bật Vị", price: 269000, images: ["images/ha2_2.png", "images/ha3_2.png", "images/sku_10.png"],
                 descHtml: `
                     <p class="font-bold text-base">🍉 UP-XƠ DƯA HẤU – BẠC HÀ | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -470,7 +450,7 @@
             },
             'sku11': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Cam Xoài Chín Dạng Stick - Hộp 30 Gói x 10g",
-                line: "Dòng Bật Vị", price: 269000, images: ["sku_11.png","chin1_2.png", "chin2_2.png", "chin3_2.png"],
+                line: "Dòng Bật Vị", price: 269000, images: ["images/sku_11.png","images/chin1_2.png", "images/chin2_2.png", "images/chin3_2.png"],
                 descHtml: `
                     <p class="font-bold text-base">🥭 UP-XƠ CAM – XOÀI CHÍN | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -487,7 +467,7 @@
             'sku12': {
                 title: "Bột Pha Uống Bổ Sung Chất Xơ UP-XƠ Vị Xoài Chanh Dây Dạng Stick - Hộp 30 Gói x 10g",
                 line: "Dòng Bật Vị", price: 269000, 
-                images: ["x1.png", "xo1.png", "xo2.png", "sku_12.png"],
+                images: ["images/x1.png", "images/xo1.png", "images/xo2.png", "images/sku_12.png"],
                 descHtml: `
                     <p class="font-bold text-base">🥭 UP-XƠ XOÀI – CHANH DÂY | BỘT PHA UỐNG BỔ SUNG CHẤT XƠ</p>
                     <p class="text-emerald-700 font-semibold">🌿 BEYOND THE LOOKS – NOT PERFECT, STILL WORTH IT</p>
@@ -519,7 +499,7 @@
             document.getElementById('p-title').innerText = p.title;
             document.getElementById('p-price').innerText = p.price.toLocaleString('vi-VN') + 'đ';
             const images = p.images || [];
-            const fallbackImage = `sku_${currentSkuId.slice(3)}.png`;
+            const fallbackImage = `images/sku_${currentSkuId.slice(3)}.png`;
 
             document.getElementById('main-img').src = images[0] || fallbackImage;
             document.getElementById('thumb-1').src = images[0] || fallbackImage;
@@ -542,32 +522,15 @@
             document.getElementById('qty-input').value = currentQty;
         }
 
-        let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
-        function saveCart() { localStorage.setItem('upxo_cart', JSON.stringify(cart)); updateCartUI(); }
-        
-        function addCurrentToCart() {
-            const p = allProducts[currentSkuId] || allProducts[defaultSku];
-            const index = cart.findIndex(item => item.id === currentSkuId);
-            if (index > -1) { cart[index].quantity += currentQty; } else { cart.push({ id: currentSkuId, name: p.title, price: p.price, image: p.images[0], quantity: currentQty }); }
-            saveCart();
+                function addCurrentToCart() {
+            const product = allProducts[currentSkuId] || allProducts[defaultSku];
+            window.UPXOCart.addItem(currentSkuId, product.title, product.price, product.images[0], currentQty);
             window.location.href = "products.html?openCart=1";
         }
 
         function buyNow() {
             addCurrentToCart();
-            window.location.href = "products.html";
-        }
-
-        function toggleCart(open = false) { document.getElementById('cart-drawer').classList.toggle('hidden', !open); }
-        
-        function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            const totalEl = document.getElementById('cart-total');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            if (countEl) { countEl.innerText = totalItems; countEl.classList.toggle('hidden', totalItems === 0); }
-            if (totalEl) { totalEl.innerText = totalPrice.toLocaleString('vi-VN') + 'đ'; }
-        }
-    </script>
+        }    </script>
+    <script src="cart-checkout.js"></script>
 </body>
 </html>

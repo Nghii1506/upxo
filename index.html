@@ -20,6 +20,7 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="cart-checkout.css">
 </head>
 <body class="bg-brandBg text-gray-800 antialiased flex flex-col min-h-screen">
 
@@ -32,7 +33,7 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
+                <img src="images/logo.png" alt="UP-XƠ Logo" class="h-16 w-auto object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700 text-sm">
                 <a href="index.html" class="text-brandOrange font-bold hover:text-brandOrange transition">Trang Chủ</a>
@@ -97,7 +98,8 @@
 
     <main class="flex-grow">
         <!-- ================= HERO BANNER ================= -->
-        <section class="relative bg-gradient-to-b from-green-900/90 to-brandGreen text-white py-20 lg:py-28 overflow-hidden">
+        <section class="relative text-white py-20 lg:py-28 overflow-hidden bg-cover bg-center" style="background-image: url('images/hero_background.png');">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-950/75 via-green-900/35 to-green-900/10"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="space-y-6 text-center md:text-left">
                     <span class="bg-brandOrange/20 text-brandOrange font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full border border-brandOrange/30 inline-block">FoodTech - Thực Phẩm Tuần Hoàn</span>
@@ -119,7 +121,7 @@
                 </div>
                 <div class="flex justify-center">
                     <div class="relative w-72 h-72 sm:w-96 sm:h-96 bg-white/10 rounded-3xl p-6 backdrop-blur border border-white/20 flex items-center justify-center">
-                        <img src="sku_01.png" alt="UP-XƠ Hero Product" class="max-h-full object-contain drop-shadow-2xl">
+                        <img src="images/sku_01.png" alt="UP-XƠ Hero Product" class="max-h-full object-contain drop-shadow-2xl">
                     </div>
                 </div>
             </div>
@@ -156,6 +158,29 @@
             </div>
         </section>
 
+        <!-- ================= GIỚI THIỆU UP-XƠ ================= -->
+        <section class="py-16 lg:py-20 bg-brandBg overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-4 rounded-[2rem] bg-green-200/70 rotate-2 transition-transform duration-500 group-hover:rotate-1"></div>
+                    <div class="relative bg-white rounded-3xl p-5 sm:p-8 shadow-lg overflow-hidden">
+                        <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-orange-100"></div>
+                        <img src="images/sku_01.png" alt="Sản phẩm bột chất xơ UP-XƠ từ nông sản Việt" class="relative z-10 w-full max-h-80 object-contain transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                </div>
+                <div>
+                    <span class="inline-flex items-center gap-2 text-brandOrange font-bold text-xs uppercase tracking-[0.18em]"><i data-lucide="leaf" class="w-4 h-4"></i> Câu chuyện UP-XƠ</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight text-brandGreen mt-3">Giữ phần xơ,<br><span class="text-brandOrange">nâng phần giá trị.</span></h2>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed mt-5">UP-XƠ biến phụ phẩm trái cây và nông sản Việt thành bột chất xơ tiện lợi. Mỗi sản phẩm là một cách để tận dụng tốt hơn nguồn nguyên liệu bản địa và lựa chọn lối sống xanh mỗi ngày.</p>
+                    <div class="grid grid-cols-2 gap-4 mt-7">
+                        <div class="rounded-2xl bg-white border border-green-100 p-4"><i data-lucide="recycle" class="w-5 h-5 text-brandOrange mb-2"></i><p class="text-sm font-bold text-brandGreen">Tái sinh phụ phẩm</p><p class="text-xs text-gray-500 mt-1">Giảm lãng phí nông sản</p></div>
+                        <div class="rounded-2xl bg-white border border-green-100 p-4"><i data-lucide="sprout" class="w-5 h-5 text-brandOrange mb-2"></i><p class="text-sm font-bold text-brandGreen">Nguyên liệu Việt</p><p class="text-xs text-gray-500 mt-1">Đồng hành cùng nông hộ</p></div>
+                    </div>
+                    <a href="about.html" class="inline-flex items-center gap-2 mt-7 rounded-full bg-brandGreen text-white font-bold text-sm px-6 py-3 hover:bg-green-800 hover:shadow-lg hover:-translate-y-0.5 transition">Tìm hiểu về UP-XƠ <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= SẢN PHẨM NỔI BẬT (HERO SKUs) ================= -->
         <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
@@ -175,7 +200,7 @@
                     <a href="product-detail.html?sku=sku01" class="block cursor-pointer">
                         <div class="relative bg-amber-50 h-64 flex items-center justify-center p-4 border-b border-amber-100">
                             <span class="absolute top-4 left-4 bg-brandGreen text-white text-xs font-bold px-3 py-1 rounded-full z-10">Dòng Lành Vị</span>
-                            <img src="sku_01.png" alt="Cam - Sả - Gừng" class="h-52 object-contain group-hover:scale-105 transition">
+                            <img src="images/sku_01.png" alt="Cam - Sả - Gừng" class="h-52 object-contain group-hover:scale-105 transition">
                         </div>
                         <div class="p-6 pb-3">
                             <h3 class="font-bold text-xl text-gray-800 group-hover:text-brandOrange transition">Cam – Sả – Gừng</h3>
@@ -190,7 +215,7 @@
                         <a href="product-detail.html?sku=sku01" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition text-center flex items-center justify-center">
                             Chi Tiết
                         </a>
-                        <button onclick="addToCart('sku01', 'Cam – Sả – Gừng', 269000, 'sku_01.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                        <button onclick="addToCart('sku01', 'Cam – Sả – Gừng', 269000, 'images/sku_01.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
                             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Thêm Giỏ
                         </button>
                     </div>
@@ -201,7 +226,7 @@
                     <a href="product-detail.html?sku=sku05" class="block cursor-pointer">
                         <div class="relative bg-rose-50 h-64 flex items-center justify-center p-4 border-b border-rose-100">
                             <span class="absolute top-4 left-4 bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Dòng Êm Vị</span>
-                            <img src="sku_05.png" alt="Dứa - Vải" class="h-52 object-contain group-hover:scale-105 transition">
+                            <img src="images/sku_05.png" alt="Dứa - Vải" class="h-52 object-contain group-hover:scale-105 transition">
                         </div>
                         <div class="p-6 pb-3">
                             <h3 class="font-bold text-xl text-gray-800 group-hover:text-brandOrange transition">Dứa – Vải</h3>
@@ -216,7 +241,7 @@
                         <a href="product-detail.html?sku=sku05" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition text-center flex items-center justify-center">
                             Chi Tiết
                         </a>
-                        <button onclick="addToCart('sku05', 'Dứa – Vải', 269000, 'sku_05.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                        <button onclick="addToCart('sku05', 'Dứa – Vải', 269000, 'images/sku_05.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
                             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Thêm Giỏ
                         </button>
                     </div>
@@ -227,7 +252,7 @@
                     <a href="product-detail.html?sku=sku09" class="block cursor-pointer">
                         <div class="relative bg-pink-50 h-64 flex items-center justify-center p-4 border-b border-pink-100">
                             <span class="absolute top-4 left-4 bg-brandOrange text-white text-xs font-bold px-3 py-1 rounded-full z-10">Dòng Bật Vị</span>
-                            <img src="sku_09.png" alt="Ổi hồng - Bạc hà" class="h-52 object-contain group-hover:scale-105 transition">
+                            <img src="images/sku_09.png" alt="Ổi hồng - Bạc hà" class="h-52 object-contain group-hover:scale-105 transition">
                         </div>
                         <div class="p-6 pb-3">
                             <h3 class="font-bold text-xl text-gray-800 group-hover:text-brandOrange transition">Ổi Hồng – Bạc Hà</h3>
@@ -242,12 +267,40 @@
                         <a href="product-detail.html?sku=sku09" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 rounded-xl text-xs transition text-center flex items-center justify-center">
                             Chi Tiết
                         </a>
-                        <button onclick="addToCart('sku09', 'Ổi Hồng – Bạc Hà', 269000, 'sku_09.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
+                        <button onclick="addToCart('sku09', 'Ổi Hồng – Bạc Hà', 269000, 'images/sku_09.png')" class="w-full bg-brandOrange hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1">
                             <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Thêm Giỏ
                         </button>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ================= TIN TỨC & GÓC ĐỌC ================= -->
+        <section class="py-16 lg:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-9">
+                    <div>
+                        <span class="text-brandOrange font-bold text-xs uppercase tracking-[0.18em]">Tin tức & kiến thức</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-brandGreen mt-2">Góc đọc sống xanh</h2>
+                        <p class="text-sm text-gray-500 mt-2">Khám phá dinh dưỡng, nông sản và hành trình tuần hoàn.</p>
+                    </div>
+                    <a href="blog.html" class="inline-flex items-center gap-2 text-sm font-bold text-brandGreen hover:text-brandOrange transition">Xem tất cả bài viết <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                    <a href="blog.html" class="group rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                        <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Tái sinh bã trái cây sau khi ép" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-brandGreen">Kinh tế tuần hoàn</span></div>
+                        <div class="p-6"><h3 class="text-lg font-bold text-gray-800 group-hover:text-brandOrange transition">Bã trái cây đi đâu sau một lần ép?</h3><p class="text-sm text-gray-500 leading-relaxed mt-2 line-clamp-2">Khám phá cách phần bã trái cây được tái sinh thành nguồn chất xơ hữu ích.</p><span class="inline-flex items-center gap-2 mt-5 text-xs font-bold text-brandGreen group-hover:text-brandOrange transition">Đọc bài viết <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i></span></div>
+                    </a>
+                    <a href="blog.html" class="group rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                        <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Trái cây và giá trị nông sản Việt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-brandOrange">Nông sản Việt</span></div>
+                        <div class="p-6"><h3 class="text-lg font-bold text-gray-800 group-hover:text-brandOrange transition">Trái cây “xấu” có thật sự vô giá trị?</h3><p class="text-sm text-gray-500 leading-relaxed mt-2 line-clamp-2">Ngoại hình chưa hoàn hảo không có nghĩa là nông sản mất đi giá trị bên trong.</p><span class="inline-flex items-center gap-2 mt-5 text-xs font-bold text-brandGreen group-hover:text-brandOrange transition">Đọc bài viết <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i></span></div>
+                    </a>
+                    <a href="blog.html" class="group rounded-3xl overflow-hidden border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                        <div class="relative h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Dinh dưỡng lành mạnh mỗi ngày" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">Dinh dưỡng lành</span></div>
+                        <div class="p-6"><h3 class="text-lg font-bold text-gray-800 group-hover:text-brandOrange transition">Đồ uống “healthy” có thật sự healthy?</h3><p class="text-sm text-gray-500 leading-relaxed mt-2 line-clamp-2">Một vài điều nên lưu ý khi chọn thức uống bổ sung dinh dưỡng.</p><span class="inline-flex items-center gap-2 mt-5 text-xs font-bold text-brandGreen group-hover:text-brandOrange transition">Đọc bài viết <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i></span></div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -271,7 +324,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 text-sm">
             <div>
                 <div class="flex items-center gap-2 mb-4">
-                    <img src="logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
+                    <img src="images/logo.png" alt="UP-XƠ Logo" class="h-8 w-auto object-contain brightness-0 invert">
                 </div>
                 <p class="text-xs text-green-200">Công ty TNHH Thực phẩm Tuần hoàn UP-XƠ. Dòng sản phẩm bột chất xơ hòa tan từ phụ phẩm nông sản Việt.</p>
             </div>
@@ -310,8 +363,14 @@
                     </li>
                     <li>
                         <a href="https://www.facebook.com/profile.php?id=61592981647685" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
-                            <i data-lucide="facebook" class="w-4 h-4 text-brandOrange"></i>
+                            <svg aria-hidden="true" viewBox="0 0 24 24" class="w-4 h-4 text-brandOrange fill-current"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h2.8v8h3.7z"/></svg>
                             <span>Fanpage Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/@giuphanxonangphangiatri" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-brandOrange transition">
+                            <i data-lucide="music-2" class="w-4 h-4 text-brandOrange"></i>
+                            <span>TikTok UP-XƠ</span>
                         </a>
                     </li>
                 </ul>
@@ -322,189 +381,8 @@
         </div>
     </footer>
 
-    <!-- 1. Slide-over Cart Drawer -->
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
-        <div onclick="toggleCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
-                <div class="p-6 bg-brandGreen text-white flex justify-between items-center">
-                    <h2 class="text-lg font-bold flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5"></i> Giỏ Hàng UP-XƠ
-                    </h2>
-                    <button onclick="toggleCart()" class="text-white/80 hover:text-white p-1">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>
-                </div>
-                <div class="p-6 border-t border-gray-200 bg-gray-50 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-gray-700 text-sm">Tổng tiền dự tính:</span>
-                        <span id="cart-total" class="text-2xl font-black text-brandGreen">0đ</span>
-                    </div>
-                    <button onclick="openCheckoutModal()" class="w-full text-center bg-brandOrange hover:bg-orange-600 text-white font-bold py-3.5 rounded-full shadow-lg transition text-sm">
-                        Tiến Hành Thanh Toán
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Modal Form Thanh Toán Trực Tiếp -->
-    <div id="checkout-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" role="dialog" aria-modal="true">
-        <div onclick="closeCheckoutModal()" class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl z-10">
-                <div class="flex justify-between items-center pb-4 border-b">
-                    <h3 class="text-xl font-bold text-brandGreen flex items-center gap-2">
-                        <i data-lucide="credit-card" class="w-5 h-5 text-brandOrange"></i> Thông Tin Đặt Hàng
-                    </h3>
-                    <button onclick="closeCheckoutModal()" class="text-gray-400 hover:text-gray-600 p-1">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <form id="checkout-form" onsubmit="processOrder(event)" class="mt-6 space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Họ và Tên *</label>
-                        <input type="text" id="cust-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Số Điện Thoại *</label>
-                        <input type="tel" id="cust-phone" required placeholder="0901234567" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Địa Chỉ Nhận Hàng *</label>
-                        <textarea id="cust-address" required rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/TP" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none"></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Hình Thức Thanh Toán</label>
-                        <select id="cust-payment" class="w-full px-4 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-brandGreen focus:outline-none">
-                            <option value="COD">Thanh toán khi nhận hàng (COD)</option>
-                            <option value="BANK">Chuyển khoản Ngân hàng</option>
-                        </select>
-                    </div>
-                    <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
-                        <div>
-                            <span class="text-xs text-gray-500 block">Tổng thanh toán:</span>
-                            <span id="checkout-total-price" class="text-xl font-black text-brandOrange">0đ</span>
-                        </div>
-                        <button type="submit" class="bg-brandGreen hover:bg-emerald-800 text-white font-bold px-8 py-3 rounded-full text-sm shadow-md transition">
-                            Xác Nhận Đặt Hàng
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. Script Xử Lý Giỏ Hàng & Thanh Toán -->
+    <div id="upxo-cart-component"></div>
     <script>
-        let cart = JSON.parse(localStorage.getItem('upxo_cart')) || [];
-
-        function saveCart() {
-            localStorage.setItem('upxo_cart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        function addToCart(id, name, price, image) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart[index].quantity += 1;
-            } else {
-                cart.push({ id, name, price, image, quantity: 1 });
-            }
-            saveCart();
-            toggleCart(true);
-        }
-
-        function updateQuantity(id, delta) {
-            const index = cart.findIndex(item => item.id === id);
-            if (index > -1) {
-                cart[index].quantity += delta;
-                if (cart[index].quantity <= 0) {
-                    cart.splice(index, 1);
-                }
-            }
-            saveCart();
-        }
-
-        function toggleCart(forceOpen = false) {
-            const drawer = document.getElementById('cart-drawer');
-            if (forceOpen) {
-                drawer.classList.remove('hidden');
-            } else {
-                drawer.classList.toggle('hidden');
-            }
-        }
-
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                alert("Giỏ hàng của bạn đang trống!");
-                return;
-            }
-            toggleCart(false);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            document.getElementById('checkout-total-price').innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
-            document.getElementById('checkout-modal').classList.remove('hidden');
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkout-modal').classList.add('hidden');
-        }
-
-        function processOrder(e) {
-            e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            
-            alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận thành công.\nUP-XƠ sẽ liên hệ qua SĐT ${phone} để xác nhận đơn và giao hàng.`);
-            
-            cart = [];
-            saveCart();
-            closeCheckoutModal();
-        }
-
-        function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            const itemsEl = document.getElementById('cart-items');
-            const totalEl = document.getElementById('cart-total');
-
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            if (countEl) {
-                countEl.innerText = totalItems;
-                countEl.classList.toggle('hidden', totalItems === 0);
-            }
-
-            if (totalEl) {
-                totalEl.innerText = totalPrice.toLocaleString('vi-VN') + 'đ';
-            }
-
-            if (itemsEl) {
-                if (cart.length === 0) {
-                    itemsEl.innerHTML = '<p class="text-center text-gray-500 py-8 text-sm">Giỏ hàng của bạn đang trống.</p>';
-                } else {
-                    itemsEl.innerHTML = cart.map(item => `
-                        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-contain bg-gray-50 rounded-lg p-1 border">
-                            <div class="flex-1 px-3">
-                                <h4 class="font-bold text-xs text-gray-800">${item.name}</h4>
-                                <p class="text-xs text-brandGreen font-bold">${item.price.toLocaleString('vi-VN')}đ</p>
-                            </div>
-                            <div class="flex items-center gap-2 bg-gray-100 rounded-lg px-2 py-1">
-                                <button onclick="updateQuantity('${item.id}', -1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">-</button>
-                                <span class="text-xs font-bold text-gray-800">${item.quantity}</span>
-                                <button onclick="updateQuantity('${item.id}', 1)" class="text-xs font-bold text-gray-600 hover:text-brandOrange px-1">+</button>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-            }
-            if (window.lucide) lucide.createIcons();
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
             updateCartUI();
             
@@ -524,5 +402,6 @@
             }
         });
     </script>
+    <script src="cart-checkout.js"></script>
 </body>
 </html>
