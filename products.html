@@ -603,6 +603,12 @@
         // --- QUẢN LÝ GIỎ HÀNG VÀ THANH TOÁN ---
         document.addEventListener("DOMContentLoaded", function () {
             updateCartUI();
+            const searchTerm = new URLSearchParams(window.location.search).get('search');
+            if (searchTerm) {
+                const searchInput = document.getElementById('search-input');
+                searchInput.value = searchTerm;
+                applyFilters();
+            }
             if (new URLSearchParams(window.location.search).get('openCart') === '1') {
             toggleCart(true);
         }
